@@ -30,7 +30,7 @@ HEADERS += \
 
 FORMS += \
     ../achats.ui \
-    dialog.ui \
+    gest_fourn.ui \
     mainwindow.ui
 
 # Default rules for deployment.

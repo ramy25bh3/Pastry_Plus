@@ -3,6 +3,8 @@
 #include "QSqlQuery"
 #include <QMessageBox>
 #include <QSqlQueryModel>
+#include<QDateTime>
+#include<QDate>
 #include "connexion.h"
 #include "fournisseur.h"
 
@@ -35,9 +37,11 @@ void MainWindow::on_pushButton_clicked()//ajout
     int id_f1= ui->txt_cin->text().toInt();
     int tel_f1=ui->txt_num->text().toInt();
     QString nom_soc1 = ui->txt_nom->text();
+    QDateTime date_add_f1=ui->dateEdit->dateTime();
     QString email_f1 = ui->txt_email->text();
+    QString specialite_f1 = ui->txt_spec->text();
     QString adresse_f1 = ui->txt_adresse->text();
-    /*ajout mtaa el date*/
+
 
     fournisseur f(id_f1,nom_soc1,tel_f1,email_f1,date_add_f1,specialite_f1,adresse_f1);
    bool test= f.ajouter_fournisseur();

@@ -1,6 +1,8 @@
 #include "fournisseur.h"
 #include <QString>
 #include <QSqlQuery>
+#include<QDateTime>
+#include<QDate>
 #include <QSqlQueryModel>
 #include <vector>
 
@@ -10,7 +12,7 @@ fournisseur::fournisseur()
 
 }
 
-fournisseur::fournisseur(int id_f1, QString nom_soc1, int tel_f1, QString email_f1, QString date_add_f1, QString specialite_f1, QString adresse_f1)
+fournisseur::fournisseur(int id_f1, QString nom_soc1, int tel_f1, QString email_f1, QDateTime date_add_f1, QString specialite_f1, QString adresse_f1)
 {
 
     id_f=id_f1;

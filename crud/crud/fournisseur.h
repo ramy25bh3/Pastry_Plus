@@ -9,7 +9,7 @@ class fournisseur
 {
 public:
     fournisseur();
-    fournisseur(int,QString,int,QString,QString,QString,QString);
+    fournisseur(int,QString,int,QString,QDateTime,QString,QString);
      bool ajouter_fournisseur();
      QSqlQueryModel * afficher();
        QSqlQueryModel * combobox();
