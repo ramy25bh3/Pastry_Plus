@@ -114,5 +114,84 @@ return query.exec();
 
 
 
+QSqlQueryModel * Produit::trier_produit(int state)
+{
+
+    QSqlQueryModel * model = new QSqlQueryModel();
+    if(state == 1)
+    {
+            model->setQuery("SELECT * FROM Produit ORDER BY nom_P");
+            model->setHeaderData(0,Qt::Horizontal,QObject::tr("identifiant_P"));
+            model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom_P"));
+            model->setHeaderData(2,Qt::Horizontal,QObject::tr("quantite_P"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("prix_P"));
+            model->setHeaderData(4,Qt::Horizontal,QObject::tr("type_P"));
+            model->setHeaderData(5,Qt::Horizontal,QObject::tr("image_P"));
+
+    }
+    if(state == 2)
+    {
+            model->setQuery("SELECT * FROM Produit ORDER BY quantite_P");
+            model->setHeaderData(0,Qt::Horizontal,QObject::tr("identifiant_P"));
+            model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom_P"));
+            model->setHeaderData(2,Qt::Horizontal,QObject::tr("quantite_P"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("prix_P"));
+            model->setHeaderData(4,Qt::Horizontal,QObject::tr("type_P"));
+            model->setHeaderData(5,Qt::Horizontal,QObject::tr("image_P"));
+
+    }
+    if(state == 3)
+    {
+            model->setQuery("SELECT * FROM Produit ORDER BY prix_P");
+            model->setHeaderData(0,Qt::Horizontal,QObject::tr("identifiant_P"));
+            model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom_P"));
+            model->setHeaderData(2,Qt::Horizontal,QObject::tr("quantite_P"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("prix_P"));
+            model->setHeaderData(4,Qt::Horizontal,QObject::tr("type_P"));
+            model->setHeaderData(5,Qt::Horizontal,QObject::tr("image_P"));
+
+
+    }
+    return model;
+}
+
+
+
+
+QSqlQueryModel * Produit::chercher_produit(int identifiant_P, QString type_P, QString y)
+{
+
+    QString identifiant_P_string= QString::number(identifiant_P);
+
+    QSqlQueryModel * model = new QSqlQueryModel();
+
+
+    if(identifiant_P!=-1  && type_P=="")
+    {
+    model->setQuery("SELECT * FROM Produit WHERE identifiant_P LIKE '"+identifiant_P_string+"' ");
+    }
+
+    else if(type_P!="" && identifiant_P==-1)
+    {
+    model->setQuery("SELECT * FROM Produit WHERE type_P LIKE '"+type_P+"' ");
+    }
+
+    else if(identifiant_P!=-1  && type_P!="")
+    {
+    model->setQuery("SELECT * FROM Produit WHERE identifiant_P LIKE '"+identifiant_P_string+"' AND  type_P LIKE '"+type_P+"' ");
+    }
+
+
+
+    model->setHeaderData(0,Qt::Horizontal, QObject::tr("identifiant_P"));
+    model->setHeaderData(1,Qt::Horizontal, QObject::tr("nom_P"));
+    model->setHeaderData(2,Qt::Horizontal, QObject::tr("quantite_P"));
+    model->setHeaderData(3,Qt::Horizontal, QObject::tr("prix_P"));
+    model->setHeaderData(4,Qt::Horizontal, QObject::tr("type_P"));
+    model->setHeaderData(5,Qt::Horizontal, QObject::tr("image_P"));
+
+    return model;
+
+}
 
 

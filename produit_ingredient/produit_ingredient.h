@@ -35,6 +35,18 @@ private slots:
 
     void on_modifier_ingredient_clicked();
 
+//********* METIER ***********
+
+    void on_trier_produit_clicked();
+
+    void on_trier_ingredient_clicked();
+
+    void on_exporter_P_clicked();
+
+    void on_exporter_I_clicked();
+
+    void on_chercher_produit_clicked();
+
 private:
     Ui::Produit_ingredient *ui;
     Produit P;

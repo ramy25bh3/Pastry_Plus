@@ -30,6 +30,9 @@ public:
     bool supprimer_produit(int);
     bool modifier_produit();
 
+    QSqlQueryModel * trier_produit(int);
+    QSqlQueryModel * chercher_produit(int, QString, QString);
+
 private:
     int identifiant_P, quantite_P;
     float prix_P;

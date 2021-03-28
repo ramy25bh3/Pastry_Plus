@@ -30,6 +30,8 @@ public:
     bool supprimer_ingredient(int);
     bool modifier_ingredient();
 
+    QSqlQueryModel * trier_ingredient(int);
+
 private:
     int identifiant_I, quantite_I;
     float prix_I;

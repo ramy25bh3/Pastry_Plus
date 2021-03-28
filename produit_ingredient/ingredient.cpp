@@ -114,4 +114,44 @@ return query.exec();
 
 
 
+QSqlQueryModel * Ingredient::trier_ingredient(int state)
+{
+
+    QSqlQueryModel * model = new QSqlQueryModel();
+    if(state == 1)
+    {
+            model->setQuery("SELECT * FROM Ingredient ORDER BY nom_I");
+            model->setHeaderData(0,Qt::Horizontal,QObject::tr("identifiant_I"));
+            model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom_I"));
+            model->setHeaderData(2,Qt::Horizontal,QObject::tr("quantite_I"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("prix_I"));
+            model->setHeaderData(4,Qt::Horizontal,QObject::tr("type_I"));
+            model->setHeaderData(5,Qt::Horizontal,QObject::tr("image_I"));
+
+    }
+    if(state == 2)
+    {
+            model->setQuery("SELECT * FROM Ingredient ORDER BY quantite_I");
+            model->setHeaderData(0,Qt::Horizontal,QObject::tr("identifiant_I"));
+            model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom_I"));
+            model->setHeaderData(2,Qt::Horizontal,QObject::tr("quantite_I"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("prix_I"));
+            model->setHeaderData(4,Qt::Horizontal,QObject::tr("type_I"));
+            model->setHeaderData(5,Qt::Horizontal,QObject::tr("image_I"));
+
+    }
+    if(state == 3)
+    {
+            model->setQuery("SELECT * FROM Ingredient ORDER BY prix_I");
+            model->setHeaderData(0,Qt::Horizontal,QObject::tr("identifiant_I"));
+            model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom_I"));
+            model->setHeaderData(2,Qt::Horizontal,QObject::tr("quantite_I"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("prix_I"));
+            model->setHeaderData(4,Qt::Horizontal,QObject::tr("type_I"));
+            model->setHeaderData(5,Qt::Horizontal,QObject::tr("image_I"));
+
+
+    }
+    return model;
+}
 
