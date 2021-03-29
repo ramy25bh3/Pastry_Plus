@@ -31,6 +31,7 @@ public:
     bool modifier_ingredient();
 
     QSqlQueryModel * trier_ingredient(int);
+    QSqlQueryModel * chercher_ingredient(int, QString, QString);
 
 private:
     int identifiant_I, quantite_I;

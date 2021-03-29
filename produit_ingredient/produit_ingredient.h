@@ -47,6 +47,8 @@ private slots:
 
     void on_chercher_produit_clicked();
 
+    void on_chercher_ingredient_clicked();
+
 private:
     Ui::Produit_ingredient *ui;
     Produit P;

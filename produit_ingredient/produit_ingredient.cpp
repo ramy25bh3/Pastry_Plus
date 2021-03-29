@@ -22,10 +22,13 @@ Produit_ingredient::Produit_ingredient(QWidget *parent)
     ui->afficher_ingredient->setModel(I.afficher_ingredient());
 
     QPixmap pix("D:/QT/Awork/produit_ingredient_1/pastry_plus.png");
-    int w= ui->logo_P->width();
-    int h= ui->logo_P->height();
-    ui->logo_P->setPixmap(pix.scaled(w,h, Qt::KeepAspectRatio));
-    ui->logo_I->setPixmap(pix.scaled(100,100, Qt::KeepAspectRatio));
+    int w_P= ui->logo_P->width();
+    int h_P= ui->logo_P->height();
+    ui->logo_P->setPixmap(pix.scaled(w_P,h_P, Qt::KeepAspectRatio));
+
+    int w_I= ui->logo_I->width();
+    int h_I= ui->logo_I->height();
+    ui->logo_I->setPixmap(pix.scaled(w_I,h_I, Qt::KeepAspectRatio));
 }
 
 Produit_ingredient::~Produit_ingredient()
@@ -350,16 +353,22 @@ void Produit_ingredient::on_chercher_produit_clicked()
     int identifiant_P_rech= -1;
         identifiant_P_rech= ui->identifiant_P_rech->text().toInt();
 
-    QString identifiant_P_rech2= ui->identifiant_P_rech->text();
+    QString test_vide_P= ui->identifiant_P_rech->text();
     QString type_P_rech= ui->type_P_rech->text();
 
-    ui->afficher_produit->setModel(P.chercher_produit(identifiant_P_rech, type_P_rech, identifiant_P_rech2));
+    ui->afficher_produit->setModel(P.chercher_produit(identifiant_P_rech, type_P_rech, test_vide_P));
 
 }
 
 
 
+void Produit_ingredient::on_chercher_ingredient_clicked()
+{
+    int identifiant_I_rech= -1;
+        identifiant_I_rech= ui->identifiant_I_rech->text().toInt();
 
+    QString test_vide_I= ui->identifiant_I_rech->text();
+    QString type_I_rech= ui->type_I_rech->text();
 
-
-
+    ui->afficher_ingredient->setModel(I.chercher_ingredient(identifiant_I_rech, type_I_rech, test_vide_I));
+}

@@ -155,3 +155,45 @@ QSqlQueryModel * Ingredient::trier_ingredient(int state)
     return model;
 }
 
+
+
+QSqlQueryModel * Ingredient::chercher_ingredient(int identifiant_I_rech, QString type_I_rech, QString test_vide_I)
+{
+
+    QString identifiant_I_string= QString::number(identifiant_I_rech);
+
+    QSqlQueryModel * model = new QSqlQueryModel();
+
+
+    if(test_vide_I!="" && type_I_rech=="")
+        {
+        model->setQuery("SELECT * FROM Ingredient WHERE identifiant_I LIKE '"+identifiant_I_string+"' ");
+        }
+
+        else if(type_I_rech!="" && test_vide_I=="")
+        {
+        model->setQuery("SELECT * FROM Ingredient WHERE type_I LIKE '"+type_I_rech+"' ");
+        }
+
+        else if(test_vide_I!=""  && type_I_rech!="")
+        {
+        model->setQuery("SELECT * FROM Ingredient WHERE identifiant_I LIKE '"+identifiant_I_string+"' AND  type_P LIKE '"+type_I_rech+"' ");
+        }
+
+
+    if(test_vide_I=="" && type_I_rech=="")
+        {
+        model->setQuery("SELECT * FROM Ingredient ");
+        }
+
+
+    model->setHeaderData(0,Qt::Horizontal, QObject::tr("identifiant_I"));
+    model->setHeaderData(1,Qt::Horizontal, QObject::tr("nom_I"));
+    model->setHeaderData(2,Qt::Horizontal, QObject::tr("quantite_I"));
+    model->setHeaderData(3,Qt::Horizontal, QObject::tr("prix_I"));
+    model->setHeaderData(4,Qt::Horizontal, QObject::tr("type_I"));
+    model->setHeaderData(5,Qt::Horizontal, QObject::tr("image_I"));
+
+    return model;
+
+}

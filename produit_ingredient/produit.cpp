@@ -158,29 +158,34 @@ QSqlQueryModel * Produit::trier_produit(int state)
 
 
 
-QSqlQueryModel * Produit::chercher_produit(int identifiant_P, QString type_P, QString y)
+QSqlQueryModel * Produit::chercher_produit(int identifiant_P_rech, QString type_P_rech, QString test_vide_P)
 {
 
-    QString identifiant_P_string= QString::number(identifiant_P);
+    QString identifiant_P_string= QString::number(identifiant_P_rech);
 
     QSqlQueryModel * model = new QSqlQueryModel();
 
 
-    if(identifiant_P!=-1  && type_P=="")
-    {
-    model->setQuery("SELECT * FROM Produit WHERE identifiant_P LIKE '"+identifiant_P_string+"' ");
-    }
+    if(test_vide_P!="" &&type_P_rech=="")
+        {
+        model->setQuery("SELECT * FROM Produit WHERE identifiant_P LIKE '"+identifiant_P_string+"' ");
+        }
 
-    else if(type_P!="" && identifiant_P==-1)
-    {
-    model->setQuery("SELECT * FROM Produit WHERE type_P LIKE '"+type_P+"' ");
-    }
+        else if(type_P_rech!="" && test_vide_P=="")
+        {
+        model->setQuery("SELECT * FROM Produit WHERE type_P LIKE '"+type_P_rech+"' ");
+        }
 
-    else if(identifiant_P!=-1  && type_P!="")
-    {
-    model->setQuery("SELECT * FROM Produit WHERE identifiant_P LIKE '"+identifiant_P_string+"' AND  type_P LIKE '"+type_P+"' ");
-    }
+        else if(test_vide_P!=""  && type_P_rech!="")
+        {
+        model->setQuery("SELECT * FROM Produit WHERE identifiant_P LIKE '"+identifiant_P_string+"' AND  type_P LIKE '"+type_P_rech+"' ");
+        }
 
+
+    if(test_vide_P=="" &&type_P_rech=="")
+        {
+        model->setQuery("SELECT * FROM Produit ");
+        }
 
 
     model->setHeaderData(0,Qt::Horizontal, QObject::tr("identifiant_P"));
