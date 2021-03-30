@@ -233,29 +233,29 @@ void Produit_ingredient::on_trier_ingredient_clicked()
 
 void Produit_ingredient::on_exporter_P_clicked()
 {
-    QString identifiant_P= ui->identifiant_P->text();
+    QString identifiant_P_string= ui->identifiant_P->text();
     QString nom_P= ui->nom_P->text();
-    QString quantite_P= ui->quantite_P->text();
-    QString prix_P= ui->prix_P->text();
+    QString quantite_P_string= ui->quantite_P->text();
+    QString prix_P_string= ui->prix_P->text();
     QString type_P= ui->type_P->text();
     QString image_P= ui->image_P->text();
 
 
-        QPixmap logo;
-        logo.load("pastry_plus");
-        logo.scaled(logo.width()*10, logo.height()*10);
 
-        QString pdf_name= "Produit"+identifiant_P+".pdf";
+        QPixmap logo;
+        logo.load("D:/QT/Awork/produit_ingredient_1/pastry_plus.png");
+        logo.scaled(logo.width()*4, logo.height()*4);
+
+        QString pdf_name= "Produit"+identifiant_P_string+".pdf";
         QPdfWriter pdf(pdf_name);
         QPainter painter(&pdf);
-        painter.drawPixmap(3000,0,logo.width()*20,logo.height()*20,logo);
+        painter.drawPixmap(3000,0,logo.width()*4,logo.height()*4,logo);
 
 
         painter.setPen(Qt::blue);
-        painter.drawText(100,2000,"votre info : ");
-        painter.drawText(100,2300,"identifiant du produit : ");
+        painter.drawText(100,2300,"Identifiant du produit : ");
         painter.setPen(Qt::black);
-        painter.drawText(2000,2300,identifiant_P);
+        painter.drawText(2000,2300,identifiant_P_string);
         painter.setPen(Qt::blue);
         painter.drawText(100,2600,"Nom du produit : ");
         painter.setPen(Qt::black);
@@ -263,11 +263,11 @@ void Produit_ingredient::on_exporter_P_clicked()
         painter.setPen(Qt::blue);
         painter.drawText(100,2900,"Quantité du produit : ");
         painter.setPen(Qt::black);
-        painter.drawText(2000,2900,quantite_P);
+        painter.drawText(2000,2900,quantite_P_string);
         painter.setPen(Qt::blue);
         painter.drawText(100,3200,"Prix du produit : ");
         painter.setPen(Qt::black);
-        painter.drawText(2000,3200,prix_P);
+        painter.drawText(2000,3200,prix_P_string);
         painter.setPen(Qt::blue);
         painter.drawText(100,3500,"Type du produit : ");
         painter.setPen(Qt::black);
@@ -276,7 +276,6 @@ void Produit_ingredient::on_exporter_P_clicked()
         painter.drawText(100,3800,"Image du produit : ");
         painter.setPen(Qt::black);
         painter.drawText(2000,3800,image_P);
-
 
 
         painter.end();
@@ -290,47 +289,46 @@ void Produit_ingredient::on_exporter_P_clicked()
 
 void Produit_ingredient::on_exporter_I_clicked()
 {
-    QString identifiant_I= ui->identifiant_I->text();
+    QString identifiant_I_string= ui->identifiant_I->text();
     QString nom_I= ui->nom_I->text();
-    QString quantite_I= ui->quantite_I->text();
-    QString prix_I= ui->prix_I->text();
+    QString quantite_I_string= ui->quantite_I->text();
+    QString prix_I_string= ui->prix_I->text();
     QString type_I= ui->type_I->text();
     QString image_I= ui->image_I->text();
 
 
         QPixmap logo;
-        logo.load("pastry_plus");
-        logo.scaled(logo.width()*10, logo.height()*10);
+        logo.load("D:/QT/Awork/produit_ingredient_1/pastry_plus.png");
+        logo.scaled(logo.width()*4, logo.height()*4);
 
-        QString pdf_name= "Ingredient"+identifiant_I+".pdf";
+        QString pdf_name= "Ingredient"+identifiant_I_string+".pdf";
         QPdfWriter pdf(pdf_name);
         QPainter painter(&pdf);
-        painter.drawPixmap(3000,0,logo.width()*20,logo.height()*20,logo);
+        painter.drawPixmap(3000,0,logo.width()*4,logo.height()*4,logo);
 
 
         painter.setPen(Qt::blue);
-        painter.drawText(100,2000,"votre info : ");
-        painter.drawText(100,2300,"identifiant du ingredient : ");
+        painter.drawText(100,2300,"Identifiant d'ingredient : ");
         painter.setPen(Qt::black);
-        painter.drawText(2000,2300,identifiant_I);
+        painter.drawText(2000,2300,identifiant_I_string);
         painter.setPen(Qt::blue);
-        painter.drawText(100,2600,"Nom du ingredient : ");
+        painter.drawText(100,2600,"Nom d'ingredient : ");
         painter.setPen(Qt::black);
         painter.drawText(2000,2600,nom_I);
         painter.setPen(Qt::blue);
-        painter.drawText(100,2900,"Quantité du ingredient : ");
+        painter.drawText(100,2900,"Quantité d'ingredient : ");
         painter.setPen(Qt::black);
-        painter.drawText(2000,2900,quantite_I);
+        painter.drawText(2000,2900,quantite_I_string);
         painter.setPen(Qt::blue);
-        painter.drawText(100,3200,"Prix du ingredient : ");
+        painter.drawText(100,3200,"Prix d'ingredient : ");
         painter.setPen(Qt::black);
-        painter.drawText(2000,3200,prix_I);
+        painter.drawText(2000,3200,prix_I_string);
         painter.setPen(Qt::blue);
-        painter.drawText(100,3500,"Type du ingredient : ");
+        painter.drawText(100,3500,"Type d'ingredient : ");
         painter.setPen(Qt::black);
         painter.drawText(2000,3500,type_I);
         painter.setPen(Qt::blue);
-        painter.drawText(100,3800,"Image du ingredient : ");
+        painter.drawText(100,3800,"Image d'ingredient : ");
         painter.setPen(Qt::black);
         painter.drawText(2000,3800,image_I);
 
