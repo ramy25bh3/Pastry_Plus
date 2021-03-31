@@ -20,14 +20,27 @@ public:
 private slots:
 
 
-    void on_pushButton_clicked();
+//********** evenement ***********
 
-    void on_pushButton_3_clicked();
+    void on_supprimer_botton_clicked();
 
-    void on_pushButton_4_clicked();
+    void on_modifier_botton_clicked();
+
+    void on_ajouter_botton_clicked();
+
+    void on_afficher_botton_clicked();
+
+
+//********** ticket ***********
+
+
+
+
+//********** metiers ***********
 
 private:
     Ui::eventicket *ui;
+    evenement E;
 };
 
 #endif // EVENTICKET_H

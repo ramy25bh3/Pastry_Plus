@@ -12,8 +12,27 @@ class evenement
 public:
     evenement();
      evenement(int,QString,int,int,int,QString);
+
+
+     int getIDCLIENT();
+     QString getDESTINATION();
+     int getIDEMPLOYEE();
+     int getQUANTITE();
+     int getPRIXLIVRAISON();
+     QString getMETHODE();
+
+     void setIDCLIENT(int);
+     void setDESTINATION(QString);
+     void setIDEMPLOYEE(int);
+     void setQUANTITE(int);
+     void setPRIXLIVRAISON(int);
+     void setMETHODE(QString);
+
+
+
+
      bool ajouter_evenement();
-     QSqlQueryModel * afficher();
+     QSqlQueryModel * afficher_evenement();
        QSqlQueryModel * combobox();
      bool supp_evenement(int);
      bool modifier_evenement();

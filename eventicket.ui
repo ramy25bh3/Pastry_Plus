@@ -74,7 +74,7 @@
         <attribute name="title">
          <string>Ajouter</string>
         </attribute>
-        <widget class="QLineEdit" name="txt_cin">
+        <widget class="QLineEdit" name="IDCLIENT1">
          <property name="geometry">
           <rect>
            <x>70</x>
@@ -110,7 +110,7 @@
           <string>id employée</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txt_nom">
+        <widget class="QLineEdit" name="IDEMPLOYEE1">
          <property name="geometry">
           <rect>
            <x>70</x>
@@ -133,7 +133,7 @@
           <string>destination</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txt_prenom">
+        <widget class="QLineEdit" name="DESTINATION">
          <property name="geometry">
           <rect>
            <x>70</x>
@@ -156,7 +156,7 @@
           <string>methode paiement</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="METHODE">
          <property name="geometry">
           <rect>
            <x>530</x>
@@ -169,7 +169,7 @@
           <string>cash</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QRadioButton" name="METHODE_2">
          <property name="geometry">
           <rect>
            <x>590</x>
@@ -218,7 +218,7 @@
           <string>quantité</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txt_email">
+        <widget class="QLineEdit" name="QUANTITE1">
          <property name="geometry">
           <rect>
            <x>290</x>
@@ -241,7 +241,7 @@
           <string>prix livraison</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txt_adresse">
+        <widget class="QLineEdit" name="PRIXLIVRAISON1">
          <property name="geometry">
           <rect>
            <x>290</x>
@@ -251,7 +251,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="ajouter_botton">
          <property name="geometry">
           <rect>
            <x>640</x>
@@ -279,7 +279,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txt_email_2">
+        <widget class="QLineEdit" name="QUANTITE_modif">
          <property name="geometry">
           <rect>
            <x>290</x>
@@ -289,7 +289,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txt_nom_2">
+        <widget class="QLineEdit" name="IDEMPLOYEE_modif">
          <property name="geometry">
           <rect>
            <x>80</x>
@@ -299,7 +299,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_3">
+        <widget class="QRadioButton" name="METHODE_modif">
          <property name="geometry">
           <rect>
            <x>550</x>
@@ -312,7 +312,7 @@
           <string>cash</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txt_adresse_2">
+        <widget class="QLineEdit" name="PRIXLIVRAISON_modif">
          <property name="geometry">
           <rect>
            <x>290</x>
@@ -322,7 +322,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txt_prenom_2">
+        <widget class="QLineEdit" name="DESTINATION_modif">
          <property name="geometry">
           <rect>
            <x>80</x>
@@ -420,7 +420,7 @@
           <string>destination :</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_4">
+        <widget class="QRadioButton" name="METHODE_modif_2">
          <property name="geometry">
           <rect>
            <x>600</x>
@@ -446,7 +446,7 @@
           <string>id employee :</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="modifier_botton">
          <property name="geometry">
           <rect>
            <x>610</x>
@@ -459,7 +459,7 @@
           <string>Modifier</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txt_nom_3">
+        <widget class="QLineEdit" name="IDCLIENT_modif">
          <property name="geometry">
           <rect>
            <x>80</x>
@@ -487,7 +487,7 @@
           <string>id client:</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="supprimer_botton">
          <property name="geometry">
           <rect>
            <x>330</x>
@@ -512,7 +512,7 @@
         </widget>
        </widget>
       </widget>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="afficher_botton">
        <property name="geometry">
         <rect>
          <x>690</x>
