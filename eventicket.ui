@@ -68,13 +68,13 @@
         </rect>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="tab_4">
         <attribute name="title">
          <string>Ajouter</string>
         </attribute>
-        <widget class="QLineEdit" name="IDCLIENT1">
+        <widget class="QLineEdit" name="IDCLIENT">
          <property name="geometry">
           <rect>
            <x>70</x>
@@ -110,7 +110,7 @@
           <string>id employée</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="IDEMPLOYEE1">
+        <widget class="QLineEdit" name="IDEMPLOYEE">
          <property name="geometry">
           <rect>
            <x>70</x>
@@ -169,7 +169,7 @@
           <string>cash</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="METHODE_2">
+        <widget class="QRadioButton" name="METHODE_">
          <property name="geometry">
           <rect>
            <x>590</x>
@@ -195,7 +195,7 @@
           <string>produit</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txt_tel">
+        <widget class="QLineEdit" name="PRODUIT">
          <property name="geometry">
           <rect>
            <x>290</x>
@@ -218,7 +218,7 @@
           <string>quantité</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="QUANTITE1">
+        <widget class="QLineEdit" name="QUANTITE">
          <property name="geometry">
           <rect>
            <x>290</x>
@@ -241,7 +241,7 @@
           <string>prix livraison</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="PRIXLIVRAISON1">
+        <widget class="QLineEdit" name="PRIXLIVRAISON">
          <property name="geometry">
           <rect>
            <x>290</x>
@@ -269,7 +269,7 @@
         <attribute name="title">
          <string>Modifier</string>
         </attribute>
-        <widget class="QLineEdit" name="txt_tel_2">
+        <widget class="QLineEdit" name="PRODUIT_modif">
          <property name="geometry">
           <rect>
            <x>290</x>

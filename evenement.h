@@ -11,7 +11,7 @@ class evenement
 
 public:
     evenement();
-     evenement(int,QString,int,int,int,QString);
+     evenement(int,QString,int,int,int,QString,QString);
 
 
      int getIDCLIENT();
@@ -20,6 +20,8 @@ public:
      int getQUANTITE();
      int getPRIXLIVRAISON();
      QString getMETHODE();
+     QString getPRODUIT();
+
 
      void setIDCLIENT(int);
      void setDESTINATION(QString);
@@ -27,6 +29,8 @@ public:
      void setQUANTITE(int);
      void setPRIXLIVRAISON(int);
      void setMETHODE(QString);
+     void setPRODUIT(QString);
+
 
 
 
@@ -41,10 +45,10 @@ private:
     int IDCLIENT;
     QString DESTINATION;
     int IDEMPLOYEE;
-    QString PRODUIT;
     int QUANTITE;
     int PRIXLIVRAISON;
     QString METHODE;
+    QString PRODUIT;
 
 
 };

@@ -26,14 +26,15 @@ eventicket::~eventicket()
 
 void eventicket::on_ajouter_botton_clicked()
 {
-    int IDCLIENT1= ui->IDCLIENT1->text().toInt();
+    int IDCLIENT1= ui->IDCLIENT->text().toInt();
         QString DESTINATION= ui->DESTINATION->text();
-        int IDEMPLOYEE1= ui->IDEMPLOYEE1->text().toInt();
-        int QUANTITE1= ui->QUANTITE1->text().toInt();
-        int PRIXLIVRAISON1= ui->PRIXLIVRAISON1->text().toInt();
+        int IDEMPLOYEE1= ui->IDEMPLOYEE->text().toInt();
+        int QUANTITE1= ui->QUANTITE->text().toInt();
+        int PRIXLIVRAISON1= ui->PRIXLIVRAISON->text().toInt();
         QString METHODE= ui->METHODE->text();
+        QString PRODUIT= ui->PRODUIT->text();
 
-        evenement E(IDCLIENT1,DESTINATION,IDEMPLOYEE1,QUANTITE1,PRIXLIVRAISON1,METHODE);
+        evenement E(IDCLIENT1,DESTINATION,IDEMPLOYEE1,QUANTITE1,PRIXLIVRAISON1,METHODE,PRODUIT);
 
         bool test= E.ajouter_evenement();
         QMessageBox msgBox;
@@ -62,8 +63,9 @@ void eventicket::on_modifier_botton_clicked()
         int QUANTITE1= ui->QUANTITE_modif->text().toInt();
         int PRIXLIVRAISON1= ui->PRIXLIVRAISON_modif->text().toInt();
         QString METHODE= ui->METHODE_modif->text();
+        QString PRODUIT= ui->PRODUIT->text();
 
-        evenement E (IDCLIENT1,DESTINATION,IDEMPLOYEE1,QUANTITE1,PRIXLIVRAISON1,METHODE);
+        evenement E (IDCLIENT1,DESTINATION,IDEMPLOYEE1,QUANTITE1,PRIXLIVRAISON1,METHODE,PRODUIT);
 
         bool test=E.modifier_evenement();
         QMessageBox msgBox;
@@ -88,7 +90,7 @@ void eventicket::on_supprimer_botton_clicked()
 
 
     evenement E;
-        E.setIDCLIENT(ui->IDCLIENT1->text().toInt());
+        E.setIDCLIENT(ui->IDCLIENT->text().toInt());
 
         bool test=E.supp_evenement(E.getIDCLIENT());
         QMessageBox msgBox;
