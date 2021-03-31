@@ -11,6 +11,8 @@
 #include "client.h"
 #include "achats.h"
 
+//hello2
+
 void Clients_Achats::refreshw()
 {
 
