@@ -21,3 +21,7 @@ bool connexion::createConnection()
     return test;
 
 }
+QSqlDatabase connexion::get_db()
+{
+    return db;
+}

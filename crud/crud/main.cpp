@@ -8,10 +8,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-     connexion C;
+    connexion C;
     bool test;
         test=C.createConnection();
+    MainWindow w;
  if(test)
    //  qDebug() <<"La connexion reussie";
      QMessageBox::information(nullptr,QObject::tr("database is  open"),QObject::tr("La connexion est reussie\n"

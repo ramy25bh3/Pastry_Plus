@@ -1,27 +1,34 @@
 #include "fournisseur.h"
+#include "connexion.h"
 #include <QString>
 #include <QSqlQuery>
-#include<QDateTime>
-#include<QDate>
+#include <QDateTime>
+#include <QDate>
 #include <QSqlQueryModel>
 #include <vector>
 
 fournisseur::fournisseur()
 {
 
+   id_f=0;
+    nom_soc="";
+   tel_f=0;
+    email_f="";
+    specialite_f="";
+    adresse_f="";
 
 }
 
-+fournisseur::fournisseur(int id_f1, QString nom_soc1, int tel_f1, QString email_f1, QDateTime date_add_f1, QString specialite_f1, QString adresse_f1)
+fournisseur::fournisseur(int id_f, QString nom_soc, int tel_f, QString email_f, QDateTime date_add_f, QString specialite_f, QString adresse_f)
 {
 
-    id_f=id_f1;
-    nom_soc=nom_soc1;
-    tel_f=tel_f1;
-    email_f=email_f1;
-    date_add_f=date_add_f1;
-    specialite_f=specialite_f1;
-    adresse_f=adresse_f1;
+    this->id_f=id_f;
+    this->nom_soc=nom_soc;
+    this->tel_f=tel_f;
+    this->email_f=email_f;
+    this->date_add_f=date_add_f;
+    this->specialite_f=specialite_f;
+    this->adresse_f=adresse_f;
 
 }
 
@@ -31,22 +38,19 @@ bool fournisseur::ajouter_fournisseur()
 {
 QSqlQuery query;
 
-QString id_f1 = QString::number(id_f);
-QString tel_f1 = QString::number(tel_f);
 
+query.prepare("insert into FOURNISSEURS(id_f,nom_soc,tel_f,email_f,date_add_f,specialite_f,adresse_add_f) values(:id_f,:nom_soc,:tel_f,:email_f,:date_add_f,:specialite_f,:adresse_add_f)");
 
-query.prepare("insert into FOURNISSEURS(id_f,nom_soc,tel_f,email_f,adresse_add_f,specialite_f,adresse_f) values(:id_f1,:nom_soc,:tel_f1,:email_f,:adresse_add_f,:specialite_f,:adresse_f)");
-query.bindValue(":id_f1",id_f1);
+QString res = QString::number(id_f);
+QString ress = QString::number(tel_f);
+
+query.bindValue(":id_f",res);
 query.bindValue(":nom_soc",nom_soc);
-query.bindValue(":tel_f1",tel_f1);
+query.bindValue(":tel_f",ress);
 query.bindValue(":email_f",email_f);
 query.bindValue(":date_add_f",date_add_f);
 query.bindValue(":specialite_f",specialite_f);
 query.bindValue(":adresse_f",adresse_f);
-
-
-
-
 
 
 return query.exec();
@@ -56,34 +60,38 @@ return query.exec();
 QSqlQueryModel * fournisseur::afficher()
 {
     QSqlQueryModel * model = new QSqlQueryModel();
-    model->setQuery("select * from fournisseurs");
+    model->setQuery("SELECT * FROM FOURNISSEURS");
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_f"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom_soc"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("tel_f"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("email_f"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("date_add_f"));
     model->setHeaderData(5,Qt::Horizontal,QObject::tr("specialite_f"));
-    model->setHeaderData(6,Qt::Horizontal,QObject::tr("adresse_f"));
+    model->setHeaderData(6,Qt::Horizontal,QObject::tr("adresse_add_f"));
     return model;
 
 }
 
 
-  bool fournisseur::modifier_fournisseur()
+  bool fournisseur::modifier_fournisseur(int,QString,int,QString,QDateTime,QString,QString)
   {
 
       QSqlQuery query;
-      QString id_f1 = QString::number(id_f);
-      QString tel_f1 = QString::number(tel_f);
 
-      query.prepare("update FOURNISSEURS set nom_soc=:nom_soc,tel_f=:tel_f1,email_f=:email_f,date_add_f=:date_add_f,specialite_f=:specialite_f,adresse_f=:adresse_f where id_f=:id_f1");
-      query.bindValue(":id_f1",id_f1);
+      query.prepare("update FOURNISSEURS set id_f=:id_f,nom_soc=:nom_soc,tel_f=:tel_f,email_f=:email_f,date_add_f=:date_add_f,specialite_f=:specialite_f,adresse_add_f=:adresse_f where id_f=:id_f");
+
+      QString res = QString::number(id_f);
+      QString ress = QString::number(tel_f);
+
+      query.bindValue(":id_f",res);
       query.bindValue(":nom_soc",nom_soc);
-      query.bindValue(":tel_f1",tel_f1);
+      query.bindValue(":tel_f",ress);
       query.bindValue(":email_f",email_f);
       query.bindValue(":date_add_f",date_add_f);
       query.bindValue(":specialite_f",specialite_f);
-      query.bindValue(":adresse_f",adresse_f);
+      query.bindValue(":adresse_add_f",adresse_f);
+
+      return query.exec();
 
   }
 
@@ -99,15 +107,42 @@ QSqlQueryModel * fournisseur::afficher()
 
   }
 
-
-  QSqlQueryModel * fournisseur::combobox()
+  QSqlQueryModel *fournisseur::rechercher(QString rech)
   {
-      QSqlQueryModel * model = new QSqlQueryModel();
-      //QString acc_ = QString::number(account);
-      //QString perm=  QString::number(permissions);
+      QSqlQueryModel * model= new QSqlQueryModel();
 
-      model->setQuery("select id_f from fournisseurs");
+          model->setQuery("select * from FOURNISSEURS where upper(id_f) LIKE upper ('%"+rech+"%') or upper(nom_soc) LIKE upper ('%"+rech+"%') or upper(adresse_add_f) LIKE upper ('%"+rech+"%')");
 
 
+      return model;
+
+  }
+
+  QSqlQueryModel * fournisseur::trier_id()
+  {
+      QSqlQuery *qry=new QSqlQuery();
+      QSqlQueryModel *model=new QSqlQueryModel();
+      qry->prepare("select * from FOURNISSEURS order by ID_F ASC");
+      qry->exec();
+      model->setQuery(*qry);
+      return model;
+  }
+  QSqlQueryModel * fournisseur::trier_nom_soc()
+  {
+      QSqlQuery *qry=new QSqlQuery();
+      QSqlQueryModel *model=new QSqlQueryModel();
+      qry->prepare("select * from FOURNISSEURS order by NOM_SOC ASC");
+      qry->exec();
+      model->setQuery(*qry);
+      return model;
+  }
+
+  QSqlQueryModel * fournisseur::trier_specialite()
+  {
+      QSqlQuery *qry=new QSqlQuery();
+      QSqlQueryModel *model=new QSqlQueryModel();
+      qry->prepare("select * from FOURNISSEURS order by SPECIALITE_F ASC");
+      qry->exec();
+      model->setQuery(*qry);
       return model;
   }
