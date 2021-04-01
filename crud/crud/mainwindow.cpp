@@ -162,7 +162,7 @@ void MainWindow::on_pushButton_pdf_clicked()
              <<  QString("<title>%1</title>\n").arg("Title")
               <<  "</head>\n"
 
-               <<"<body bgcolor=#264653 link=#5000A0>\n"
+               <<"<body bgcolor=#88F5A6 link=#5000A0>\n"
 
 
                <<"<center> <H1>Liste des fournisseurs </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n"
