@@ -62,9 +62,14 @@ private slots:
 
     void on_stat_P_clicked();
 
+    void on_stat_I_clicked();
+
+
     void on_excel_P_clicked();
 
     void on_excel_I_clicked();
+
+
 
 
 private:

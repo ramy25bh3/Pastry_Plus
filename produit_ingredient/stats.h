@@ -26,7 +26,7 @@ public:
     explicit Stats(QWidget *parent = nullptr);
 
     void statistique_P();
-    //void statistique_I();
+    void statistique_I();
 
     ~Stats();
 

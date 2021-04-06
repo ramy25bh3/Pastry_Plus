@@ -388,6 +388,13 @@ void Produit_ingredient::on_stat_P_clicked()
 
 }
 
+void Produit_ingredient::on_stat_I_clicked()
+{
+    Stats S;
+            S.statistique_I();
+            S.setModal(true);
+            S.exec();
+}
 
 
 
@@ -536,3 +543,4 @@ void Produit_ingredient::on_afficher_ingredient_clicked(const QModelIndex &index
 
     }
 }
+

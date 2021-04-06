@@ -36,8 +36,7 @@ HEADERS += \
 
 FORMS += \
     produit_ingredient.ui \
-    stats_I.ui \
-    stats_P.ui
+    stats.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

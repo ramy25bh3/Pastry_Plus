@@ -57,7 +57,7 @@ void Stats::on_hide_P_clicked()
 
 
 
-/*void Stats::statistique_I()
+void Stats::statistique_I()
 {
     QPieSeries *series = new QPieSeries();
         QSqlQuery query;
@@ -89,5 +89,5 @@ void Stats::on_hide_P_clicked()
      chart_I->setTitle("Statistique des ingredients par quantité ");
 
      QChartView *chartview= new QChartView (chart_I);
-     chartview->setParent(ui->charts_I);
-}*/
+     chartview->setParent(ui->charts_P);
+}
