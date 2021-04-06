@@ -1,5 +1,6 @@
 QT       += core gui sql
 CONFIG += console
+QT       += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,19 +19,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     connection.cpp \
+    exportexcelobject.cpp \
     ingredient.cpp \
     main.cpp \
     produit.cpp \
-    produit_ingredient.cpp
+    produit_ingredient.cpp \
+    stats.cpp
 
 HEADERS += \
     connection.h \
+    exportexcelobject.h \
     ingredient.h \
     produit.h \
-    produit_ingredient.h
+    produit_ingredient.h \
+    stats.h
 
 FORMS += \
-    produit_ingredient.ui
+    produit_ingredient.ui \
+    stats_I.ui \
+    stats_P.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

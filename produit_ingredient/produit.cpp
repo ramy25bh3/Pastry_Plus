@@ -200,3 +200,155 @@ QSqlQueryModel * Produit::chercher_produit(int identifiant_P_rech, QString type_
 }
 
 
+
+QString Produit:: tabview1(int id_P)
+{
+    QSqlQuery query;
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
+
+    QString identifiant_P_string= QString::number(id_P);
+
+    query.exec("SELECT * FROM  Produit WHERE identifiant_P ='"+identifiant_P_string+"'");
+    query.bindValue(":identifiant_P_string",identifiant_P_string);
+
+    while(query.next())
+    {
+        query.value(0).toString();
+        a=query.value(1).toString();
+        b=query.value(2).toString();
+        c=query.value(3).toString();
+        d=query.value(4).toString();
+        e=query.value(5).toString();
+
+
+    }
+
+    return a;
+
+}
+
+QString Produit:: tabview2(int id_P)
+{
+    QSqlQuery query;
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
+
+    QString identifiant_P_string= QString::number(id_P);
+
+    query.exec("SELECT * FROM  Produit WHERE identifiant_P ='"+identifiant_P_string+"'");
+    query.bindValue(":identifiant_P_string",identifiant_P_string);
+
+    while(query.next())
+    {
+        query.value(0).toString();
+        a=query.value(1).toString();
+        b=query.value(2).toString();
+        c=query.value(3).toString();
+        d=query.value(4).toString();
+        e=query.value(5).toString();
+
+
+    }
+
+    return b;
+
+}
+
+QString Produit:: tabview3(int id_P)
+{
+    QSqlQuery query;
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
+
+    QString identifiant_P_string= QString::number(id_P);
+
+    query.exec("SELECT * FROM  Produit WHERE identifiant_P ='"+identifiant_P_string+"'");
+    query.bindValue(":identifiant_P_string",identifiant_P_string);
+
+    while(query.next())
+    {
+        query.value(0).toString();
+        a=query.value(1).toString();
+        b=query.value(2).toString();
+        c=query.value(3).toString();
+        d=query.value(4).toString();
+        e=query.value(5).toString();
+
+
+    }
+
+    return c;
+
+}
+
+QString Produit:: tabview4(int id_P)
+{
+    QSqlQuery query;
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
+
+    QString identifiant_P_string= QString::number(id_P);
+
+    query.exec("SELECT * FROM  Produit WHERE identifiant_P ='"+identifiant_P_string+"'");
+    query.bindValue(":identifiant_P_string",identifiant_P_string);
+
+    while(query.next())
+    {
+        query.value(0).toString();
+        a=query.value(1).toString();
+        b=query.value(2).toString();
+        c=query.value(3).toString();
+        d=query.value(4).toString();
+        e=query.value(5).toString();
+
+
+    }
+
+    return d;
+
+}
+
+QString Produit:: tabview5(int id_P)
+{
+    QSqlQuery query;
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
+
+    QString identifiant_P_string= QString::number(id_P);
+
+    query.exec("SELECT * FROM  Produit WHERE identifiant_P ='"+identifiant_P_string+"'");
+    query.bindValue(":identifiant_P_string",identifiant_P_string);
+
+    while(query.next())
+    {
+        query.value(0).toString();
+        a=query.value(1).toString();
+        b=query.value(2).toString();
+        c=query.value(3).toString();
+        d=query.value(4).toString();
+        e=query.value(5).toString();
+
+
+    }
+
+    return e;
+
+}
+
+

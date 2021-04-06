@@ -33,6 +33,13 @@ public:
     QSqlQueryModel * trier_produit(int);
     QSqlQueryModel * chercher_produit(int, QString, QString);
 
+    QString tabview1(int);
+    QString tabview2(int);
+    QString tabview3(int);
+    QString tabview4(int);
+    QString tabview5(int);
+
+
 private:
     int identifiant_P, quantite_P;
     float prix_P;

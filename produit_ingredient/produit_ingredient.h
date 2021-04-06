@@ -27,6 +27,10 @@ private slots:
 
     void on_modifier_produit_clicked();
 
+
+
+     void on_afficher_produit_clicked(const QModelIndex &index);
+
 //********** INGREDIENT ***********
 
     void on_ajouter_ingredient_clicked();
@@ -35,19 +39,33 @@ private slots:
 
     void on_modifier_ingredient_clicked();
 
+
+
+    void on_afficher_ingredient_clicked(const QModelIndex &index);
+
 //********* METIER ***********
 
     void on_trier_produit_clicked();
 
     void on_trier_ingredient_clicked();
 
+
     void on_exporter_P_clicked();
 
     void on_exporter_I_clicked();
 
+
     void on_chercher_produit_clicked();
 
     void on_chercher_ingredient_clicked();
+
+
+    void on_stat_P_clicked();
+
+    void on_excel_P_clicked();
+
+    void on_excel_I_clicked();
+
 
 private:
     Ui::Produit_ingredient *ui;

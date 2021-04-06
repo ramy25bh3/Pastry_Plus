@@ -197,3 +197,156 @@ QSqlQueryModel * Ingredient::chercher_ingredient(int identifiant_I_rech, QString
     return model;
 
 }
+
+
+
+
+QString Ingredient:: tabview1(int id_I)
+{
+    QSqlQuery query;
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
+
+    QString identifiant_I_string= QString::number(id_I);
+
+    query.exec("SELECT * FROM  Ingredient WHERE identifiant_I ='"+identifiant_I_string+"'");
+    query.bindValue(":identifiant_I_string",identifiant_I_string);
+
+    while(query.next())
+    {
+        query.value(0).toString();
+        a=query.value(1).toString();
+        b=query.value(2).toString();
+        c=query.value(3).toString();
+        d=query.value(4).toString();
+        e=query.value(5).toString();
+
+
+    }
+
+    return a;
+
+}
+
+QString Ingredient:: tabview2(int id_I)
+{
+    QSqlQuery query;
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
+
+    QString identifiant_I_string= QString::number(id_I);
+
+    query.exec("SELECT * FROM  Produit WHERE identifiant_I ='"+identifiant_I_string+"'");
+    query.bindValue(":identifiant_I_string",identifiant_I_string);
+
+    while(query.next())
+    {
+        query.value(0).toString();
+        a=query.value(1).toString();
+        b=query.value(2).toString();
+        c=query.value(3).toString();
+        d=query.value(4).toString();
+        e=query.value(5).toString();
+
+
+    }
+
+    return b;
+
+}
+
+QString Ingredient:: tabview3(int id_I)
+{
+    QSqlQuery query;
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
+
+    QString identifiant_I_string= QString::number(id_I);
+
+    query.exec("SELECT * FROM  Produit WHERE identifiant_I ='"+identifiant_I_string+"'");
+    query.bindValue(":identifiant_I_string",identifiant_I_string);
+
+    while(query.next())
+    {
+        query.value(0).toString();
+        a=query.value(1).toString();
+        b=query.value(2).toString();
+        c=query.value(3).toString();
+        d=query.value(4).toString();
+        e=query.value(5).toString();
+
+
+    }
+
+    return c;
+
+}
+
+QString Ingredient:: tabview4(int id_I)
+{
+    QSqlQuery query;
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
+
+    QString identifiant_I_string= QString::number(id_I);
+
+    query.exec("SELECT * FROM  Ingredient WHERE identifiant_I ='"+identifiant_I_string+"'");
+    query.bindValue(":identifiant_I_string",identifiant_I_string);
+
+    while(query.next())
+    {
+        query.value(0).toString();
+        a=query.value(1).toString();
+        b=query.value(2).toString();
+        c=query.value(3).toString();
+        d=query.value(4).toString();
+        e=query.value(5).toString();
+
+
+    }
+
+    return d;
+
+}
+
+QString Ingredient:: tabview5(int id_I)
+{
+    QSqlQuery query;
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
+
+    QString identifiant_I_string= QString::number(id_I);
+
+    query.exec("SELECT * FROM  Ingredient WHERE identifiant_I ='"+identifiant_I_string+"'");
+    query.bindValue(":identifiant_I_string",identifiant_I_string);
+
+    while(query.next())
+    {
+        query.value(0).toString();
+        a=query.value(1).toString();
+        b=query.value(2).toString();
+        c=query.value(3).toString();
+        d=query.value(4).toString();
+        e=query.value(5).toString();
+
+
+    }
+
+    return e;
+
+}

@@ -9,6 +9,8 @@
 #include <QPixmap>
 #include "produit.h"
 #include "ingredient.h"
+#include "stats.h"
+#include "exportexcelobject.h"
 
 Produit_ingredient::Produit_ingredient(QWidget *parent)
     : QMainWindow(parent)
@@ -369,4 +371,168 @@ void Produit_ingredient::on_chercher_ingredient_clicked()
     QString type_I_rech= ui->type_I_rech->text();
 
     ui->afficher_ingredient->setModel(I.chercher_ingredient(identifiant_I_rech, type_I_rech, test_vide_I));
+}
+
+
+
+
+
+
+
+void Produit_ingredient::on_stat_P_clicked()
+{
+    Stats S;
+            S.statistique_P();
+            S.setModal(true);
+            S.exec();
+
+}
+
+
+
+
+
+
+void Produit_ingredient::on_excel_P_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
+                                                        tr("Excel Files (*.xls)"));
+        if (fileName.isEmpty())
+            return;
+
+        ExportExcelObject obj(fileName, "mydata", ui->afficher_produit);
+
+        //colums to export
+        obj.addField(0, "Identifiant", "char(20)");
+        obj.addField(1, "Nom", "char(20)");
+        obj.addField(2, "Quantité", "char(20)");
+        obj.addField(3, "Prix", "char(20)");
+        obj.addField(4, "Type", "char(20)");
+        obj.addField(5, "Image", "char(20)");
+
+
+
+        int retVal = obj.export2Excel();
+        if( retVal > 0)
+        {
+            QMessageBox::information(this, tr("Done"),
+                                     QString(tr("%1 records exported!")).arg(retVal)
+                                     );
+        }
+}
+
+
+
+void Produit_ingredient::on_excel_I_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
+                                                        tr("Excel Files (*.xls)"));
+        if (fileName.isEmpty())
+            return;
+
+        ExportExcelObject obj(fileName, "mydata", ui->afficher_ingredient);
+
+        //colums to export
+        obj.addField(0, "Identifiant", "char(20)");
+        obj.addField(1, "Nom", "char(20)");
+        obj.addField(2, "Quantité", "char(20)");
+        obj.addField(3, "Prix", "char(20)");
+        obj.addField(4, "Type", "char(20)");
+        obj.addField(5, "Image", "char(20)");
+
+
+
+        int retVal = obj.export2Excel();
+        if( retVal > 0)
+        {
+            QMessageBox::information(this, tr("Done"),
+                                     QString(tr("%1 records exported!")).arg(retVal));
+        }
+
+}
+
+
+
+
+
+
+
+void Produit_ingredient::on_afficher_produit_clicked(const QModelIndex &index)
+{
+    QString prod1;
+    QString prod2;
+    QString prod3;
+    QString prod4;
+    QString prod5;
+
+
+    if(index.isValid())
+    {
+
+        QString ligne=index.data(index.column()).toString();
+
+
+        ui->identifiant_P_modif->setText(ligne);
+        ui->identifiant_P_supp->setText(ligne);
+
+        int id_P= ui->identifiant_P_modif->text().toInt();
+
+
+    prod1= P.tabview1(id_P); //nom
+    prod2= P.tabview2(id_P); //quntite
+    prod3= P.tabview3(id_P);//prix
+    prod4= P.tabview4(id_P);//type
+    prod5= P.tabview5(id_P);//image
+
+
+
+    ui->nom_P_modif->setText(prod1);
+    ui->quantite_P_modif->setText(prod2);
+    ui->prix_P_modif->setText(prod3);
+    ui->type_P_modif->setText(prod4);
+    ui->image_P_modif->setText(prod5);
+
+
+    }
+
+}
+
+
+
+void Produit_ingredient::on_afficher_ingredient_clicked(const QModelIndex &index)
+{
+    QString ingr1;
+    QString ingr2;
+    QString ingr3;
+    QString ingr4;
+    QString ingr5;
+
+
+    if(index.isValid())
+    {
+
+        QString ligne=index.data(index.column()).toString();
+
+
+        ui->identifiant_I_modif->setText(ligne);
+        ui->identifiant_I_supp->setText(ligne);
+
+        int id_I= ui->identifiant_I_modif->text().toInt();
+
+
+    ingr1= I.tabview1(id_I); //nom
+    ingr2= I.tabview2(id_I); //quntite
+    ingr3= I.tabview3(id_I);//prix
+    ingr4= I.tabview4(id_I);//type
+    ingr5= I.tabview5(id_I);//image
+
+
+
+    ui->nom_I_modif->setText(ingr1);
+    ui->quantite_I_modif->setText(ingr2);
+    ui->prix_I_modif->setText(ingr3);
+    ui->type_I_modif->setText(ingr4);
+    ui->image_I_modif->setText(ingr5);
+
+    }
 }

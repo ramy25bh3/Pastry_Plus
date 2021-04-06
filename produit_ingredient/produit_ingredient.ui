@@ -546,9 +546,9 @@
      <widget class="QPushButton" name="exporter_P">
       <property name="geometry">
        <rect>
-        <x>720</x>
+        <x>500</x>
         <y>440</y>
-        <width>151</width>
+        <width>101</width>
         <height>28</height>
        </rect>
       </property>
@@ -593,6 +593,32 @@
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stat_P">
+      <property name="geometry">
+       <rect>
+        <x>920</x>
+        <y>440</y>
+        <width>151</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Statistique</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="excel_P">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>440</y>
+        <width>101</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Exporter EXCEL</string>
       </property>
      </widget>
     </widget>
@@ -1116,9 +1142,9 @@
      <widget class="QPushButton" name="exporter_I">
       <property name="geometry">
        <rect>
-        <x>730</x>
+        <x>520</x>
         <y>430</y>
-        <width>161</width>
+        <width>111</width>
         <height>28</height>
        </rect>
       </property>
@@ -1163,6 +1189,32 @@
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stat_I">
+      <property name="geometry">
+       <rect>
+        <x>920</x>
+        <y>430</y>
+        <width>151</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Statistiques</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="excel_I">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>430</y>
+        <width>101</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Exporter EXCEL</string>
       </property>
      </widget>
     </widget>
