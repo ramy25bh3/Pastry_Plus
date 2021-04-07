@@ -50,9 +50,9 @@ private slots:
     void on_trier_ingredient_clicked();
 
 
-    void on_exporter_P_clicked();
+    //void on_exporter_P_clicked();
 
-    void on_exporter_I_clicked();
+    //void on_exporter_I_clicked();
 
 
     void on_chercher_produit_clicked();
@@ -70,7 +70,9 @@ private slots:
     void on_excel_I_clicked();
 
 
+    void on_PDF_P_clicked();
 
+    void on_PDF_I_clicked();
 
 private:
     Ui::Produit_ingredient *ui;

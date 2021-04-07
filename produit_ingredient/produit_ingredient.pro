@@ -1,6 +1,7 @@
 QT       += core gui sql
 CONFIG += console
 QT       += core gui charts
+QT       += core gui sql printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,7 +25,8 @@ SOURCES += \
     main.cpp \
     produit.cpp \
     produit_ingredient.cpp \
-    stats.cpp
+    stats.cpp \
+    tableprinter.cpp
 
 HEADERS += \
     connection.h \
@@ -32,7 +34,8 @@ HEADERS += \
     ingredient.h \
     produit.h \
     produit_ingredient.h \
-    stats.h
+    stats.h \
+    tableprinter.h
 
 FORMS += \
     produit_ingredient.ui \

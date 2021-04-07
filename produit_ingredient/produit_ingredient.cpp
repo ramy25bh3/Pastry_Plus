@@ -12,6 +12,30 @@
 #include "stats.h"
 #include "exportexcelobject.h"
 
+#include <QtPrintSupport/QPrintDialog>
+#include "tableprinter.h"
+#include <QPrinter>
+#include <QPrintPreviewDialog>
+
+
+class PrintBorder : public PagePrepare {
+public:
+    virtual void preparePage(QPainter *painter);
+    static int pageNumber;
+};
+
+int PrintBorder::pageNumber = 0;
+
+void PrintBorder::preparePage(QPainter *painter) { // print a border on each page
+    QRect rec = painter->viewport();
+    painter->setPen(QPen(QColor(0, 0, 0), 1));
+    painter->drawRect(rec);
+    painter->translate(10, painter->viewport().height() - 10);
+    painter->drawText(0, 0, QString("Page %1").arg(pageNumber));
+    pageNumber += 1;
+}
+
+
 Produit_ingredient::Produit_ingredient(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Produit_ingredient)
@@ -50,9 +74,9 @@ void Produit_ingredient::on_ajouter_produit_clicked()
     int quantite_P= ui->quantite_P->text().toInt();
     float prix_P= ui->prix_P->text().toInt();
     QString type_P= ui->type_P->text();
-    QString image_P= ui->image_P->text();
 
-    Produit P(identifiant_P, nom_P, quantite_P, prix_P, type_P, image_P);
+
+    Produit P(identifiant_P, nom_P, quantite_P, prix_P, type_P);
 
     bool test= P.ajouter_produit();
     QMessageBox msgBox;
@@ -94,9 +118,9 @@ void Produit_ingredient::on_modifier_produit_clicked()
     int quantite_P= ui->quantite_P_modif->text().toInt();
     float prix_P= ui->prix_P_modif->text().toInt();
     QString type_P= ui->type_P_modif->text();
-    QString image_P= ui->image_P_modif->text();
 
-    Produit P(identifiant_P, nom_P, quantite_P, prix_P, type_P, image_P);
+
+    Produit P(identifiant_P, nom_P, quantite_P, prix_P, type_P);
 
     bool test=P.modifier_produit();
     QMessageBox msgBox;
@@ -113,6 +137,47 @@ void Produit_ingredient::on_modifier_produit_clicked()
 
 
 
+
+void Produit_ingredient::on_afficher_produit_clicked(const QModelIndex &index)
+{
+    QString prod1;
+    QString prod2;
+    QString prod3;
+    QString prod4;
+
+
+
+    if(index.isValid())
+    {
+
+        QString ligne=index.data(index.column()).toString();
+
+
+        ui->identifiant_P_modif->setText(ligne);
+        ui->identifiant_P_supp->setText(ligne);
+
+        int id_P= ui->identifiant_P_modif->text().toInt();
+
+
+    prod1= P.tabview1(id_P); //nom
+    prod2= P.tabview2(id_P); //quntite
+    prod3= P.tabview3(id_P);//prix
+    prod4= P.tabview4(id_P);//type
+
+
+
+
+    ui->nom_P_modif->setText(prod1);
+    ui->quantite_P_modif->setText(prod2);
+    ui->prix_P_modif->setText(prod3);
+    ui->type_P_modif->setText(prod4);
+
+
+
+    }
+
+}
+
 //************************* INGREDIENT ********************************
 
 
@@ -124,9 +189,9 @@ void Produit_ingredient::on_ajouter_ingredient_clicked()
     int quantite_I= ui->quantite_I->text().toInt();
     float prix_I= ui->prix_I->text().toInt();
     QString type_I= ui->type_I->text();
-    QString image_I= ui->image_I->text();
 
-    Ingredient I(identifiant_I, nom_I, quantite_I, prix_I, type_I, image_I);
+
+    Ingredient I(identifiant_I, nom_I, quantite_I, prix_I, type_I);
 
     bool test= I.ajouter_ingredient();
     QMessageBox msgBox;
@@ -170,9 +235,9 @@ void Produit_ingredient::on_modifier_ingredient_clicked()
     int quantite_I= ui->quantite_I_modif->text().toInt();
     float prix_I= ui->prix_I_modif->text().toInt();
     QString type_I= ui->type_I_modif->text();
-    QString image_I= ui->image_I_modif->text();
 
-    Ingredient I(identifiant_I, nom_I, quantite_I, prix_I, type_I, image_I);
+
+    Ingredient I(identifiant_I, nom_I, quantite_I, prix_I, type_I);
 
     bool test=I.modifier_ingredient();
     QMessageBox msgBox;
@@ -187,6 +252,47 @@ void Produit_ingredient::on_modifier_ingredient_clicked()
     msgBox.exec();
 }
 
+
+
+
+
+void Produit_ingredient::on_afficher_ingredient_clicked(const QModelIndex &index)
+{
+    QString ingr1;
+    QString ingr2;
+    QString ingr3;
+    QString ingr4;
+
+
+
+    if(index.isValid())
+    {
+
+        QString ligne=index.data(index.column()).toString();
+
+
+        ui->identifiant_I_modif->setText(ligne);
+        ui->identifiant_I_supp->setText(ligne);
+
+        int id_I= ui->identifiant_I_modif->text().toInt();
+
+
+    ingr1= I.tabview1(id_I); //nom
+    ingr2= I.tabview2(id_I); //quntite
+    ingr3= I.tabview3(id_I);//prix
+    ingr4= I.tabview4(id_I);//type
+
+
+
+
+    ui->nom_I_modif->setText(ingr1);
+    ui->quantite_I_modif->setText(ingr2);
+    ui->prix_I_modif->setText(ingr3);
+    ui->type_I_modif->setText(ingr4);
+
+
+    }
+}
 
 
 //*************** METIER ******************************
@@ -233,14 +339,14 @@ void Produit_ingredient::on_trier_ingredient_clicked()
 
 
 
-void Produit_ingredient::on_exporter_P_clicked()
+/*void Produit_ingredient::on_exporter_P_clicked()
 {
     QString identifiant_P_string= ui->identifiant_P->text();
     QString nom_P= ui->nom_P->text();
     QString quantite_P_string= ui->quantite_P->text();
     QString prix_P_string= ui->prix_P->text();
     QString type_P= ui->type_P->text();
-    QString image_P= ui->image_P->text();
+
 
 
 
@@ -275,9 +381,7 @@ void Produit_ingredient::on_exporter_P_clicked()
         painter.setPen(Qt::black);
         painter.drawText(2000,3500,type_P);
         painter.setPen(Qt::blue);
-        painter.drawText(100,3800,"Image du produit : ");
-        painter.setPen(Qt::black);
-        painter.drawText(2000,3800,image_P);
+
 
 
         painter.end();
@@ -285,18 +389,18 @@ void Produit_ingredient::on_exporter_P_clicked()
                     QObject::tr("Exportation PDF terminer"), QMessageBox::Accepted);
 
 
-}
+}*/
 
 
 
-void Produit_ingredient::on_exporter_I_clicked()
+/*void Produit_ingredient::on_exporter_I_clicked()
 {
     QString identifiant_I_string= ui->identifiant_I->text();
     QString nom_I= ui->nom_I->text();
     QString quantite_I_string= ui->quantite_I->text();
     QString prix_I_string= ui->prix_I->text();
     QString type_I= ui->type_I->text();
-    QString image_I= ui->image_I->text();
+
 
 
         QPixmap logo;
@@ -330,9 +434,7 @@ void Produit_ingredient::on_exporter_I_clicked()
         painter.setPen(Qt::black);
         painter.drawText(2000,3500,type_I);
         painter.setPen(Qt::blue);
-        painter.drawText(100,3800,"Image d'ingredient : ");
-        painter.setPen(Qt::black);
-        painter.drawText(2000,3800,image_I);
+
 
 
         painter.end();
@@ -340,7 +442,7 @@ void Produit_ingredient::on_exporter_I_clicked()
                     QObject::tr("Exportation PDF terminer"), QMessageBox::Accepted);
 
 
-}
+}*/
 
 
 
@@ -415,7 +517,7 @@ void Produit_ingredient::on_excel_P_clicked()
         obj.addField(2, "Quantité", "char(20)");
         obj.addField(3, "Prix", "char(20)");
         obj.addField(4, "Type", "char(20)");
-        obj.addField(5, "Image", "char(20)");
+
 
 
 
@@ -445,7 +547,7 @@ void Produit_ingredient::on_excel_I_clicked()
         obj.addField(2, "Quantité", "char(20)");
         obj.addField(3, "Prix", "char(20)");
         obj.addField(4, "Type", "char(20)");
-        obj.addField(5, "Image", "char(20)");
+
 
 
 
@@ -461,86 +563,116 @@ void Produit_ingredient::on_excel_I_clicked()
 
 
 
-
-
-
-void Produit_ingredient::on_afficher_produit_clicked(const QModelIndex &index)
+void Produit_ingredient::on_PDF_P_clicked()
 {
-    QString prod1;
-    QString prod2;
-    QString prod3;
-    QString prod4;
-    QString prod5;
+    /*QSound::play(":/new/prefix1/sond/Click button.wav");
+     // QSound::play(":/new/prefix1/sond/632.wav");*/
+
+        QString strStream;
+                   QTextStream out(&strStream);
+                   const int rowCount = ui->afficher_produit->model()->rowCount();
+                   const int columnCount =ui->afficher_produit->model()->columnCount();
+
+                   out <<  "<html>\n"
+                           "<head>\n"
+                           "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                           <<  QString("<title>%1</title>\n").arg("eleve")
+                           <<  "</head>\n"
+                           "<body bgcolor=#F4B8B8 link=#5000A0>\n"
+                              // "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='20' height='20'>\n"
+                               "<img src='D:/QT/Awork/produit_ingredient_1/pastry_plus.png' width='100' height='100'>\n"
+                               "<h1>   Liste des Produits </h1>"
+                                "<h1>  </h1>"
+
+                               "<table border=1 cellspacing=0 cellpadding=2>\n";
 
 
-    if(index.isValid())
-    {
+                   // headers
+                       out << "<thead><tr bgcolor=#f0f0f0>";
+                       for (int column = 0; column < columnCount; column++)
+                           if (!ui->afficher_produit->isColumnHidden(column))
+                               out << QString("<th>%1</th>").arg(ui->afficher_produit->model()->headerData(column, Qt::Horizontal).toString());
+                       out << "</tr></thead>\n";
+                       // data table
+                          for (int row = 0; row < rowCount; row++) {
+                              out << "<tr>";
+                              for (int column = 0; column < columnCount; column++) {
+                                  if (!ui->afficher_produit->isColumnHidden(column)) {
+                                      QString data = ui->afficher_produit->model()->data(ui->afficher_produit->model()->index(row, column)).toString().simplified();
+                                      out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                                  }
+                              }
+                              out << "</tr>\n";
+                          }
+                          out <<  "</table>\n"
+                              "</body>\n"
+                              "</html>\n";
 
-        QString ligne=index.data(index.column()).toString();
+                          QTextDocument *document = new QTextDocument();
+                          document->setHtml(strStream);
 
+                          QPrinter printer;
 
-        ui->identifiant_P_modif->setText(ligne);
-        ui->identifiant_P_supp->setText(ligne);
-
-        int id_P= ui->identifiant_P_modif->text().toInt();
-
-
-    prod1= P.tabview1(id_P); //nom
-    prod2= P.tabview2(id_P); //quntite
-    prod3= P.tabview3(id_P);//prix
-    prod4= P.tabview4(id_P);//type
-    prod5= P.tabview5(id_P);//image
-
-
-
-    ui->nom_P_modif->setText(prod1);
-    ui->quantite_P_modif->setText(prod2);
-    ui->prix_P_modif->setText(prod3);
-    ui->type_P_modif->setText(prod4);
-    ui->image_P_modif->setText(prod5);
-
-
-    }
-
+                          QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+                          if (dialog->exec() == QDialog::Accepted) {
+                              document->print(&printer);
+                       }
 }
 
 
 
-void Produit_ingredient::on_afficher_ingredient_clicked(const QModelIndex &index)
+void Produit_ingredient::on_PDF_I_clicked()
 {
-    QString ingr1;
-    QString ingr2;
-    QString ingr3;
-    QString ingr4;
-    QString ingr5;
+    /*QSound::play(":/new/prefix1/sond/Click button.wav");
+     // QSound::play(":/new/prefix1/sond/632.wav");*/
+
+        QString strStream;
+                   QTextStream out(&strStream);
+                   const int rowCount = ui->afficher_ingredient->model()->rowCount();
+                   const int columnCount =ui->afficher_ingredient->model()->columnCount();
+
+                   out <<  "<html>\n"
+                           "<head>\n"
+                           "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                           <<  QString("<title>%1</title>\n").arg("eleve")
+                           <<  "</head>\n"
+                           "<body bgcolor=#F4B8B8 link=#5000A0>\n"
+                              // "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='20' height='20'>\n"
+                               "<img src='D:/QT/Awork/produit_ingredient_1/pastry_plus.png' width='100' height='100'>\n"
+                               "<h1>   Liste des Ingredients </h1>"
+                                "<h1>  </h1>"
+
+                               "<table border=1 cellspacing=0 cellpadding=2>\n";
 
 
-    if(index.isValid())
-    {
+                   // headers
+                       out << "<thead><tr bgcolor=#f0f0f0>";
+                       for (int column = 0; column < columnCount; column++)
+                           if (!ui->afficher_ingredient->isColumnHidden(column))
+                               out << QString("<th>%1</th>").arg(ui->afficher_ingredient->model()->headerData(column, Qt::Horizontal).toString());
+                       out << "</tr></thead>\n";
+                       // data table
+                          for (int row = 0; row < rowCount; row++) {
+                              out << "<tr>";
+                              for (int column = 0; column < columnCount; column++) {
+                                  if (!ui->afficher_ingredient->isColumnHidden(column)) {
+                                      QString data = ui->afficher_ingredient->model()->data(ui->afficher_ingredient->model()->index(row, column)).toString().simplified();
+                                      out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                                  }
+                              }
+                              out << "</tr>\n";
+                          }
+                          out <<  "</table>\n"
+                              "</body>\n"
+                              "</html>\n";
 
-        QString ligne=index.data(index.column()).toString();
+                          QTextDocument *document = new QTextDocument();
+                          document->setHtml(strStream);
 
+                          QPrinter printer;
 
-        ui->identifiant_I_modif->setText(ligne);
-        ui->identifiant_I_supp->setText(ligne);
-
-        int id_I= ui->identifiant_I_modif->text().toInt();
-
-
-    ingr1= I.tabview1(id_I); //nom
-    ingr2= I.tabview2(id_I); //quntite
-    ingr3= I.tabview3(id_I);//prix
-    ingr4= I.tabview4(id_I);//type
-    ingr5= I.tabview5(id_I);//image
-
-
-
-    ui->nom_I_modif->setText(ingr1);
-    ui->quantite_I_modif->setText(ingr2);
-    ui->prix_I_modif->setText(ingr3);
-    ui->type_I_modif->setText(ingr4);
-    ui->image_I_modif->setText(ingr5);
-
-    }
+                          QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+                          if (dialog->exec() == QDialog::Accepted) {
+                              document->print(&printer);
+                       }
 }
-

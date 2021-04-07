@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -40,7 +40,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -111,19 +111,6 @@
          <string>Type Produit :</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_6">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>260</y>
-          <width>91</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Image Produit :</string>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="identifiant_P">
         <property name="geometry">
          <rect>
@@ -169,16 +156,6 @@
          <rect>
           <x>200</x>
           <y>220</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="image_P">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>260</y>
           <width>113</width>
           <height>22</height>
          </rect>
@@ -321,19 +298,6 @@
          <string>Type Produit :</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_14">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>320</y>
-          <width>91</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Image Produit :</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_15">
         <property name="geometry">
          <rect>
@@ -392,16 +356,6 @@
          <rect>
           <x>190</x>
           <y>280</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="image_P_modif">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>320</y>
           <width>113</width>
           <height>22</height>
          </rect>
@@ -543,19 +497,6 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="exporter_P">
-      <property name="geometry">
-       <rect>
-        <x>500</x>
-        <y>440</y>
-        <width>101</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Exporter PDF</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="chercher_produit">
       <property name="geometry">
        <rect>
@@ -621,6 +562,19 @@
        <string>Exporter EXCEL</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="PDF_P">
+      <property name="geometry">
+       <rect>
+        <x>492</x>
+        <y>440</y>
+        <width>101</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Exporter PDF</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -636,7 +590,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
@@ -717,19 +671,6 @@
          <string>Type Ingredient : :</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_31">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>280</y>
-          <width>111</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Image Ingredient : :</string>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="nom_I">
         <property name="geometry">
          <rect>
@@ -765,16 +706,6 @@
          <rect>
           <x>220</x>
           <y>240</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="image_I">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>280</y>
           <width>113</width>
           <height>22</height>
          </rect>
@@ -930,19 +861,6 @@
          <string>Type Ingredient : :</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_38">
-        <property name="geometry">
-         <rect>
-          <x>100</x>
-          <y>310</y>
-          <width>111</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Image Ingredient : :</string>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="identifiant_I_modif">
         <property name="geometry">
          <rect>
@@ -988,16 +906,6 @@
          <rect>
           <x>230</x>
           <y>270</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="image_I_modif">
-        <property name="geometry">
-         <rect>
-          <x>230</x>
-          <y>310</y>
           <width>113</width>
           <height>22</height>
          </rect>
@@ -1139,19 +1047,6 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="exporter_I">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>430</y>
-        <width>111</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Exporter PDF</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="chercher_ingredient">
       <property name="geometry">
        <rect>
@@ -1215,6 +1110,19 @@
       </property>
       <property name="text">
        <string>Exporter EXCEL</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PDF_I">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>430</y>
+        <width>111</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Exporter PDF</string>
       </property>
      </widget>
     </widget>

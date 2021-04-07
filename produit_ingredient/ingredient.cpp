@@ -10,18 +10,16 @@ Ingredient::Ingredient()
     quantite_I=0;
     prix_I=0;
     type_I="";
-    image_I="";
 }
 
 
-Ingredient::Ingredient(int identifiant_I, QString nom_I, int quantite_I, float prix_I, QString type_I, QString image_I)
+Ingredient::Ingredient(int identifiant_I, QString nom_I, int quantite_I, float prix_I, QString type_I)
 {
     this->identifiant_I= identifiant_I;
     this->nom_I= nom_I;
     this->quantite_I= quantite_I;
     this->prix_I= prix_I;
     this->type_I= type_I;
-    this->image_I= image_I;
 }
 
 
@@ -30,14 +28,14 @@ QString Ingredient::getnom_I(){return nom_I;}
 int Ingredient::getquantite_I(){return quantite_I;}
 float Ingredient::getprix_I(){return prix_I;}
 QString Ingredient::gettype_I(){return type_I;}
-QString Ingredient::getimage_I(){return image_I;}
+
 
 void Ingredient::setidentifiant_I(int identifiant_I){this->identifiant_I= identifiant_I;}
 void Ingredient::setnom_I(QString nom_I){this->nom_I= nom_I;}
 void Ingredient::setquantite_I(int quantite_I){this->quantite_I= quantite_I;}
 void Ingredient::setprix_I(float prix_I){this->prix_I= prix_I;}
 void Ingredient::settype_I(QString type_I){this->type_I= type_I;}
-void Ingredient::setimage_I(QString image_I){this->image_I= image_I;}
+
 
 
 
@@ -49,14 +47,14 @@ bool Ingredient::ajouter_ingredient()
     QString prix_I_string= QString::number(prix_I);
     QSqlQuery query;
 
-        query.prepare("INSERT INTO Ingredient (identifiant_I, nom_I, quantite_I, prix_I, type_I, image_I)"
-                      "VALUES (:identifiant_I_string, :nom_I, :quantite_I_string, :prix_I_string, :type_I, :image_I)");
+        query.prepare("INSERT INTO Ingredient (identifiant_I, nom_I, quantite_I, prix_I, type_I)"
+                      "VALUES (:identifiant_I_string, :nom_I, :quantite_I_string, :prix_I_string, :type_I)");
         query.bindValue(0,identifiant_I_string);
         query.bindValue(1,nom_I);
         query.bindValue(2,quantite_I_string);
         query.bindValue(3,prix_I_string);
         query.bindValue(4,type_I);
-        query.bindValue(5,image_I);
+
 
         return query.exec();
 }
@@ -73,7 +71,7 @@ QSqlQueryModel* Ingredient::afficher_ingredient()
     model->setHeaderData(2,Qt::Horizontal, QObject::tr("quantite_I"));
     model->setHeaderData(3,Qt::Horizontal, QObject::tr("prix_I"));
     model->setHeaderData(4,Qt::Horizontal, QObject::tr("type_I"));
-    model->setHeaderData(5,Qt::Horizontal, QObject::tr("image_I"));
+
 
     return model;
 }
@@ -99,14 +97,14 @@ bool Ingredient::modifier_ingredient()
     QString prix_I_string= QString::number(prix_I);
     QSqlQuery query;
 
-    query.prepare("UPDATE Ingredient SET nom_I= :nom_I, quantite_I= :quantite_I_string, prix_I= :prix_I_string, type_I= :type_I, image_I= :image_I  WHERE  identifiant_I= :identifiant_I_string");
+    query.prepare("UPDATE Ingredient SET nom_I= :nom_I, quantite_I= :quantite_I_string, prix_I= :prix_I_string, type_I= :type_I  WHERE  identifiant_I= :identifiant_I_string");
 
     query.bindValue(":identifiant_I_string",identifiant_I_string);
     query.bindValue(":nom_I",nom_I);
     query.bindValue(":quantite_I_string",quantite_I_string);
     query.bindValue(":prix_I_string",prix_I_string);
     query.bindValue(":type_I",type_I);
-    query.bindValue(":image_I",image_I);
+
 
 return query.exec();
 }
@@ -126,7 +124,7 @@ QSqlQueryModel * Ingredient::trier_ingredient(int state)
             model->setHeaderData(2,Qt::Horizontal,QObject::tr("quantite_I"));
             model->setHeaderData(3,Qt::Horizontal,QObject::tr("prix_I"));
             model->setHeaderData(4,Qt::Horizontal,QObject::tr("type_I"));
-            model->setHeaderData(5,Qt::Horizontal,QObject::tr("image_I"));
+
 
     }
     if(state == 2)
@@ -137,7 +135,7 @@ QSqlQueryModel * Ingredient::trier_ingredient(int state)
             model->setHeaderData(2,Qt::Horizontal,QObject::tr("quantite_I"));
             model->setHeaderData(3,Qt::Horizontal,QObject::tr("prix_I"));
             model->setHeaderData(4,Qt::Horizontal,QObject::tr("type_I"));
-            model->setHeaderData(5,Qt::Horizontal,QObject::tr("image_I"));
+
 
     }
     if(state == 3)
@@ -148,7 +146,7 @@ QSqlQueryModel * Ingredient::trier_ingredient(int state)
             model->setHeaderData(2,Qt::Horizontal,QObject::tr("quantite_I"));
             model->setHeaderData(3,Qt::Horizontal,QObject::tr("prix_I"));
             model->setHeaderData(4,Qt::Horizontal,QObject::tr("type_I"));
-            model->setHeaderData(5,Qt::Horizontal,QObject::tr("image_I"));
+
 
 
     }
@@ -192,7 +190,7 @@ QSqlQueryModel * Ingredient::chercher_ingredient(int identifiant_I_rech, QString
     model->setHeaderData(2,Qt::Horizontal, QObject::tr("quantite_I"));
     model->setHeaderData(3,Qt::Horizontal, QObject::tr("prix_I"));
     model->setHeaderData(4,Qt::Horizontal, QObject::tr("type_I"));
-    model->setHeaderData(5,Qt::Horizontal, QObject::tr("image_I"));
+
 
     return model;
 
@@ -208,7 +206,7 @@ QString Ingredient:: tabview1(int id_I)
     QString b;
     QString c;
     QString d;
-    QString e;
+
 
     QString identifiant_I_string= QString::number(id_I);
 
@@ -222,7 +220,7 @@ QString Ingredient:: tabview1(int id_I)
         b=query.value(2).toString();
         c=query.value(3).toString();
         d=query.value(4).toString();
-        e=query.value(5).toString();
+
 
 
     }
@@ -238,11 +236,11 @@ QString Ingredient:: tabview2(int id_I)
     QString b;
     QString c;
     QString d;
-    QString e;
+
 
     QString identifiant_I_string= QString::number(id_I);
 
-    query.exec("SELECT * FROM  Produit WHERE identifiant_I ='"+identifiant_I_string+"'");
+    query.exec("SELECT * FROM  Ingredient WHERE identifiant_I ='"+identifiant_I_string+"'");
     query.bindValue(":identifiant_I_string",identifiant_I_string);
 
     while(query.next())
@@ -252,7 +250,7 @@ QString Ingredient:: tabview2(int id_I)
         b=query.value(2).toString();
         c=query.value(3).toString();
         d=query.value(4).toString();
-        e=query.value(5).toString();
+
 
 
     }
@@ -268,11 +266,11 @@ QString Ingredient:: tabview3(int id_I)
     QString b;
     QString c;
     QString d;
-    QString e;
+
 
     QString identifiant_I_string= QString::number(id_I);
 
-    query.exec("SELECT * FROM  Produit WHERE identifiant_I ='"+identifiant_I_string+"'");
+    query.exec("SELECT * FROM  Ingredient WHERE identifiant_I ='"+identifiant_I_string+"'");
     query.bindValue(":identifiant_I_string",identifiant_I_string);
 
     while(query.next())
@@ -282,7 +280,7 @@ QString Ingredient:: tabview3(int id_I)
         b=query.value(2).toString();
         c=query.value(3).toString();
         d=query.value(4).toString();
-        e=query.value(5).toString();
+
 
 
     }
@@ -298,7 +296,7 @@ QString Ingredient:: tabview4(int id_I)
     QString b;
     QString c;
     QString d;
-    QString e;
+
 
     QString identifiant_I_string= QString::number(id_I);
 
@@ -312,7 +310,7 @@ QString Ingredient:: tabview4(int id_I)
         b=query.value(2).toString();
         c=query.value(3).toString();
         d=query.value(4).toString();
-        e=query.value(5).toString();
+
 
 
     }
@@ -321,32 +319,4 @@ QString Ingredient:: tabview4(int id_I)
 
 }
 
-QString Ingredient:: tabview5(int id_I)
-{
-    QSqlQuery query;
-    QString a;
-    QString b;
-    QString c;
-    QString d;
-    QString e;
 
-    QString identifiant_I_string= QString::number(id_I);
-
-    query.exec("SELECT * FROM  Ingredient WHERE identifiant_I ='"+identifiant_I_string+"'");
-    query.bindValue(":identifiant_I_string",identifiant_I_string);
-
-    while(query.next())
-    {
-        query.value(0).toString();
-        a=query.value(1).toString();
-        b=query.value(2).toString();
-        c=query.value(3).toString();
-        d=query.value(4).toString();
-        e=query.value(5).toString();
-
-
-    }
-
-    return e;
-
-}
