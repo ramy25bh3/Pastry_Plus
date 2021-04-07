@@ -492,50 +492,72 @@ if(conf1=="")
       {
        if(ui->checkBox->isChecked())
        {
+
+
+          /* QPixmap logo;
+                   logo.load("D:/QT/Awork/produit_ingredient_1/pastry_plus.png");
+                   logo.scaled(logo.width()4, logo.height()4);
+
+                  QString pdf_name= "file_ach_"+id_ima+".pdf";
+                   QPdfWriter pdf(pdf_name);
+                   QPainter painter(&pdf);
+                   painter.drawPixmap(3000,0,logo.width()4,logo.height()4,logo);*/
+
+
            QPixmap logo;
-           logo.load("ifactory-logo");
+           logo.load("C:/Users/ALPHA/Desktop/qt_projets/pastry.png");
            logo.scaled(logo.width()*10,logo.height()*10);
 
            QString pdf_name= "file_ach_"+id_ima+".pdf";
            QPdfWriter pdf(pdf_name);
            QPainter painter(&pdf);
-           painter.drawPixmap(3000,0,logo.width()*20,logo.height()*20,logo);
+           painter.drawPixmap(7100,0,logo.width()*3,logo.height()*3,logo);
 
 
+
+
+           painter.setPen(Qt::red);
+           painter.drawText(100,1200,"votre info : ");
+
            painter.setPen(Qt::blue);
-           painter.drawText(100,2000,"votre info : ");
-           painter.drawText(100,2300," id_achats : ");
+           painter.drawText(100,1700," id_achats : ");
            painter.setPen(Qt::black);
-           painter.drawText(2000,2300,id_ima);
+           painter.drawText(1500,1700,id_ima);
+
            painter.setPen(Qt::blue);
-           painter.drawText(100,2600,"id_employe : ");
+           painter.drawText(100,2200,"id_employe : ");
            painter.setPen(Qt::black);
-           painter.drawText(2000,2600,id_ime);
+           painter.drawText(1500,2200,id_ime);
+
            painter.setPen(Qt::blue);
-           painter.drawText(100,2900,"nom client : ");
+           painter.drawText(100,2700,"nom client : ");
            painter.setPen(Qt::black);
-           painter.drawText(2000,2900,nom_c1);
+           painter.drawText(1500,2700,nom_c1);
+
            painter.setPen(Qt::blue);
            painter.drawText(100,3200,"prenom client : ");
            painter.setPen(Qt::black);
-           painter.drawText(2000,3200,prenom_c1);
-           painter.setPen(Qt::blue);
-           painter.drawText(100,3500,"date achat : ");
-           painter.setPen(Qt::black);
-           painter.drawText(2000,3500,dw);
-           painter.setPen(Qt::blue);
-           painter.drawText(100,3800,"produit : ");
-           painter.setPen(Qt::black);
-           painter.drawText(2000,3800,produit1);
-           painter.setPen(Qt::blue);
-           painter.drawText(100,4100,"quantite : ");
-           painter.setPen(Qt::black);
-           painter.drawText(2000,4100,quantite_im);
+           painter.drawText(1500,3200,prenom_c1);
 
            painter.setPen(Qt::blue);
-           painter.drawText(100,4100,"confirmation : ");
+           painter.drawText(100,3700,"date achat : ");
            painter.setPen(Qt::black);
-           painter.drawText(2000,4100,conf1);
+           painter.drawText(1500,3700,dw);
+
+           painter.setPen(Qt::blue);
+           painter.drawText(100,4200,"produit : ");
+           painter.setPen(Qt::black);
+           painter.drawText(1500,4200,produit1);
+
+           painter.setPen(Qt::blue);
+           painter.drawText(100,4700,"quantite : ");
+           painter.setPen(Qt::black);
+           painter.drawText(1500,4700,quantite_im);
+
+           painter.setPen(Qt::blue);
+           painter.drawText(100,5200,"confirmation : ");
+           painter.setPen(Qt::black);
+           painter.drawText(1500,5200,conf1);
 
 
 
@@ -875,7 +897,7 @@ void Clients_Achats::on_pushButton_11_clicked()
 
 void Clients_Achats::on_pushButton_6_clicked()
 {
-    Smtp* smtp = new Smtp("ahmed.missaoui1@esprit.tn",ui->mail_pass->text(), "smtp.gmail.com");
+    Smtp* smtp = new Smtp("ahmed.missaoui1@esprit.tn",ui->mail_pass_2->text(), "smtp.gmail.com");
       connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 
       if( !files.isEmpty() )
