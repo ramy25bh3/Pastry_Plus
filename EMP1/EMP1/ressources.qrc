@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>images/fond-boulangerie-dessine-main_23-2148136973.jpg</file>
+    </qresource>
+</RCC>
