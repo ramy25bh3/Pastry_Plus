@@ -58,6 +58,7 @@ private slots:
 
     void on_rech_bouton_2_returnPressed();
 
+
 private:
     Ui::MainWindow *ui;
     fournisseur f;
