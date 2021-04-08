@@ -73,7 +73,7 @@ void Produit_ingredient::on_ajouter_produit_clicked()
     QString nom_P= ui->nom_P->text();
     int quantite_P= ui->quantite_P->text().toInt();
     float prix_P= ui->prix_P->text().toInt();
-    QString type_P= ui->type_P->text();
+    QString type_P= ui->type_P->currentText();
 
 
     Produit P(identifiant_P, nom_P, quantite_P, prix_P, type_P);
@@ -188,7 +188,7 @@ void Produit_ingredient::on_ajouter_ingredient_clicked()
     QString nom_I= ui->nom_I->text();
     int quantite_I= ui->quantite_I->text().toInt();
     float prix_I= ui->prix_I->text().toInt();
-    QString type_I= ui->type_I->text();
+    QString type_I= ui->type_I->currentText();
 
 
     Ingredient I(identifiant_I, nom_I, quantite_I, prix_I, type_I);
@@ -578,9 +578,9 @@ void Produit_ingredient::on_PDF_P_clicked()
                            "<meta Content=\"Text/html; charset=Windows-1251\">\n"
                            <<  QString("<title>%1</title>\n").arg("eleve")
                            <<  "</head>\n"
-                           "<body bgcolor=#F4B8B8 link=#5000A0>\n"
+                           "<body bgcolor=#b8f4ce link=#5000A0>\n"
                               // "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='20' height='20'>\n"
-                               "<img src='D:/QT/Awork/produit_ingredient_1/pastry_plus.png' width='100' height='100'>\n"
+                               "<img src='D:/QT/Awork/produit_ingredient_1/pastry_plus.png' width='220' height='200'>\n"
                                "<h1>   Liste des Produits </h1>"
                                 "<h1>  </h1>"
 
@@ -617,6 +617,10 @@ void Produit_ingredient::on_PDF_P_clicked()
                           if (dialog->exec() == QDialog::Accepted) {
                               document->print(&printer);
                        }
+
+                          QMessageBox::information(nullptr, QObject::tr("pdf  "),
+                                      QObject::tr("Exportation PDF terminer"), QMessageBox::Accepted);
+
 }
 
 
@@ -636,9 +640,9 @@ void Produit_ingredient::on_PDF_I_clicked()
                            "<meta Content=\"Text/html; charset=Windows-1251\">\n"
                            <<  QString("<title>%1</title>\n").arg("eleve")
                            <<  "</head>\n"
-                           "<body bgcolor=#F4B8B8 link=#5000A0>\n"
+                           "<body bgcolor=#b8f4ce link=#5000A0>\n"
                               // "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='20' height='20'>\n"
-                               "<img src='D:/QT/Awork/produit_ingredient_1/pastry_plus.png' width='100' height='100'>\n"
+                               "<img src='D:/QT/Awork/produit_ingredient_1/pastry_plus.png' width='220' height='200'>\n"
                                "<h1>   Liste des Ingredients </h1>"
                                 "<h1>  </h1>"
 
@@ -675,4 +679,8 @@ void Produit_ingredient::on_PDF_I_clicked()
                           if (dialog->exec() == QDialog::Accepted) {
                               document->print(&printer);
                        }
+
+                          QMessageBox::information(nullptr, QObject::tr("pdf  "),
+                                      QObject::tr("Exportation PDF terminer"), QMessageBox::Accepted);
+
 }

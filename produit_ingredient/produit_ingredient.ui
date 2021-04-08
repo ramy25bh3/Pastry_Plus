@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -151,16 +151,6 @@
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="type_P">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>220</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QPushButton" name="ajouter_produit">
         <property name="geometry">
          <rect>
@@ -170,9 +160,63 @@
           <height>28</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(170, 85, 0);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(0, 170, 127);
+color: rgb(255, 230, 250);
+
+
+}</string>
+        </property>
         <property name="text">
          <string>Ajouter</string>
         </property>
+       </widget>
+       <widget class="QComboBox" name="type_P">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>220</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Select</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>gateau</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>patee</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>salee</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string/>
+         </property>
+        </item>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_5">
@@ -210,6 +254,25 @@
           <width>111</width>
           <height>28</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(170, 85, 0);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(0, 170, 127);
+color: rgb(255, 230, 250);
+
+
+}</string>
         </property>
         <property name="text">
          <string>Supprimer</string>
@@ -370,6 +433,26 @@
           <height>28</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(170, 85, 0);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(0, 170, 127);
+color: rgb(255, 230, 250);
+
+
+}
+</string>
+        </property>
         <property name="text">
          <string>Modifier</string>
         </property>
@@ -460,6 +543,16 @@
         <height>22</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+
+border: 1.5px solid rgb(85, 0, 127);
+border-radius: 10px;
+color:#ffffff;
+background:rgb(255, 85, 0);
+
+}</string>
+      </property>
      </widget>
      <widget class="QLabel" name="label_18">
       <property name="geometry">
@@ -496,6 +589,16 @@
         <height>22</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+
+border: 1.5px solid rgb(85, 0, 127);
+border-radius: 10px;
+color:#ffffff;
+background:rgb(255, 85, 0);
+
+}</string>
+      </property>
      </widget>
      <widget class="QPushButton" name="chercher_produit">
       <property name="geometry">
@@ -505,6 +608,25 @@
         <width>71</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(255, 85, 0);
+color: rgb(255, 230, 250);
+
+
+}</string>
       </property>
       <property name="text">
        <string>Chercher</string>
@@ -518,6 +640,25 @@
         <width>71</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(255, 85, 0);
+color: rgb(255, 230, 250);
+
+
+}</string>
       </property>
       <property name="text">
        <string>Trier</string>
@@ -545,6 +686,25 @@
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(255, 85, 0);
+color: rgb(255, 230, 250);
+
+
+}</string>
+      </property>
       <property name="text">
        <string>Statistique</string>
       </property>
@@ -558,6 +718,25 @@
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(255, 85, 0);
+color: rgb(255, 230, 250);
+
+
+}</string>
+      </property>
       <property name="text">
        <string>Exporter EXCEL</string>
       </property>
@@ -567,9 +746,28 @@
        <rect>
         <x>492</x>
         <y>440</y>
-        <width>101</width>
+        <width>111</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(255, 85, 0);
+color: rgb(255, 230, 250);
+
+
+}</string>
       </property>
       <property name="text">
        <string>Exporter PDF</string>
@@ -701,16 +899,6 @@
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="type_I">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>240</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QPushButton" name="ajouter_ingredient">
         <property name="geometry">
          <rect>
@@ -720,9 +908,58 @@
           <height>28</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(170, 85, 0);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(0, 170, 127);
+color: rgb(255, 230, 250);
+
+
+}</string>
+        </property>
         <property name="text">
          <string>Ajouter</string>
         </property>
+       </widget>
+       <widget class="QComboBox" name="type_I">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>240</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Select</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>beuf</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>poulet</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>vegetarian</string>
+         </property>
+        </item>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_9">
@@ -773,6 +1010,25 @@
           <width>111</width>
           <height>28</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(170, 85, 0);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(0, 170, 127);
+color: rgb(255, 230, 250);
+
+
+}</string>
         </property>
         <property name="text">
          <string>Supprimer</string>
@@ -920,6 +1176,25 @@
           <height>28</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(170, 85, 0);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(0, 170, 127);
+color: rgb(255, 230, 250);
+
+
+}</string>
+        </property>
         <property name="text">
          <string>Modifier</string>
         </property>
@@ -1036,6 +1311,16 @@
         <height>22</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+
+border: 1.5px solid rgb(85, 0, 127);
+border-radius: 10px;
+color:#ffffff;
+background:rgb(255, 85, 0);
+
+}</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="type_I_rech">
       <property name="geometry">
@@ -1046,6 +1331,16 @@
         <height>22</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+
+border: 1.5px solid rgb(85, 0, 127);
+border-radius: 10px;
+color:#ffffff;
+background:rgb(255, 85, 0);
+
+}</string>
+      </property>
      </widget>
      <widget class="QPushButton" name="chercher_ingredient">
       <property name="geometry">
@@ -1055,6 +1350,25 @@
         <width>71</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(255, 85, 0);
+color: rgb(255, 230, 250);
+
+
+}</string>
       </property>
       <property name="text">
        <string>Chercher</string>
@@ -1068,6 +1382,25 @@
         <width>71</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(255, 85, 0);
+color: rgb(255, 230, 250);
+
+
+}</string>
       </property>
       <property name="text">
        <string>Trier</string>
@@ -1095,6 +1428,25 @@
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(255, 85, 0);
+color: rgb(255, 230, 250);
+
+
+}</string>
+      </property>
       <property name="text">
        <string>Statistiques</string>
       </property>
@@ -1108,6 +1460,25 @@
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(255, 85, 0);
+color: rgb(255, 230, 250);
+
+
+}</string>
+      </property>
       <property name="text">
        <string>Exporter EXCEL</string>
       </property>
@@ -1120,6 +1491,25 @@
         <width>111</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+border-radius: 12px;
+background-color:rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+
+
+}
+
+QPushButton:hover
+{
+
+background-color:rgb(255, 85, 0);
+color: rgb(255, 230, 250);
+
+
+}</string>
       </property>
       <property name="text">
        <string>Exporter PDF</string>
