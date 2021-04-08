@@ -6,6 +6,7 @@
 #include <QDate>
 #include <QSqlQueryModel>
 #include <vector>
+#include <QDebug>
 
 fournisseur::fournisseur()
 {
@@ -15,11 +16,11 @@ fournisseur::fournisseur()
    tel_f=0;
     email_f="";
     specialite_f="";
-    adresse_f="";
+    adresse_add_f="";
 
 }
 
-fournisseur::fournisseur(int id_f, QString nom_soc, int tel_f, QString email_f, QDateTime date_add_f, QString specialite_f, QString adresse_f)
+fournisseur::fournisseur(int id_f, QString nom_soc, int tel_f, QString email_f, QDateTime date_add_f, QString specialite_f, QString adresse_add_f)
 {
 
     this->id_f=id_f;
@@ -28,7 +29,7 @@ fournisseur::fournisseur(int id_f, QString nom_soc, int tel_f, QString email_f, 
     this->email_f=email_f;
     this->date_add_f=date_add_f;
     this->specialite_f=specialite_f;
-    this->adresse_f=adresse_f;
+    this->adresse_add_f=adresse_add_f;
 
 }
 
@@ -50,7 +51,7 @@ query.bindValue(":tel_f",ress);
 query.bindValue(":email_f",email_f);
 query.bindValue(":date_add_f",date_add_f);
 query.bindValue(":specialite_f",specialite_f);
-query.bindValue(":adresse_f",adresse_f);
+query.bindValue(":adresse_add_f",adresse_add_f);
 
 
 return query.exec();
@@ -73,12 +74,13 @@ QSqlQueryModel * fournisseur::afficher()
 }
 
 
-  bool fournisseur::modifier_fournisseur(int,QString,int,QString,QDateTime,QString,QString)
+  bool fournisseur::modifier_fournisseur()
   {
+      //qDebug()<<"is working";
 
       QSqlQuery query;
 
-      query.prepare("update FOURNISSEURS set id_f=:id_f,nom_soc=:nom_soc,tel_f=:tel_f,email_f=:email_f,date_add_f=:date_add_f,specialite_f=:specialite_f,adresse_add_f=:adresse_f where id_f=:id_f");
+      query.prepare("update FOURNISSEURS set nom_soc=:nom_soc,tel_f=:tel_f,email_f=:email_f,date_add_f=:date_add_f,specialite_f=:specialite_f,adresse_add_f=:adresse_add_f where id_f=:id_f");
 
       QString res = QString::number(id_f);
       QString ress = QString::number(tel_f);
@@ -89,10 +91,11 @@ QSqlQueryModel * fournisseur::afficher()
       query.bindValue(":email_f",email_f);
       query.bindValue(":date_add_f",date_add_f);
       query.bindValue(":specialite_f",specialite_f);
-      query.bindValue(":adresse_add_f",adresse_f);
+      query.bindValue(":adresse_add_f",adresse_add_f);
+      //qDebug()<<"is done";
+      //qDebug()<<res+nom_soc+ress+date_add_f.toString();
 
       return query.exec();
-
   }
 
 

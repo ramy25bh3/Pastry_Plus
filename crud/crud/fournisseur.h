@@ -22,12 +22,12 @@ public:
      int getId(){return id_f;}
      int getTel(){return tel_f;}
      QString getNom(){return nom_soc;}
-     QString getAdresse(){return adresse_f;}
+     QString getAdresse(){return adresse_add_f;}
      QString getEmail(){return email_f;}
 
      QSqlQueryModel * afficher();
      bool supp_fournisseur(int);
-     bool modifier_fournisseur(int,QString,int,QString,QDateTime,QString,QString);
+     bool modifier_fournisseur();
      QSqlQueryModel * rechercher (QString);
      QSqlQueryModel * trier_id();
      QSqlQueryModel * trier_nom_soc();
@@ -40,7 +40,7 @@ private:
     QString email_f;
     QDateTime date_add_f;
     QString specialite_f;
-    QString adresse_f;
+    QString adresse_add_f;
 
 };
 

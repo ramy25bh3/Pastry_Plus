@@ -12,6 +12,15 @@ int main(int argc, char *argv[])
     bool test;
         test=C.createConnection();
     MainWindow w;
+
+    QFile file(":/Darkeum.qss");
+            file.open(QFile::ReadOnly);
+
+            QString styleSheet { QLatin1String(file.readAll()) };
+
+            //setup stylesheet
+            a.setStyleSheet(styleSheet);
+
  if(test)
    //  qDebug() <<"La connexion reussie";
      QMessageBox::information(nullptr,QObject::tr("database is  open"),QObject::tr("La connexion est reussie\n"

@@ -1,4 +1,5 @@
 QT       += core gui sql
+QT       += core network
 CONFIG += console
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
@@ -18,13 +19,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    comm_achats.cpp \
     connexion.cpp \
+    exportexcelobject.cpp \
     fournisseur.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    comm_achats.h \
     connexion.h \
+    exportexcelobject.h \
     fournisseur.h \
     mainwindow.h
 
@@ -40,3 +45,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Ressources.qrc
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/build-SMTPEmail-Desktop_Qt_5_9_9_MinGW_32bit-Debug/release/ -lSMTPEmail
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/build-SMTPEmail-Desktop_Qt_5_9_9_MinGW_32bit-Debug/debug/ -lSMTPEmail
+else:unix: LIBS += -L$$PWD/build-SMTPEmail-Desktop_Qt_5_9_9_MinGW_32bit-Debug/ -lSMTPEmail
+
+INCLUDEPATH += $$PWD/build-SMTPEmail-Desktop_Qt_5_9_9_MinGW_32bit-Debug/debug
+DEPENDPATH += $$PWD/build-SMTPEmail-Desktop_Qt_5_9_9_MinGW_32bit-Debug/debug
