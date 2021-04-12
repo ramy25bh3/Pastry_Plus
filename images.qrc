@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/tsawer">
+        <file>moin.png</file>
+        <file>plus.png</file>
+        <file>moinhamra.png</file>
+        <file>plushamra.png</file>
+    </qresource>
+</RCC>

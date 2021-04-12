@@ -1,21 +1,22 @@
-#include "gestion_evenement.h"
-#include "ui_gestion_evenement.h"
+#include "gestion_eventicket.h"
+#include "ui_gestion_eventicket.h"
+
 #include "QPrintDialog"
 
-gestion_evenement::gestion_evenement(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::gestion_evenement)
+gestion_eventicket::gestion_eventicket(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::gestion_eventicket)
 {
     ui->setupUi(this);
     show_tables();
 }
 
-gestion_evenement::~gestion_evenement()
+gestion_eventicket::~gestion_eventicket()
 {
     delete ui;
 }
 
-void gestion_evenement::show_tables()
+void gestion_eventicket::show_tables()
 {
     show_evenement();
     show_ticket();
@@ -25,7 +26,7 @@ void gestion_evenement::show_tables()
 //************************ crud
 
 //ajout
-void gestion_evenement::on_actionadd_evenement_triggered()
+void gestion_eventicket::on_actionadd_evenement_triggered()
 {
     //creation instance
         add_evenement ac(this);
@@ -51,13 +52,13 @@ void gestion_evenement::on_actionadd_evenement_triggered()
 }
 
 //selection
-void gestion_evenement::on_table_evenement_clicked(const QModelIndex &index)
+void gestion_eventicket::on_table_evenement_clicked(const QModelIndex &index)
 {
     selected_evenement=ui->table_evenement->model()->data(index).toString();
 }
 
 //modification
-void gestion_evenement::on_table_evenement_doubleClicked(const QModelIndex &index)
+void gestion_eventicket::on_table_evenement_doubleClicked(const QModelIndex &index)
 {
     add_evenement ac(this);
 
@@ -81,7 +82,7 @@ void gestion_evenement::on_table_evenement_doubleClicked(const QModelIndex &inde
 }
 
 //suppression
-void gestion_evenement::on_actiondelete_evenement_triggered()
+void gestion_eventicket::on_actiondelete_evenement_triggered()
 {
     evenement mc;
   mc.supprimer(selected_evenement);
@@ -91,7 +92,7 @@ void gestion_evenement::on_actiondelete_evenement_triggered()
 }
 
 //affichage
-void gestion_evenement::show_evenement()
+void gestion_eventicket::show_evenement()
 {
     //creation model (masque du tableau) : permet recherche et tri
         proxy_evenement = new QSortFilterProxyModel();
@@ -111,12 +112,12 @@ void gestion_evenement::show_evenement()
 
 
 //recherche dynamique
-void gestion_evenement::on_evenement_sel_col_currentIndexChanged(const QString &arg1)
+void gestion_eventicket::on_evenement_sel_col_currentIndexChanged(const QString &arg1)
 {
     sel_col_evenement=ui->evenement_sel_col->currentIndex()-1;
     proxy_evenement->setFilterKeyColumn(sel_col_evenement); // chercher dans tout le tableau (-1) ou donner le numero de la colone
 }
-void gestion_evenement::on_rech_evenement_textChanged(const QString &arg1)
+void gestion_eventicket::on_rech_evenement_textChanged(const QString &arg1)
 {
     proxy_evenement->setFilterFixedString(arg1);
 }
@@ -127,7 +128,7 @@ void gestion_evenement::on_rech_evenement_textChanged(const QString &arg1)
 //************************ crud
 
 //ajout
-void gestion_evenement::on_actionadd_ticket_triggered()
+void gestion_eventicket::on_actionadd_ticket_triggered()
 {
     //creation instance
         add_ticket ac(this);
@@ -156,13 +157,13 @@ void gestion_evenement::on_actionadd_ticket_triggered()
 
 
 //selection
-void gestion_evenement::on_table_ticket_clicked(const QModelIndex &index)
+void gestion_eventicket::on_table_ticket_clicked(const QModelIndex &index)
 {
     selected_ticket=ui->table_ticket->model()->data(index).toString();
 }
 
 //modification
-void gestion_evenement::on_table_ticket_doubleClicked(const QModelIndex &index)
+void gestion_eventicket::on_table_ticket_doubleClicked(const QModelIndex &index)
 {
     add_ticket ac(this);
 
@@ -188,7 +189,7 @@ void gestion_evenement::on_table_ticket_doubleClicked(const QModelIndex &index)
 
 
 //suppression
-void gestion_evenement::on_actiondelete_ticket_triggered()
+void gestion_eventicket::on_actiondelete_ticket_triggered()
 {
     ticket mc;
   mc.supprimer(selected_ticket);
@@ -198,7 +199,7 @@ void gestion_evenement::on_actiondelete_ticket_triggered()
 }
 
 //affichage
-void gestion_evenement::show_ticket()
+void gestion_eventicket::show_ticket()
 {
     //creation model (masque du tableau) : permet recherche et tri
         proxy_ticket = new QSortFilterProxyModel();
@@ -217,19 +218,19 @@ void gestion_evenement::show_ticket()
 //************************ metiers
 
 //recherche dynamique
-void gestion_evenement::on_ticket_sel_col_currentIndexChanged(const QString &arg1)
+void gestion_eventicket::on_ticket_sel_col_currentIndexChanged(const QString &arg1)
 {
     sel_col_ticket=ui->ticket_sel_col->currentIndex()-1;
     proxy_ticket->setFilterKeyColumn(sel_col_ticket); // chercher dans tout le tableau (-1) ou donner le numero de la colone
 
 }
-void gestion_evenement::on_rech_ticket_textChanged(const QString &arg1)
+void gestion_eventicket::on_rech_ticket_textChanged(const QString &arg1)
 {
     proxy_ticket->setFilterFixedString(arg1);
 }
 
 //imprimer
-void gestion_evenement::on_pushButton_2_clicked()
+void gestion_eventicket::on_pushButton_2_clicked()
 {
         QString strStream;
         QTextStream out(&strStream);

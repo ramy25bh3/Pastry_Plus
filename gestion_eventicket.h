@@ -1,5 +1,5 @@
-#ifndef GESTION_EVENEMENT_H
-#define GESTION_EVENEMENT_H
+#ifndef GESTION_EVENTICKET_H
+#define GESTION_EVENTICKET_H
 
 #include <QMainWindow>
 #include <QSortFilterProxyModel>
@@ -23,16 +23,16 @@
 
 
 namespace Ui {
-class gestion_evenement;
+class gestion_eventicket;
 }
 
-class gestion_evenement : public QDialog
+class gestion_eventicket : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit gestion_evenement(QWidget *parent = nullptr);
-    ~gestion_evenement();
+    explicit gestion_eventicket(QWidget *parent = nullptr);
+    ~gestion_eventicket();
 
 
     evenement tmp_evenement;
@@ -73,10 +73,12 @@ private slots:
 
 
 
+    void on_actionadd_evenement_clicked();
+
 private:
-    Ui::gestion_evenement *ui;
+    Ui::gestion_eventicket *ui;
     QString selected_evenement="",selected_ticket="";
     int sel_col_evenement=-1,sel_col_ticket=-1;
 };
 
-#endif // GESTION_EVENEMENT_H
+#endif // GESTION_EVENTICKET_H
