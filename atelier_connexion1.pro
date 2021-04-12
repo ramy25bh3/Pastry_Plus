@@ -1,5 +1,4 @@
-QT       += core gui sql
-CONFIG += console
+QT       += core gui sql printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,20 +16,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    add_evenement.cpp \
+    add_ticket.cpp \
     connexion.cpp \
     evenement.cpp \
     eventicket.cpp \
-    main.cpp
+    gestion_evenement.cpp \
+    main.cpp \
+    ticket.cpp
 
 HEADERS += \
+    add_evenement.h \
+    add_ticket.h \
     connexion.h \
     evenement.h \
-    eventicket.h
+    eventicket.h \
+    gestion_evenement.h \
+    ticket.h
 
 FORMS += \
-    eventicket.ui
+    add_evenement.ui \
+    add_ticket.ui \
+    eventicket.ui \
+    gestion_evenement.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    tsawer.qrc

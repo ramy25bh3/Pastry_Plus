@@ -4,43 +4,33 @@
 #include <QDialog>
 #include "evenement.h"
 
+QT_BEGIN_NAMESPACE
 namespace Ui {
 class eventicket;
 }
+QT_END_NAMESPACE
 
 class eventicket : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit eventicket(QWidget *parent = nullptr);
+     eventicket(QWidget *parent = nullptr);
     ~eventicket();
-    void refreshw();
+
 
 private slots:
 
-
-//********** evenement ***********
-
-    void on_supprimer_botton_clicked();
-
-    void on_modifier_botton_clicked();
-
-    void on_ajouter_botton_clicked();
-
-    void on_afficher_botton_clicked();
-
-
-//********** ticket ***********
+ void on_pushButton_clicked();
 
 
 
 
-//********** metiers ***********
+
 
 private:
     Ui::eventicket *ui;
-    evenement E;
+
 };
 
 #endif // EVENTICKET_H
