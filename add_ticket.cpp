@@ -26,19 +26,19 @@ void add_ticket::on_buttonBox_rejected()
 
 //get form content
 
-QString add_ticket::prix() const{ //float
+QString add_ticket::prix() const{
 
     return ui->prix->text();
 }
 
-QString add_ticket::type() const { //combo box
+QString add_ticket::type() const {
 
     return ui->type->currentText();
 }
 
-QString add_ticket::date() const { //time
+QString add_ticket::date_t() const {
 
-    return ui->date->date().toString("dd.MM.yyyy");
+    return ui->date_t->date().toString("dd.MM.yyyy");
 }
 
 QString add_ticket::heure() const { //time
@@ -64,7 +64,7 @@ void add_ticket::fill_form(QString selected ) {
     while(query.next()){
    ui->id->setText(query.value(0).toString()); //line edit
    ui->heure->setTime(QTime::fromString(query.value(2).toString(),"hh:mm"));//time
-   ui->date->setDate(QDate::fromString(query.value(2).toString(),"dd.MM.yyyy"));//date
+   ui->date_t->setDate(QDate::fromString(query.value(2).toString(),"dd.MM.yyyy"));//date_t
    ui->type->setCurrentText(query.value(3).toString()); // reel
    ui->prix->setText(query.value(4).toString()); //combobox
 

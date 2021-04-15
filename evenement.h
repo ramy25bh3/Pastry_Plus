@@ -18,7 +18,7 @@ public:
       QSqlQueryModel * afficher();
        bool supprimer(QString);
 
-      QString nom, produit, lieu,date,id;
+      QString nom, produit, lieu,date_e,id;
 
 
 

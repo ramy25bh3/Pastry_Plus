@@ -18,7 +18,7 @@ public:
       bool supprimer(QString);
 
 
-      QString id,type,prix,heure,date;
+      QString id,type,prix,heure,date_t;
 
 
 };

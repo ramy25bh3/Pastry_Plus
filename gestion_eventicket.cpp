@@ -21,7 +21,7 @@ void gestion_eventicket::show_tables()
     show_evenement();
     show_ticket();
 }
-/*********************************** equipement ****************************/
+/*********************************** evenement ****************************/
 
 //************************ crud
 
@@ -39,7 +39,7 @@ void gestion_eventicket::on_actionadd_evenement_triggered()
       //recuperation des donnees
         QString s1=ac.id();
         QString s2=ac.nom();
-        QString s3=ac.date();
+        QString s3=ac.date_e();
         QString s4=ac.produit();
         QString x=ac.lieu();
 
@@ -51,7 +51,7 @@ void gestion_eventicket::on_actionadd_evenement_triggered()
           show_evenement();
 }
 
-//selection
+                                                                                                                                                                          //sel
 void gestion_eventicket::on_table_evenement_clicked(const QModelIndex &index)
 {
     selected_evenement=ui->table_evenement->model()->data(index).toString();
@@ -68,7 +68,7 @@ void gestion_eventicket::on_table_evenement_doubleClicked(const QModelIndex &ind
     return;
   //recuperation des donnees
   QString s2=ac.nom();
-  QString s3=ac.date();
+  QString s3=ac.date_e();
   QString s4=ac.produit();
   QString x=ac.lieu();
 
@@ -144,7 +144,7 @@ void gestion_eventicket::on_actionadd_ticket_triggered()
         QString s2=ac.type();
         QString s3=ac.prix();
         QString s4=ac.heure();
-        QString x=ac.date();
+        QString x=ac.date_t();
 
 
         //ajout
@@ -176,7 +176,7 @@ void gestion_eventicket::on_table_ticket_doubleClicked(const QModelIndex &index)
   QString s2=ac.type();
   QString s3=ac.prix();
   QString s4=ac.heure();
- QString x=ac.date();
+ QString x=ac.date_t();
 
     //mofication
     ticket mc(selected_ticket,s2,s3,x,s4);
@@ -229,7 +229,7 @@ void gestion_eventicket::on_rech_ticket_textChanged(const QString &arg1)
     proxy_ticket->setFilterFixedString(arg1);
 }
 
-//imprimer
+//     imprimer
 void gestion_eventicket::on_pushButton_2_clicked()
 {
         QString strStream;
@@ -280,3 +280,4 @@ void gestion_eventicket::on_pushButton_2_clicked()
 
         delete document;
 }
+

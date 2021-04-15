@@ -39,9 +39,9 @@ QString add_evenement::lieu() const { //combo box
 }
 
 
-QString add_evenement::date() const { //time
+QString add_evenement::date_e() const { //time
 
-    return ui->date->date().toString("dd.MM.yyyy");
+    return ui->date_e->date().toString("dd.MM.yyyy");
 }
 QString add_evenement::nom() const { //line edit
 
@@ -66,7 +66,7 @@ void add_evenement::fill_form(QString selected ) {
     while(query.next()){
    ui->id->setText(query.value(0).toString()); //line edit
    ui->nom->setText(query.value(1).toString()); //line edit
-   ui->date->setDate(QDate::fromString(query.value(2).toString(),"dd.MM.yyyy"));//date
+   ui->date_e->setDate(QDate::fromString(query.value(2).toString(),"dd.MM.yyyy"));//date_e
    ui->lieu->setCurrentText(query.value(3).toString()); // reel
    ui->produit->setText(query.value(4).toString()); //combobox
 

@@ -19,7 +19,7 @@ public:
 
     QString produit() const;
     QString lieu() const;
-    QString date() const;
+    QString date_e() const;
     QString nom() const;
     QString id() const ;
 

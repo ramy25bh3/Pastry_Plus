@@ -18,7 +18,7 @@ public:
     ~add_ticket();
 
 
-    QString date() const;
+    QString date_t() const;
     QString heure() const;
     QString prix() const;
     QString type() const;

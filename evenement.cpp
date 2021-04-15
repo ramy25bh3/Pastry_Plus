@@ -10,7 +10,7 @@ evenement::evenement(QString s1,QString s2,QString s3,QString x,QString s4){
 
     id=s1;
     nom=s2;
-    date=s3;
+    date_e=s3;
     produit=x;
     lieu=s4;
 
@@ -23,14 +23,15 @@ bool evenement::ajouter(){
     QSqlQuery query;
 
 
-    query.prepare("INSERT INTO EVENEMENT VALUES (:id,:nom,:date,:prix,:etat)");
+    query.prepare("INSERT INTO EVENEMENT VALUES (:id,:nom,:date_e,:lieu,:produit)");
 
     query.bindValue(":id", id);
 
     query.bindValue(":nom",nom);
-    query.bindValue(":date",date);
+    query.bindValue(":date_e",date_e);
+     query.bindValue(":lieu",lieu);
     query.bindValue(":produit",produit);
-    query.bindValue(":lieu",lieu);
+
 
     return    query.exec();
 
@@ -41,14 +42,15 @@ bool evenement::modifier(QString selected){
     QSqlQuery query;
 
 
-    query.prepare(" UPDATE EVENEMENT SET  NOM=:nom, DATE_ACHAT=:date, PRIX=:prix ,ETAT=:etat"
+    query.prepare(" UPDATE EVENEMENT SET  NOM=:nom, DATE_E=:date_e, LIEU=:lieu ,PRODUIT=:produit"
                   " where ID= :id");
     query.bindValue(":id", selected);
 
     query.bindValue(":nom",nom);
-    query.bindValue(":date",date);
+    query.bindValue(":date_e",date_e);
+     query.bindValue(":lieu",lieu);
     query.bindValue(":produit",produit);
-    query.bindValue(":lieu",lieu);
+
 
     return    query.exec();
 

@@ -30,7 +30,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -111,22 +111,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Nom</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Date Achat</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Prix</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Etat</string>
+        <string>NOM</string>
        </property>
       </item>
      </widget>
@@ -204,22 +189,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Equipement</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Duree</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Total</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Type Panne</string>
+        <string>PRIX</string>
        </property>
       </item>
      </widget>
@@ -260,15 +230,54 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionevenement"/>
    <addaction name="actionadd_evenement"/>
    <addaction name="separator"/>
    <addaction name="actiondelete_evenement"/>
    <addaction name="separator"/>
    <addaction name="separator"/>
    <addaction name="separator"/>
-   <addaction name="actionadd_ticket"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
    <addaction name="separator"/>
    <addaction name="actiondelete_ticket"/>
+   <addaction name="separator"/>
+   <addaction name="actionadd_ticket"/>
+   <addaction name="actionticket"/>
   </widget>
   <action name="actionadd_evenement">
    <property name="icon">
@@ -294,7 +303,23 @@
     <string>add_ticket</string>
    </property>
   </action>
+  <action name="actionadd_ticket">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/tsawer/plushamra.png</normaloff>:/tsawer/plushamra.png</iconset>
+   </property>
+   <property name="text">
+    <string>add_ticket</string>
+   </property>
+   <property name="toolTip">
+    <string>add_ticket</string>
+   </property>
+  </action>
   <action name="actiondelete_ticket">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/tsawer/moinhamra.png</normaloff>:/tsawer/moinhamra.png</iconset>
+   </property>
    <property name="text">
     <string>delete_ticket</string>
    </property>
@@ -302,12 +327,14 @@
     <string>delete_ticket</string>
    </property>
   </action>
-  <action name="actionadd_ticket">
+  <action name="actionevenement">
    <property name="text">
-    <string>add_ticket</string>
+    <string>evenement</string>
    </property>
-   <property name="toolTip">
-    <string>add_ticket</string>
+  </action>
+  <action name="actionticket">
+   <property name="text">
+    <string>ticket</string>
    </property>
   </action>
  </widget>
