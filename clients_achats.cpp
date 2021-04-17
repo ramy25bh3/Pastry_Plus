@@ -41,6 +41,19 @@ void Clients_Achats::refreshw()
 
 }
 
+void Clients_Achats:: calcul_prix()
+{
+
+float total=0;
+
+    QString total2 = QString::number(total);
+    ui->lineEdit->setText(total2);
+
+
+
+
+}
+
 
 Clients_Achats::Clients_Achats(QWidget *parent) :
     QDialog(parent),
@@ -49,6 +62,8 @@ Clients_Achats::Clients_Achats(QWidget *parent) :
     QString nom3="";
     ui->setupUi(this);
     refreshw();
+    calcul_prix();
+
 
 }
 
@@ -910,3 +925,48 @@ void Clients_Achats::on_pushButton_6_clicked()
 
 
 
+
+void Clients_Achats::on_pushButton_12_clicked()
+{
+    float prix=0;
+    float total=0;
+
+
+     QString produit1=ui->comboBox_p->currentText();
+     int quantite1=ui->spinBox_q->text().toInt();
+
+
+
+      if(ui->comboBox_p->currentText()=="Gateau")
+       {
+        prix=35.700;
+        total=prix*quantite1;
+
+
+
+       }
+
+      if(ui->comboBox_p->currentText()=="Millefeuille")
+       {
+        prix=3.500;
+        total=prix*quantite1;
+
+
+       }
+
+      if(ui->comboBox_p->currentText()=="Croissant")
+       {
+        prix=1.500;
+        total=prix*quantite1;
+
+
+       }
+
+
+
+      QString total2 = QString::number(total);
+      ui->lineEdit->setText(total2);
+
+
+
+}

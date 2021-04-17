@@ -17,6 +17,7 @@ class Clients_Achats : public QDialog
 
 public:
      void refreshw();
+     void calcul_prix();
     explicit Clients_Achats(QWidget *parent = nullptr);
     ~Clients_Achats();
 
@@ -48,6 +49,8 @@ private slots:
     void on_tableView_clicked(const QModelIndex &index);
 
     void on_tableView_2_clicked(const QModelIndex &index);
+
+    void on_pushButton_12_clicked();
 
 private:
     Ui::Clients_Achats *ui;

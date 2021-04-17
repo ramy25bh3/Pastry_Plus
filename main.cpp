@@ -9,10 +9,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //MainWindow w;
-    Clients_Achats c;
+
      connexion C;
     bool test;
         test=C.createConnection();
+        Clients_Achats c;
  if(test)
    //  qDebug() <<"connection reussi";
      QMessageBox::information(nullptr,QObject::tr("database is   open"),QObject::tr("connection reussi\n"

@@ -80,8 +80,9 @@ QSqlQueryModel * client::afficher()
 QSqlQueryModel * client::chercher(int d,QString nom3,QString mail3)
 {
     QSqlQueryModel * model = new QSqlQueryModel();
-       QString ch;
+       QString ch,chx;
        ch[0]=nom3[0];
+       chx[0]=mail3[0];
 
 
        if(nom3=="" && mail3=="")
@@ -129,32 +130,32 @@ QSqlQueryModel * client::chercher(int d,QString nom3,QString mail3)
 
        if(mail3!=""&& d==0 && nom3=="")
        {
-       model->setQuery("select * from clients where email like '%"+mail3+"%' ");
+       model->setQuery("select * from clients where email like '%"+mail3+"%' and email like '"+chx+"%'");
        }
        else if(mail3!=""&& d==1 && nom3=="" )
        {
-          model->setQuery("select * from clients where email like '%"+mail3+"%' and diabetique='oui' ");
+          model->setQuery("select * from clients where email like '%"+mail3+"%' and email like '"+chx+"%'  and diabetique='oui' ");
        }
 
        else if(mail3!=""&& d==2  && nom3=="")
        {
-          model->setQuery("select * from clients where email like '%"+mail3+"%' and diabetique='non' ");
+          model->setQuery("select * from clients where email like '%"+mail3+"%' and email like '"+chx+"%'  and diabetique='non' ");
        }
 
 
 
        if(nom3!="" && d==0  && mail3!="")
        {
-       model->setQuery("select * from clients where nom like '%"+nom3+"%' and nom like '"+ch+"%' and  email like '%"+mail3+"%' ");
+       model->setQuery("select * from clients where nom like '%"+nom3+"%' and nom like '"+ch+"%' and  email like '%"+mail3+"%' and email like '"+chx+"%' ");
        }
        else if(nom3!=""&& d==1 && mail3!="" )
        {
-          model->setQuery("select * from clients where nom like '%"+nom3+"%' and nom like '"+ch+"%' and diabetique='oui'  and  email like '%"+mail3+"%' ");
+          model->setQuery("select * from clients where nom like '%"+nom3+"%' and nom like '"+ch+"%' and diabetique='oui'  and  email like '%"+mail3+"%' and email like '"+chx+"%' ");
        }
 
        else if(nom3!=""&& d==2  && mail3!="")
        {
-          model->setQuery("select * from clients where nom like '%"+nom3+"%' and nom like '"+ch+"%' and diabetique='non' and  email like '%"+mail3+"%' ");
+          model->setQuery("select * from clients where nom like '%"+nom3+"%' and nom like '"+ch+"%' and diabetique='non' and  email like '%"+mail3+"%' and email like '"+chx+"%' ");
        }
 
 
