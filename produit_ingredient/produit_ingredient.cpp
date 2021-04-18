@@ -16,6 +16,7 @@
 #include "tableprinter.h"
 #include <QPrinter>
 #include <QPrintPreviewDialog>
+#include <QSound>
 
 
 class PrintBorder : public PagePrepare {
@@ -80,6 +81,10 @@ void Produit_ingredient::on_ajouter_produit_clicked()
 
     bool test= P.ajouter_produit();
     QMessageBox msgBox;
+    if(quantite_P <= 0 || prix_P<=0)
+    QMessageBox::information(nullptr,QObject::tr(""),QObject::tr("La quantité et le prix ne doivent pas etre negatives"),QMessageBox::Ok);
+    else
+    {
     if(test)
        {
         msgBox.setText("Ajout avec succées");
@@ -90,7 +95,7 @@ void Produit_ingredient::on_ajouter_produit_clicked()
 
     msgBox.exec();
 }
-
+}
 
 
 void Produit_ingredient::on_supprimer_produit_clicked()
@@ -124,6 +129,10 @@ void Produit_ingredient::on_modifier_produit_clicked()
 
     bool test=P.modifier_produit();
     QMessageBox msgBox;
+    if(quantite_P <= 0 || prix_P<=0)
+    QMessageBox::information(nullptr,QObject::tr(""),QObject::tr("La quantité et le prix ne doivent pas etre negatives"),QMessageBox::Ok);
+    else
+    {
     if(test)
        {
         msgBox.setText("Modifier avec succées");
@@ -134,7 +143,7 @@ void Produit_ingredient::on_modifier_produit_clicked()
 
     msgBox.exec();
 }
-
+}
 
 
 
@@ -195,6 +204,10 @@ void Produit_ingredient::on_ajouter_ingredient_clicked()
 
     bool test= I.ajouter_ingredient();
     QMessageBox msgBox;
+    if(quantite_I <= 0 || prix_I<=0)
+    QMessageBox::information(nullptr,QObject::tr(""),QObject::tr("La quantité et le prix ne doivent pas etre negatives"),QMessageBox::Ok);
+    else
+    {
     if(test)
        {
         msgBox.setText("Ajout avec succées");
@@ -205,7 +218,7 @@ void Produit_ingredient::on_ajouter_ingredient_clicked()
 
     msgBox.exec();
 }
-
+}
 
 
 void Produit_ingredient::on_supprimer_ingredient_clicked()
@@ -241,6 +254,10 @@ void Produit_ingredient::on_modifier_ingredient_clicked()
 
     bool test=I.modifier_ingredient();
     QMessageBox msgBox;
+    if(quantite_I <= 0 || prix_I<=0)
+    QMessageBox::information(nullptr,QObject::tr(""),QObject::tr("La quantité et le prix ne doivent pas etre negatives"),QMessageBox::Ok);
+    else
+    {
     if(test)
        {
         msgBox.setText("Modifier avec succées");
@@ -251,7 +268,7 @@ void Produit_ingredient::on_modifier_ingredient_clicked()
 
     msgBox.exec();
 }
-
+}
 
 
 
@@ -483,6 +500,8 @@ void Produit_ingredient::on_chercher_ingredient_clicked()
 
 void Produit_ingredient::on_stat_P_clicked()
 {
+    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+
     Stats S;
             S.statistique_P();
             S.setModal(true);
@@ -492,6 +511,8 @@ void Produit_ingredient::on_stat_P_clicked()
 
 void Produit_ingredient::on_stat_I_clicked()
 {
+    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+
     Stats S;
             S.statistique_I();
             S.setModal(true);
@@ -504,6 +525,8 @@ void Produit_ingredient::on_stat_I_clicked()
 
 void Produit_ingredient::on_excel_P_clicked()
 {
+    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                         tr("Excel Files (*.xls)"));
         if (fileName.isEmpty())
@@ -534,6 +557,8 @@ void Produit_ingredient::on_excel_P_clicked()
 
 void Produit_ingredient::on_excel_I_clicked()
 {
+    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                         tr("Excel Files (*.xls)"));
         if (fileName.isEmpty())
@@ -565,8 +590,8 @@ void Produit_ingredient::on_excel_I_clicked()
 
 void Produit_ingredient::on_PDF_P_clicked()
 {
-    /*QSound::play(":/new/prefix1/sond/Click button.wav");
-     // QSound::play(":/new/prefix1/sond/632.wav");*/
+    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+     // QSound::play(":/new/prefix1/sond/632.wav");
 
         QString strStream;
                    QTextStream out(&strStream);
@@ -627,7 +652,7 @@ void Produit_ingredient::on_PDF_P_clicked()
 
 void Produit_ingredient::on_PDF_I_clicked()
 {
-    /*QSound::play(":/new/prefix1/sond/Click button.wav");
+    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
      // QSound::play(":/new/prefix1/sond/632.wav");*/
 
         QString strStream;

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1185</width>
+    <width>1236</width>
     <height>611</height>
    </rect>
   </property>
@@ -1157,16 +1157,6 @@ color: rgb(255, 230, 250);
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="type_I_modif">
-        <property name="geometry">
-         <rect>
-          <x>230</x>
-          <y>270</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QPushButton" name="modifier_ingredient">
         <property name="geometry">
          <rect>
@@ -1197,6 +1187,16 @@ color: rgb(255, 230, 250);
         </property>
         <property name="text">
          <string>Modifier</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="type_I_modif">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>270</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
         </property>
        </widget>
       </widget>
@@ -1523,13 +1523,37 @@ color: rgb(255, 230, 250);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1185</width>
+     <width>1236</width>
      <height>26</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>RightToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="separator"/>
+   <addaction name="logo"/>
+  </widget>
+  <action name="logo">
+   <property name="icon">
+    <iconset resource="produit_ingredient.qrc">
+     <normaloff>:/image/pastry_plus.png</normaloff>:/image/pastry_plus.png</iconset>
+   </property>
+   <property name="text">
+    <string>logo</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="produit_ingredient.qrc"/>
+ </resources>
  <connections/>
 </ui>
