@@ -278,6 +278,7 @@
    <addaction name="separator"/>
    <addaction name="actionadd_ticket"/>
    <addaction name="actionticket"/>
+   <addaction name="separator"/>
   </widget>
   <action name="actionadd_evenement">
    <property name="icon">
