@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/image">
-        <file>pastry_plus.png</file>
+        <file>gateau.png</file>
+        <file>pate.png</file>
+        <file>sale.png</file>
     </qresource>
 </RCC>

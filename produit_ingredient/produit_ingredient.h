@@ -74,6 +74,15 @@ private slots:
 
     void on_PDF_I_clicked();
 
+
+//********* TOUL TAB ***********
+
+    void on_produit1_triggered();
+
+    void on_produit2_triggered();
+
+    void on_produit3_triggered();
+
 private:
     Ui::Produit_ingredient *ui;
     Produit P;

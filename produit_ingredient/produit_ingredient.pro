@@ -3,6 +3,7 @@ CONFIG   += console
 QT       += core gui charts
 QT       += core gui sql printsupport
 QT       += multimedia
+CONFIG   += resources_big
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,7 +28,8 @@ SOURCES += \
     produit.cpp \
     produit_ingredient.cpp \
     stats.cpp \
-    tableprinter.cpp
+    tableprinter.cpp \
+    toulbar.cpp
 
 HEADERS += \
     connection.h \
@@ -36,11 +38,13 @@ HEADERS += \
     produit.h \
     produit_ingredient.h \
     stats.h \
-    tableprinter.h
+    tableprinter.h \
+    toulbar.h
 
 FORMS += \
     produit_ingredient.ui \
-    stats.ui
+    stats.ui \
+    toulbar.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -11,6 +11,7 @@
 #include "ingredient.h"
 #include "stats.h"
 #include "exportexcelobject.h"
+#include "toulbar.h"
 
 #include <QtPrintSupport/QPrintDialog>
 #include "tableprinter.h"
@@ -48,7 +49,7 @@ Produit_ingredient::Produit_ingredient(QWidget *parent)
     ui->identifiant_I->setValidator(new QIntValidator(0,99999999,this));
     ui->afficher_ingredient->setModel(I.afficher_ingredient());
 
-    QPixmap pix("D:/QT/Awork/produit_ingredient_1/pastry_plus.png");
+    QPixmap pix("D:/QT/Awork/produit_ingredient_1/image/pastry_plus.png");
     int w_P= ui->logo_P->width();
     int h_P= ui->logo_P->height();
     ui->logo_P->setPixmap(pix.scaled(w_P,h_P, Qt::KeepAspectRatio));
@@ -500,7 +501,7 @@ void Produit_ingredient::on_chercher_ingredient_clicked()
 
 void Produit_ingredient::on_stat_P_clicked()
 {
-    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+    QSound::play("D:/QT/Awork/produit_ingredient_1/sound/button.wav");
 
     Stats S;
             S.statistique_P();
@@ -511,7 +512,7 @@ void Produit_ingredient::on_stat_P_clicked()
 
 void Produit_ingredient::on_stat_I_clicked()
 {
-    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+    QSound::play("D:/QT/Awork/produit_ingredient_1/sound/button.wav");
 
     Stats S;
             S.statistique_I();
@@ -525,7 +526,7 @@ void Produit_ingredient::on_stat_I_clicked()
 
 void Produit_ingredient::on_excel_P_clicked()
 {
-    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+    QSound::play("D:/QT/Awork/produit_ingredient_1/sound/button.wav");
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                         tr("Excel Files (*.xls)"));
@@ -557,7 +558,7 @@ void Produit_ingredient::on_excel_P_clicked()
 
 void Produit_ingredient::on_excel_I_clicked()
 {
-    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+    QSound::play("D:/QT/Awork/produit_ingredient_1/sound/button.wav");
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                         tr("Excel Files (*.xls)"));
@@ -590,7 +591,7 @@ void Produit_ingredient::on_excel_I_clicked()
 
 void Produit_ingredient::on_PDF_P_clicked()
 {
-    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+    QSound::play("D:/QT/Awork/produit_ingredient_1/sound/button.wav");
      // QSound::play(":/new/prefix1/sond/632.wav");
 
         QString strStream;
@@ -652,7 +653,7 @@ void Produit_ingredient::on_PDF_P_clicked()
 
 void Produit_ingredient::on_PDF_I_clicked()
 {
-    QSound::play("D:/QT/Awork/produit_ingredient_1/click.wav");
+    QSound::play("D:/QT/Awork/produit_ingredient_1/sound/button.wav");
      // QSound::play(":/new/prefix1/sond/632.wav");*/
 
         QString strStream;
@@ -709,3 +710,52 @@ void Produit_ingredient::on_PDF_I_clicked()
                                       QObject::tr("Exportation PDF terminer"), QMessageBox::Accepted);
 
 }
+
+
+
+
+//*************** TOUL BAR ******************************
+
+
+
+void Produit_ingredient::on_produit1_triggered()
+{
+    QString image;
+    image="gateau";
+
+   ToulBar tb;
+   tb.afficher(image);
+
+   tb.setModal(true);
+   tb.exec();
+
+}
+
+
+void Produit_ingredient::on_produit2_triggered()
+{
+    QString image;
+    image="pate";
+
+   ToulBar tb;
+   tb.afficher(image);
+
+   tb.setModal(true);
+   tb.exec();
+}
+
+
+void Produit_ingredient::on_produit3_triggered()
+{
+    QString image;
+    image="sale";
+
+   ToulBar tb;
+   tb.afficher(image);
+
+   tb.setModal(true);
+   tb.exec();
+}
+
+
+

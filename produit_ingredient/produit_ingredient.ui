@@ -23,8 +23,11 @@
       <height>531</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -788,7 +791,7 @@ color: rgb(255, 230, 250);
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
@@ -1540,15 +1543,38 @@ color: rgb(255, 230, 250);
     <bool>false</bool>
    </attribute>
    <addaction name="separator"/>
-   <addaction name="logo"/>
+   <addaction name="produit1"/>
+   <addaction name="separator"/>
+   <addaction name="produit2"/>
+   <addaction name="separator"/>
+   <addaction name="produit3"/>
+   <addaction name="separator"/>
   </widget>
-  <action name="logo">
+  <action name="produit1">
    <property name="icon">
     <iconset resource="produit_ingredient.qrc">
-     <normaloff>:/image/pastry_plus.png</normaloff>:/image/pastry_plus.png</iconset>
+     <normaloff>:/image/gateau.png</normaloff>:/image/gateau.png</iconset>
    </property>
    <property name="text">
-    <string>logo</string>
+    <string>gateau</string>
+   </property>
+  </action>
+  <action name="produit2">
+   <property name="icon">
+    <iconset resource="produit_ingredient.qrc">
+     <normaloff>:/image/pate.png</normaloff>:/image/pate.png</iconset>
+   </property>
+   <property name="text">
+    <string>pate</string>
+   </property>
+  </action>
+  <action name="produit3">
+   <property name="icon">
+    <iconset resource="produit_ingredient.qrc">
+     <normaloff>:/image/sale.png</normaloff>:/image/sale.png</iconset>
+   </property>
+   <property name="text">
+    <string>sale</string>
    </property>
   </action>
  </widget>
