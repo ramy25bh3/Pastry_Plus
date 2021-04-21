@@ -5,6 +5,11 @@
 #include <QSqlQueryModel>
 #include <QVariant>
 #include <QDate>
+#include <QTableView>
+#include<QFileDialog>
+#include<QCoreApplication>
+#include <QTextStream>
+
 class employe
 {
 public:
@@ -27,6 +32,7 @@ public:
     QSqlQueryModel *rechercher_combinaison_sexe_date(QString,QDate);
     QSqlQueryModel *rechercher_combinaison_nom_sexe(QString,QString);
     void sendMail( const QString &from, const QString &to, const QString &subject, const QString &body );
+    void exporter(QTableView *table);
 
 
     int stati();

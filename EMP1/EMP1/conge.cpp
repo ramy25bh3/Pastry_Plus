@@ -127,3 +127,136 @@ QSqlQueryModel * conge::rechercher_combinaison_nom_type(QString NOMEMPLOYE, QStr
     model->setQuery(*qry);
     return model;
 }
+QSqlQueryModel * conge::chercher_emp(const QString &aux)
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+
+    model->setQuery("select * from conge where ((id ) LIKE '%"+aux+"%')");
+    model->setHeaderData(0,Qt::Vertical,QObject::tr("ID"));
+    model->setHeaderData(1,Qt::Vertical,QObject::tr("nomemploye"));
+    model->setHeaderData(3,Qt::Vertical,QObject::tr("DATED"));
+    model->setHeaderData(4,Qt::Vertical,QObject::tr("DATEF"));
+    model->setHeaderData(2,Qt::Vertical,QObject::tr("TYPE"));
+
+    return model;
+}
+
+
+
+
+QSqlQueryModel * conge::chercher_emp2(const QString &aux)
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+
+    model->setQuery("select * from conge where ((nomemploye ) LIKE '%"+aux+"%')");
+    model->setHeaderData(0,Qt::Vertical,QObject::tr("ID"));
+    model->setHeaderData(1,Qt::Vertical,QObject::tr("NOMEMPLOYE"));
+    model->setHeaderData(3,Qt::Vertical,QObject::tr("DATED"));
+    model->setHeaderData(4,Qt::Vertical,QObject::tr("DATEF"));
+    model->setHeaderData(2,Qt::Vertical,QObject::tr("TYPE"));
+
+    return model;
+}
+
+int conge::stati1()
+{
+    QSqlQuery query;
+    int count=0 ;
+    QSqlQuery requete("select * from CONGE where type='CONGE PAYE'") ;
+    while(requete.next())
+    {
+            count++ ;
+    }
+return(count);
+}
+
+int conge::stati2()
+{
+    QSqlQuery query;
+    int count=0 ;
+    QSqlQuery requete("select * from CONGE where type='CONGE ANNUEL'") ;
+    while(requete.next())
+    {
+            count++ ;
+    }
+
+return(count);
+}
+
+int conge::stati3()
+{
+    QSqlQuery query;
+    int count=0 ;
+    QSqlQuery requete("select * from CONGE where type= 'CONGE MALADIE'") ;
+    while(requete.next())
+    {
+            count++ ;
+    }
+
+return(count);
+}
+int conge::stati4()
+{
+    QSqlQuery query;
+    int count=0 ;
+    QSqlQuery requete("select * from CONGE where type= 'CONGE MATERNITE'") ;
+    while(requete.next())
+    {
+            count++ ;
+    }
+
+return(count);
+}
+
+int conge::nb_total()
+{
+    QSqlQuery query;
+    int count=0 ;
+    QSqlQuery requete("select * from  CONGE") ;
+    while(requete.next())
+
+    {
+            count++ ;
+    }
+
+return(count);
+}
+
+
+void conge::exporter(QTableView *table)
+{
+
+    QString filters("CSV files (*.csv);;All files (*.*)");
+    QString defaultFilter("CSV files (*.csv)");
+    QString fileName = QFileDialog::getSaveFileName(0, "Save file", QCoreApplication::applicationDirPath(),
+                                                    filters, &defaultFilter);
+    QFile file(fileName);
+    QAbstractItemModel *model =  table->model();
+    if (file.open(QFile::WriteOnly | QFile::Truncate))
+    {
+        QTextStream data(&file);
+        QStringList strList;
+        for (int i = 0; i < model->columnCount(); i++)
+        {
+            if (model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString().length() > 0)
+                strList.append("\"" + model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString() + "\"");
+            else
+                strList.append("");
+        }
+        data << strList.join(";") << "\n";
+        for (int i = 0; i < model->rowCount(); i++)
+        {
+            strList.clear();
+            for (int j = 0; j < model->columnCount(); j++)
+            {
+
+                if (model->data(model->index(i, j)).toString().length() > 0)
+                    strList.append("\"" + model->data(model->index(i, j)).toString() + "\"");
+                else
+                    strList.append("");
+            }
+            data << strList.join(";") + "\n";
+        }
+        file.close();
+    }
+}

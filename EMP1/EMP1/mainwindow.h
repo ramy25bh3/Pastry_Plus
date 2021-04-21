@@ -18,6 +18,9 @@
 #include <QSortFilterProxyModel>
 #include <QTextDocument>
 #include <QPropertyAnimation>
+#include <QFileDialog>
+
+
 
 
 QT_BEGIN_NAMESPACE
@@ -64,6 +67,22 @@ private slots:
     void on_pushButtonStatistiques_clicked();
 
     void on_pushButtonRechercherConge_clicked();
+
+    void on_consulter_conge_clicked();
+
+    void on_pushButton_afficher_clicked();
+
+    void on_pushButton_stat_clicked();
+
+    void on_label_15_linkActivated(const QString &link);
+
+    void on_label_stat_1_linkActivated(const QString &link);
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
 
 private:
     Ui::MainWindow *ui;

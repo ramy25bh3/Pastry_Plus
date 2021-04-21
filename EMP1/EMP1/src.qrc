@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>style.qrc</file>
+        <file>SyNet.qss</file>
+    </qresource>
+</RCC>

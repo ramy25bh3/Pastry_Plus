@@ -4,6 +4,8 @@
 #include <QPrinter>
 #include "conge.h"
 #include "employe.h"
+#include "dialog.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -343,15 +345,15 @@ void MainWindow::on_pushButtonTrier_clicked()
            else if (!ui->checkBoxNom->isChecked() && ui->checkBoxSexe->isChecked() && !ui->checkBoxDate->isChecked())
                ui->tableViewEmploye->setModel(tmpemploye.trier("sexe",ui->comboBoxOrdre->currentText()));
            else if (!ui->checkBoxNom->isChecked() && !ui->checkBoxSexe->isChecked() && ui->checkBoxDate->isChecked())
-               ui->tableViewEmploye->setModel(tmpemploye.trier("date_naissance",ui->comboBoxOrdre->currentText()));
+               ui->tableViewEmploye->setModel(tmpemploye.trier("DATEAD",ui->comboBoxOrdre->currentText()));
            else if (ui->checkBoxNom->isChecked() && ui->checkBoxSexe->isChecked() && !ui->checkBoxDate->isChecked())
                ui->tableViewEmploye->setModel(tmpemploye.trier("nom, sexe",ui->comboBoxOrdre->currentText()));
            else if (ui->checkBoxNom->isChecked() && !ui->checkBoxSexe->isChecked() && ui->checkBoxDate->isChecked())
-               ui->tableViewEmploye->setModel(tmpemploye.trier("nom, date_naissance",ui->comboBoxOrdre->currentText()));
+               ui->tableViewEmploye->setModel(tmpemploye.trier("nom, DATEAD",ui->comboBoxOrdre->currentText()));
            else if (!ui->checkBoxNom->isChecked() && ui->checkBoxSexe->isChecked() && ui->checkBoxDate->isChecked())
-               ui->tableViewEmploye->setModel(tmpemploye.trier("sexe, date_naissance",ui->comboBoxOrdre->currentText()));
+               ui->tableViewEmploye->setModel(tmpemploye.trier("sexe, DATEAD",ui->comboBoxOrdre->currentText()));
            else if (ui->checkBoxNom->isChecked() && ui->checkBoxSexe->isChecked() && ui->checkBoxDate->isChecked())
-               ui->tableViewEmploye->setModel(tmpemploye.trier("nom, sexe, date_naissance",ui->comboBoxOrdre->currentText()));
+               ui->tableViewEmploye->setModel(tmpemploye.trier("nom, sexe, DATEAD",ui->comboBoxOrdre->currentText()));
            else if (ui->checkBoxNom->isChecked())
                ui->tableViewEmploye->setModel(tmpemploye.trier("cin",ui->comboBoxOrdre->currentText()));
            //else if (ui->checkBoxMail->isChecked())
@@ -388,33 +390,59 @@ void MainWindow::on_ajouter_clicked()
 
 
 void MainWindow::on_pushButtonEdit_clicked()
+
 {
+
     conge tmpconge;
 
     if (ui->pushButtonEdit->isChecked())
-            {
-                ui->pushButtonEdit->setDisabled(true);
-                ui->pushButtonEdit->setText("Modifiable");
-                QSqlTableModel *tableModel= new QSqlTableModel();
-                tableModel->setTable("CONGE");
-                tableModel->select();
-                ui->tableViewConge->setModel(tableModel);
-            }
-            else
-            {
-                ui->pushButtonEdit->setText("Modifier");
-                QSqlQueryModel * modell = tmpconge.afficher();
-               ui->tableViewConge->setModel( modell);
-               QSortFilterProxyModel *mm=new QSortFilterProxyModel(this);
-                   mm->setDynamicSortFilter(true);
-                   mm->setSourceModel(modell);
-                   ui->tableViewConge->setModel(mm);
-                   ui->tableViewConge->setSortingEnabled(true);
 
-            }
-    ui->pushButtonEdit->setChecked(false);
+                {
+
+                    ui->pushButtonEdit->setDisabled(true);
+
+                    ui->pushButtonEdit->setText("Modifiable");
+
+                    QSqlTableModel *tableModel= new QSqlTableModel();
+
+                    tableModel->setTable("CONGE");
+
+                    tableModel->select();
+
+                    ui->tableViewConge->setModel(tableModel);
+
+                }
+
+                else
+
+                {
+
+                    ui->pushButtonEdit->setText("Modifier");
+
+                    QSqlQueryModel * modell =tmpconge.afficher();
+
+                   ui->tableViewConge->setModel( modell);
+
+             //      QSortFilterProxyModel *mm=new QSortFilterProxyModel(this);
+
+               //        mm->setDynamicSortFilter(true);
+
+                 //      mm->setSourceModel(modell);
+
+                   //    ui->tableViewConge->setModel(mm);
+
+                       ui->tableViewConge->setSortingEnabled(true);
+
+
+                }
+
+        ui->pushButtonEdit->setChecked(false);
+
+
+
 
 }
+
 
 void MainWindow::on_pushButtonSuppr_clicked()
 {
@@ -439,72 +467,97 @@ void MainWindow::on_pushButtonSuppr_clicked()
 
 
 
-void MainWindow::on_pushButtonStatistiques_clicked()
+
+
+void MainWindow::on_pushButtonRechercherConge_clicked()
 {
+    conge e;
+        QString text;
+        if (ui->radioButton_ID->isChecked()==true)
     {
-        conge tmpconge;
-        QString id=ui->lineEdit_recherche_table->text();
-        QString nomemploye=ui->lineEdit_recherche_table->text();
-        QString type=ui->lineEdit_recherche_table->text();
-        if (ui->checkBoxTypeConge->isChecked() && ui->checkBoxNomEmploye->isChecked() && ui->checkBoxNumConge->isChecked())
-            {
+    text=ui->line_recherche_critere->text();
+         if(text == "")
 
-                QSqlQueryModel *verif_combinaison=tmpconge.rechercher_combinaison_all(id,nomemploye,type);
-                if (verif_combinaison!=nullptr)
-                {
-                    ui->tableViewConge->setModel(verif_combinaison);
-                }
+         {
 
-            }
-        else if (ui->checkBoxTypeConge->isChecked() && !ui->checkBoxNomEmploye->isChecked() && !ui->checkBoxNumConge->isChecked())
-            {
-                QSqlQueryModel *verif_type=tmpconge.rechercher_type(type);
-                if (verif_type!=nullptr)
-                {
-                    ui->tableViewConge->setModel(verif_type);
-                }
-            }
-            else if (!ui->checkBoxTypeConge->isChecked() && !ui->checkBoxNomEmploye->isChecked() && ui->checkBoxNumConge->isChecked())
-            {
-                QSqlQueryModel *verif_id=tmpconge.recherche(id);
-                if (verif_id!=nullptr)
-                {
-                    ui->tableViewConge->setModel(verif_id);
-                }
-            }
-            else if (!ui->checkBoxTypeConge->isChecked() && ui->checkBoxNomEmploye->isChecked() && !ui->checkBoxNumConge->isChecked())
-            {
-                QSqlQueryModel *verif_nomemploye=tmpconge.rechercher_nomemploye(nomemploye);
-                if (verif_nomemploye!=nullptr)
-                {
-                    ui->tableViewConge->setModel(verif_nomemploye);
-                }
-            }
-            else if (ui->checkBoxTypeConge->isChecked() && ui->checkBoxNomEmploye->isChecked() && !ui->checkBoxNumConge->isChecked())
-            {
-                QSqlQueryModel *verif_nom_type=tmpconge.rechercher_combinaison_nom_type(nomemploye,type);
-                if (verif_nom_type!=nullptr)
-                {
-                    ui->tableViewConge->setModel(verif_nom_type);
-                }
-            }
-            else if (!ui->checkBoxTypeConge->isChecked() && ui->checkBoxNomEmploye->isChecked() && ui->checkBoxNumConge->isChecked())
-            {
-                QSqlQueryModel *verif_id_nom=tmpconge.rechercher_combinaison_id_nom(id,nomemploye);
-                if (verif_id_nom!=nullptr)
-                {
-                    ui->tableViewConge->setModel(verif_id_nom);
-                }
-            }
-            else if (ui->checkBoxTypeConge->isChecked() && !ui->checkBoxSexe->isChecked() && ui->checkBoxNumConge->isChecked())
-            {
-                QSqlQueryModel *verif_type_id=tmpconge.rechercher_combinaison_id_type(id,type);
-                if (verif_type_id!=nullptr)
-                {
-                    ui->tableViewConge->setModel(verif_type_id);
-                }
-            }
-    }
+             ui->tableViewConge->setModel(e.afficher());
+
+         }
+
+         else
+
+         {
+
+
+
+             ui->tableViewConge->setModel(e.chercher_emp(text));
+
+         }
+        }
+
+         else if     (ui->radioButton_nom->isChecked()==true)
+         {
+
+             text=ui->line_recherche_critere->text();
+                  if(text == "")
+
+                  {
+
+                      ui->tableViewConge->setModel(e.afficher());
+
+
+                  }
+
+                  else
+
+                  {
+
+
+
+                      ui->tableViewConge->setModel(e.chercher_emp2(text));
+
+                  }
+         }
+}
+
+
+void MainWindow::on_pushButton_afficher_clicked()
+{
+    conge e;
+    ui->tableViewConge->setModel(e.afficher());
 
 }
 
+void MainWindow::on_pushButton_stat_clicked()
+{
+    conge e;
+    ui->label_stat_1->setNum((e.stati1()*100/e.nb_total()));
+   ui->label_stat_2->setNum((e.stati2()*100/e.nb_total()));
+    ui->label_stat_3->setNum((e.stati3()*100/e.nb_total()));
+    ui->label_stat_4->setNum((e.stati4()*100/e.nb_total()));
+}
+
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    conge tmpconge;
+    tmpconge.exporter(ui->tableViewConge);
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    employe tmpemploye;
+    tmpemploye.exporter(ui->tableViewEmploye);
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QItemSelectionModel *select = ui->tableViewEmploye->selectionModel();
+    QString email =select->selectedRows(3).value(0).data().toString();
+
+        QDialog *d=new Dialog(email,"","",this);
+        d->show();
+        d->exec();
+}

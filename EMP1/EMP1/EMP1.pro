@@ -1,4 +1,4 @@
-QT       += sql core gui printsupport sql serialport
+QT       += sql core gui printsupport serialport network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,17 +18,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     conge.cpp \
     database.cpp \
+    dialog.cpp \
     employe.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    smtp.cpp
 
 HEADERS += \
     conge.h \
     database.h \
+    dialog.h \
     employe.h \
-    mainwindow.h
+    mainwindow.h \
+    smtp.h
 
 FORMS += \
+    dialog.ui \
     mainwindow.ui
 
 # Default rules for deployment.
@@ -38,3 +43,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     ressources.qrc
+
+DISTFILES +=

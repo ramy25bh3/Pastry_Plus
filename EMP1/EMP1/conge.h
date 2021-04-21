@@ -5,6 +5,13 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 #include <QVariant>
+#include <QTableView>
+#include<QFileDialog>
+#include<QCoreApplication>
+#include <QTextStream>
+
+
+
 
 class conge
 {
@@ -31,6 +38,16 @@ public:
     QSqlQueryModel *rechercher_combinaison_id_nom(QString,QString);
     QSqlQueryModel *rechercher_combinaison_id_type(QString,QString);
     QSqlQueryModel *rechercher_combinaison_nom_type(QString,QString);
+    QSqlQueryModel *chercher_emp(const QString &aux);
+       QSqlQueryModel *chercher_emp1(const QString &aux);
+       QSqlQueryModel *chercher_emp2(const QString &aux);
+       void exporter(QTableView *table);
+       int stati();
+       int stati1();
+       int stati2();
+       int stati3();
+       int stati4();
+       int nb_total();
 private:
     QString id;
     QString nom;

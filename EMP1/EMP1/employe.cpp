@@ -13,6 +13,7 @@ bool employe::ajouter(){
         query.bindValue(":DEPARTEMENT", departement);
         query.bindValue(":SALAIRE", salaire);
         return query.exec();
+
 }
 QSqlQueryModel *employe::afficher(){
     QSqlQueryModel *model= new QSqlQueryModel();
@@ -150,59 +151,9 @@ QSqlQueryModel * employe::rechercher_combinaison_nom_sexe(QString NOM, QString S
     return model;
 }
 
-/*void employe::exporter(QTableView *table)
-{
-    QString filters("CSV files (*.csv);;All files (*.*)");
-    QString defaultFilter("CSV files (*.csv)");
-    QString fileName = QFileDialog::getSaveFileName(0, "Save file", QCoreApplication::applicationDirPath(),
-                                                    filters, &defaultFilter);
-    QFile file(fileName);
-    QAbstractItemModel *model =  table->model();
-    if (file.open(QFile::WriteOnly | QFile::Truncate))
-    {
-        QTextStream data(&file);
-        QStringList strList;
-        for (int i = 0; i < model->columnCount(); i++)
-        {
-            if (model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString().length() > 0)
-                strList.append("\"" + model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString() + "\"");
-            else
-                strList.append("");
-        }
-        data << strList.join(";") << "\n";
-        for (int i = 0; i < model->rowCount(); i++)
-        {
-            strList.clear();
-            for (int j = 0; j < model->columnCount(); j++)
-            {
-                if (model->data(model->index(i, j)).toString().length() > 0)
-                    strList.append("\"" + model->data(model->index(i, j)).toString() + "\"");
-                else
-                    strList.append("");
-            }
-            data << strList.join(";") + "\n";
-        }
-        file.close();
-    }
-}*/
-/*void employe::sendMail(const QString &from, const QString &to, const QString &subject, const QString &body)
-{
-    message = "To: " + to + "\n";
-    message.append("From: " + from + "\n");
-    message.append("Subject: " + subject + "\n");
-    message.append(body);
-    message.replace( QString::fromLatin1( "\n" ), QString::fromLatin1( "\r\n" ) );
-    message.replace( QString::fromLatin1( "\r\n.\r\n" ),
-    QString::fromLatin1( "\r\n..\r\n" ) );
-    this->from = from;
-    rcpt = to;
-    state = Init;
-    socket->connectToHostEncrypted(host, port); //"smtp.gmail.com" and 465 for gmail TLS
-    if (!socket->waitForConnected(timeout)) {
-         qDebug() << socket->errorString();
-     }
-    t = new QTextStream( socket );
-}*/
+
+
+
 int employe::stati()
 {
     QSqlQuery query;
@@ -235,8 +186,7 @@ int employe::stati2()
     {
             count++ ;
     }
-    //QSqlQueryModel * model = new QSqlQueryModel();
-    //model->setHeaderData(0,Qt::Vertical,QObject::tr("employe avec plus salaire "));
+
 return(count);
 }
 int employe::nb_total()
@@ -251,4 +201,43 @@ int employe::nb_total()
     }
 
 return(count);
+}
+
+
+void employe::exporter(QTableView *table)
+{
+
+    QString filters("CSV files (*.csv);;All files (*.*)");
+    QString defaultFilter("CSV files (*.csv)");
+    QString fileName = QFileDialog::getSaveFileName(0, "Save file", QCoreApplication::applicationDirPath(),
+                                                    filters, &defaultFilter);
+    QFile file(fileName);
+    QAbstractItemModel *model =  table->model();
+    if (file.open(QFile::WriteOnly | QFile::Truncate))
+    {
+        QTextStream data(&file);
+        QStringList strList;
+        for (int i = 0; i < model->columnCount(); i++)
+        {
+            if (model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString().length() > 0)
+                strList.append("\"" + model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString() + "\"");
+            else
+                strList.append("");
+        }
+        data << strList.join(";") << "\n";
+        for (int i = 0; i < model->rowCount(); i++)
+        {
+            strList.clear();
+            for (int j = 0; j < model->columnCount(); j++)
+            {
+
+                if (model->data(model->index(i, j)).toString().length() > 0)
+                    strList.append("\"" + model->data(model->index(i, j)).toString() + "\"");
+                else
+                    strList.append("");
+            }
+            data << strList.join(";") + "\n";
+        }
+        file.close();
+    }
 }
