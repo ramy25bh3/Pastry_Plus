@@ -94,7 +94,7 @@ void gestion_eventicket::on_actiondelete_evenement_triggered()
 //affichage
 void gestion_eventicket::show_evenement()
 {
-    //creation model (masque du tableau) : permet recherche et tri
+    //creation model (masque du tableau) : permet recherche
         proxy_evenement = new QSortFilterProxyModel();
 
      //definir la source (tableau original)
@@ -115,7 +115,7 @@ void gestion_eventicket::show_evenement()
 void gestion_eventicket::on_evenement_sel_col_currentIndexChanged(const QString &arg1)
 {
     sel_col_evenement=ui->evenement_sel_col->currentIndex()-1;
-    proxy_evenement->setFilterKeyColumn(sel_col_evenement); // chercher dans tout le tableau (-1) ou donner le numero de la colone
+    proxy_evenement->setFilterKeyColumn(sel_col_evenement);                                                        // chercher dans tout le tableau (-1) ou donner le numero de la colone
 }
 void gestion_eventicket::on_rech_evenement_textChanged(const QString &arg1)
 {
