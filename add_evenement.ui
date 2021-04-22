@@ -80,22 +80,22 @@
    </property>
    <item>
     <property name="text">
-     <string>etat 1</string>
+     <string>tunis</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>etat 2</string>
+     <string>sousse</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>etat 3</string>
+     <string>kef</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>etat 4</string>
+     <string>jerba</string>
     </property>
    </item>
   </widget>

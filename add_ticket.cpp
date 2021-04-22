@@ -63,10 +63,10 @@ void add_ticket::fill_form(QString selected ) {
     query.exec();
     while(query.next()){
    ui->id->setText(query.value(0).toString()); //line edit
-   ui->heure->setTime(QTime::fromString(query.value(2).toString(),"hh:mm"));//time
-   ui->date_t->setDate(QDate::fromString(query.value(2).toString(),"dd.MM.yyyy"));//date_t
+   ui->heure->setTime(QTime::fromString(query.value(2).toString(),"hh:mm"));
+   ui->date_t->setDate(QDate::fromString(query.value(2).toString(),"dd.MM.yyyy"));
    ui->type->setCurrentText(query.value(3).toString()); // reel
-   ui->prix->setText(query.value(4).toString()); //combobox
+   ui->prix->setText(query.value(4).toString());
 
     }
 

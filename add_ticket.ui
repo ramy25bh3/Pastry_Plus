@@ -99,22 +99,17 @@
    </property>
    <item>
     <property name="text">
-     <string>type 1</string>
+     <string>premium</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>type 2</string>
+     <string>VIP</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>type 3</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>type 4</string>
+     <string>standard</string>
     </property>
    </item>
   </widget>
@@ -149,8 +144,8 @@
     <rect>
      <x>50</x>
      <y>134</y>
-     <width>47</width>
-     <height>14</height>
+     <width>61</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
