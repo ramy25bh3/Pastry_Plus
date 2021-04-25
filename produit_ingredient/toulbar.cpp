@@ -36,25 +36,25 @@ void ToulBar::afficher(QString tb)
 
     if(tb == "pate")
     {
-        QPixmap pix("D:/QT/Awork/produit_ingredient_1/image/sucre.jpg");
+        QPixmap pix("D:/QT/Awork/produit_ingredient_1/image/buerre.jpg");
               ui->img1->setPixmap(pix.scaled(340,300,Qt::KeepAspectRatio));
-               ui->text1->setText("Sucre");
+               ui->text1->setText("Buerre");
 
-               QPixmap pix2("D:/QT/Awork/produit_ingredient_1/image/huile.jpg");
+               QPixmap pix2("D:/QT/Awork/produit_ingredient_1/image/oeuf.jpg");
                      ui->img2->setPixmap(pix2.scaled(340,300,Qt::KeepAspectRatio));
-                      ui->text2->setText("Huile");
+                      ui->text2->setText("Oeuf");
 
-                      QPixmap pix3("D:/QT/Awork/produit_ingredient_1/image/oeuf.jpg");
+                      QPixmap pix3("D:/QT/Awork/produit_ingredient_1/image/semoule.jpg");
                             ui->img3->setPixmap(pix3.scaled(340,300,Qt::KeepAspectRatio));
-                             ui->text3->setText("Oeuf");
+                             ui->text3->setText("Semoule");
     }
 
 
     if(tb == "sale")
     {
-        QPixmap pix("D:/QT/Awork/produit_ingredient_1/image/sucre.jpg");
+        QPixmap pix("D:/QT/Awork/produit_ingredient_1/image/fruitsec.jpg");
               ui->img1->setPixmap(pix.scaled(340,300,Qt::KeepAspectRatio));
-               ui->text1->setText("Sucre");
+               ui->text1->setText("Fruit Sec");
 
                QPixmap pix2("D:/QT/Awork/produit_ingredient_1/image/huile.jpg");
                      ui->img2->setPixmap(pix2.scaled(340,300,Qt::KeepAspectRatio));

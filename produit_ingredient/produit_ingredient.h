@@ -17,6 +17,10 @@ public:
     Produit_ingredient(QWidget *parent = nullptr);
     ~Produit_ingredient();
 
+//********* MUSIC ***********
+    void music();
+
+
 private slots:
 
 //********** PRODUIT ***********
@@ -82,6 +86,11 @@ private slots:
     void on_produit2_triggered();
 
     void on_produit3_triggered();
+
+
+//********* TOUL TAB ***********
+
+    void showtime ();
 
 private:
     Ui::Produit_ingredient *ui;

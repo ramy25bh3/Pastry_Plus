@@ -18,6 +18,11 @@
 #include <QPrinter>
 #include <QPrintPreviewDialog>
 #include <QSound>
+#include <QMediaPlayer>
+#include <QPropertyAnimation>
+#include <QLabel>
+#include <QDateTime>
+#include <QTime>
 
 
 class PrintBorder : public PagePrepare {
@@ -38,16 +43,29 @@ void PrintBorder::preparePage(QPainter *painter) { // print a border on each pag
 }
 
 
+void Produit_ingredient:: music()
+{
+   QMediaPlayer * player = new QMediaPlayer;
+
+   player->setMedia(QUrl::fromLocalFile("D:/QT/Awork/produit_ingredient_1/sound/piano.mp3"));
+   player->setVolume(100);
+   player->play();
+
+}
+
+
 Produit_ingredient::Produit_ingredient(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Produit_ingredient)
 {
     ui->setupUi(this);
+
     ui->identifiant_P->setValidator(new QIntValidator(0,99999999,this));
     ui->afficher_produit->setModel(P.afficher_produit());
 
     ui->identifiant_I->setValidator(new QIntValidator(0,99999999,this));
     ui->afficher_ingredient->setModel(I.afficher_ingredient());
+
 
     QPixmap pix("D:/QT/Awork/produit_ingredient_1/image/pastry_plus.png");
     int w_P= ui->logo_P->width();
@@ -57,6 +75,28 @@ Produit_ingredient::Produit_ingredient(QWidget *parent)
     int w_I= ui->logo_I->width();
     int h_I= ui->logo_I->height();
     ui->logo_I->setPixmap(pix.scaled(w_I,h_I, Qt::KeepAspectRatio));
+
+
+    QPropertyAnimation *animation;
+    animation = new QPropertyAnimation (ui ->logo_P,"geometry" );
+                      // animation = new QPropertyAnimation (ui ->text_2,"geometry" );
+                       animation->setDuration(5000);
+                       animation->setStartValue(ui->logo_P->geometry());
+                       animation->setEndValue(QRect(140,200,5,1));
+                       animation->start();
+
+
+     QTimer *timer=new QTimer(this);
+     connect(timer,SIGNAL(timeout()),this,SLOT(showtime()));
+     timer->start();
+
+     QDate date = QDate ::currentDate();
+     QString datee=date.toString();
+
+     ui->date_P->setText(datee) ;
+     ui->date_I->setText(datee) ;
+
+    //music();
 }
 
 Produit_ingredient::~Produit_ingredient()
@@ -758,4 +798,18 @@ void Produit_ingredient::on_produit3_triggered()
 }
 
 
+//*************** DATE ******************************
 
+void Produit_ingredient::showtime ()
+{
+    QTime time = QTime::currentTime();
+
+           QString time_text=time.toString("hh : mm : ss");
+           if((time.second() % 2) == 0 )
+           {
+               time_text[3] = ' ';
+               time_text[8] = ' ';
+           }
+           ui->digital_date_P->setText(time_text) ;
+           ui->digital_date_I->setText(time_text) ;
+}
