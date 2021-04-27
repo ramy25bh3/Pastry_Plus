@@ -1,4 +1,8 @@
 QT       += core gui sql printsupport network
+QT       += multimedia
+QT       += core gui charts
+QT       +=serialport
+
 
 CONFIG += console
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -19,21 +23,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     achats.cpp \
+    arduino_a.cpp \
     client.cpp \
     clients_achats.cpp \
     connexion.cpp \
     main.cpp \
+    secdialog.cpp \
+    stats.cpp \
     stmp.cpp
 
 HEADERS += \
     achats.h \
+    arduino_a.h \
     client.h \
     clients_achats.h \
     connexion.h \
+    secdialog.h \
+    stats.h \
     stmp.h
 
 FORMS += \
-    clients_achats.ui
+    clients_achats.ui \
+    secdialog.ui \
+    stats.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

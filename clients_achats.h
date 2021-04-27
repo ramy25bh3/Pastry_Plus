@@ -5,6 +5,7 @@
 #include "client.h"
 #include "achats.h"
 #include "stmp.h"
+#include "arduino_a.h"
 #include <QFileDialog>
 namespace Ui {
 class Clients_Achats;
@@ -16,8 +17,13 @@ class Clients_Achats : public QDialog
     Q_OBJECT
 
 public:
+ int cl=0;
+    int xx=0;
+    QString point3="";
+
      void refreshw();
      void calcul_prix();
+     void music(int ,int ,int);
     explicit Clients_Achats(QWidget *parent = nullptr);
     ~Clients_Achats();
 
@@ -52,11 +58,23 @@ private slots:
 
     void on_pushButton_12_clicked();
 
+    void on_pushButton_13_clicked();
+
+    void on_pushButton_14_clicked();
+
+    void on_comboBox_p_currentIndexChanged(const QString &arg1);
+
+    void on_pushButton_15_clicked();
+
+
+
+
 private:
     Ui::Clients_Achats *ui;
     client c;
     achat a;
     QStringList files;
+    arduino_a A;
 };
 
 #endif // CLIENTS_ACHATS_H

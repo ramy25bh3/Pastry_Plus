@@ -12,7 +12,7 @@ client::client()
 
 }
 
-client::client(int cin1,QString nom1,QString prenom1,int tel1,QString email1,QString adresse1,QString diabetique1,int age1)
+client::client(int cin1,QString nom1,QString prenom1,int tel1,QString email1,QString adresse1,QString diabetique1,int age1,int point1)
 {
     cin=cin1;
     tel=tel1;
@@ -22,6 +22,7 @@ client::client(int cin1,QString nom1,QString prenom1,int tel1,QString email1,QSt
     email=email1;
     adresse=adresse1;
     diabitique=diabetique1;
+    point=point1;
 }
 
 
@@ -33,9 +34,10 @@ QSqlQuery query;
 QString cin1 = QString::number(cin);
 QString age1 = QString::number(age);
 QString tel1 = QString::number(tel);
+QString point1 = QString::number(point);
 
 
-query.prepare("insert into CLIENTS(cin,nom,prenom,tel,email,adresse_locale,diabetique,age) values(:cin1,:nom,:prenom,:tel1,:email,:adresse,:diabitique,:age1)");
+query.prepare("insert into CLIENTS(cin,nom,prenom,tel,email,adresse_locale,diabetique,age,point) values(:cin1,:nom,:prenom,:tel1,:email,:adresse,:diabitique,:age1,:point1)");
 query.bindValue(":cin1",cin1);
 query.bindValue(":nom",nom);
 query.bindValue(":prenom",prenom);
@@ -44,6 +46,7 @@ query.bindValue(":email",email);
 query.bindValue(":adresse",adresse);
 query.bindValue(":diabitique",diabitique);
 query.bindValue(":age1",age1);
+query.bindValue(":point1",point1);
 
 
 
@@ -606,6 +609,189 @@ QSqlQueryModel * client::trier(int t,QString nom3,QString mail3,int d)
 
 
   return g;
+
+
+  }
+
+
+  int client::clicker8(int cin2)
+  {
+
+  QString a;
+  QString b;
+  QString c;
+  QString d;
+  QString e;
+  QString f;
+  QString g;
+  int h;
+
+
+  QSqlQuery query;
+   QString cin3 = QString::number(cin2);
+   query.exec("select * from CLIENTS  where cin = '"+cin3+"' ");
+   query.bindValue(":cin3",cin3);
+
+  while(query.next())
+  {
+      query.value(0).toString();
+      a=query.value(1).toString();
+       b= query.value(2).toString();
+        c=query.value(3).toString();
+        d= query.value(4).toString();
+         e= query.value(5).toString();
+          f= query.value(6).toString();
+           g=query.value(7).toString();
+           h=query.value(8).toInt();
+
+  }
+
+
+
+
+  return h;
+
+
+  }
+
+
+
+  int client::clicker9(QString cin2)
+  {
+
+  QString a;
+  QString b;
+  QString c;
+  QString d;
+  QString e;
+  QString f;
+  QString g;
+  int h;
+
+
+  QSqlQuery query;
+
+   query.exec("select * from CLIENTS  where cin = '"+cin2+"' ");
+   query.bindValue(":cin2",cin2);
+
+  while(query.next())
+  {
+      query.value(0).toString();
+      a=query.value(1).toString();
+       b= query.value(2).toString();
+        c=query.value(3).toString();
+        d= query.value(4).toString();
+         e= query.value(5).toString();
+          f= query.value(6).toString();
+           g=query.value(7).toString();
+           h=query.value(8).toInt();
+
+  }
+
+
+
+
+  return h;
+
+
+  }
+
+
+  bool client::modifier_client2(QString cin2,int point2)
+  {
+
+      QSqlQuery query;
+      QString point3 = QString::number(point2);
+
+
+      query.prepare("update CLIENTS set  point=:point3 where cin=:cin2");
+      query.bindValue(":cin2",cin2);
+      query.bindValue(":point3",point3);
+
+
+      return query.exec();
+
+  }
+
+
+
+
+  int client::clicker10(QString cin3)
+  {
+
+  QString a;
+  QString b;
+  QString c;
+  QString d;
+  QString e;
+  int f;
+  int g;
+
+
+  QSqlQuery query;
+
+   query.exec("select * from CLIENTS  where cin = '"+cin3+"' ");
+   query.bindValue(":cin3",cin3);
+
+  while(query.next())
+  {
+      query.value(0).toString();
+      a=query.value(1).toString();
+       b= query.value(2).toString();
+        c=query.value(3).toString();
+        d= query.value(4).toString();
+         e= query.value(5).toString();
+          f= query.value(6).toInt();
+           g=query.value(7).toInt();
+
+  }
+
+
+  return g;
+
+
+
+
+
+  }
+
+
+
+
+  QString client::clicker11(QString cin3)
+  {
+
+  QString a;
+  QString b;
+  QString c;
+  QString d;
+  QString e;
+  QString f;
+  QString g;
+
+
+  QSqlQuery query;
+
+   query.exec("select * from CLIENTS  where cin = '"+cin3+"' ");
+   query.bindValue(":cin3",cin3);
+
+  while(query.next())
+  {
+      query.value(0).toString();
+      a=query.value(1).toString();
+       b= query.value(2).toString();
+        c=query.value(3).toString();
+        d= query.value(4).toString();
+         e= query.value(5).toString();
+          f= query.value(6).toString();
+           g=query.value(7).toString();
+
+  }
+
+
+
+
+  return f;
 
 
   }

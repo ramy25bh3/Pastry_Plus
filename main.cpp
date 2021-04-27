@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
                               QMessageBox::Cancel);
 
 
+
     c.show();
     return a.exec();
 }
