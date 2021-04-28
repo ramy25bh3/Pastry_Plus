@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "produit.h"
 #include "ingredient.h"
+#include "arduino_p_i.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Produit_ingredient; }
@@ -88,7 +89,7 @@ private slots:
     void on_produit3_triggered();
 
 
-//********* TOUL TAB ***********
+//********* TIME ***********
 
     void showtime ();
 
@@ -96,5 +97,6 @@ private:
     Ui::Produit_ingredient *ui;
     Produit P;
     Ingredient I;
+    Arduino_P_I A;
 };
 #endif // PRODUIT_INGREDIENT_H

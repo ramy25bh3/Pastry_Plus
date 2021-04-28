@@ -3,5 +3,6 @@
         <file>gateau.png</file>
         <file>pate.png</file>
         <file>sale.png</file>
+        <file>Toolery.qss</file>
     </qresource>
 </RCC>

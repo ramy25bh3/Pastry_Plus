@@ -4,6 +4,7 @@
 #include "connection.h"
 #include <QDebug>
 #include <QMessageBox>
+#include <QFile>
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +12,14 @@ int main(int argc, char *argv[])
     Connection C;
     bool test=C.createConnection();
     Produit_ingredient w;
+
+    QFile file("D:/QT/Awork/produit_ingredient_1/produit_ingredient/Toolery.qss");
+                file.open(QFile::ReadOnly);
+
+                QString styleSheet { QLatin1String(file.readAll()) };
+
+                //setup stylesheet
+                a.setStyleSheet(styleSheet);
 
     if(test)
       { // QDebug() <<"Connection réussite";

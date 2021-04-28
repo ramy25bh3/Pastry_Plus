@@ -1,5 +1,13 @@
 #include "produit_ingredient.h"
 #include "ui_produit_ingredient.h"
+#include "produit.h"
+#include "ingredient.h"
+#include "stats.h"
+#include "exportexcelobject.h"
+#include "toulbar.h"
+#include "tableprinter.h"
+#include "arduino_p_i.h"
+
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
@@ -7,14 +15,7 @@
 #include <QPdfWriter>
 #include <QPainter>
 #include <QPixmap>
-#include "produit.h"
-#include "ingredient.h"
-#include "stats.h"
-#include "exportexcelobject.h"
-#include "toulbar.h"
-
 #include <QtPrintSupport/QPrintDialog>
-#include "tableprinter.h"
 #include <QPrinter>
 #include <QPrintPreviewDialog>
 #include <QSound>
@@ -60,6 +61,22 @@ Produit_ingredient::Produit_ingredient(QWidget *parent)
 {
     ui->setupUi(this);
 
+    int ret= A.connect_arduino();
+
+        switch(ret)
+        {
+        case(0):qDebug()<<"arduino is available and connected to:"<<A.getarduino_port_name(); break;
+
+        case(1):qDebug()<<"arduino is available but bot connected to:"<<A.getarduino_port_name(); break;
+
+        case(-1):qDebug()<<"arduino is not available ";
+                           break;
+        }
+
+        QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+
+
+
     ui->identifiant_P->setValidator(new QIntValidator(0,99999999,this));
     ui->afficher_produit->setModel(P.afficher_produit());
 
@@ -79,11 +96,13 @@ Produit_ingredient::Produit_ingredient(QWidget *parent)
 
     QPropertyAnimation *animation;
     animation = new QPropertyAnimation (ui ->logo_P,"geometry" );
-                      // animation = new QPropertyAnimation (ui ->text_2,"geometry" );
-                       animation->setDuration(5000);
+
+                       animation->setDuration(10000);
                        animation->setStartValue(ui->logo_P->geometry());
                        animation->setEndValue(QRect(140,200,5,1));
+                       //animation->setEndValue(QRect(0,0,5,1));
                        animation->start();
+
 
 
      QTimer *timer=new QTimer(this);
@@ -757,7 +776,6 @@ void Produit_ingredient::on_PDF_I_clicked()
 //*************** TOUL BAR ******************************
 
 
-
 void Produit_ingredient::on_produit1_triggered()
 {
     QString image;
@@ -798,7 +816,10 @@ void Produit_ingredient::on_produit3_triggered()
 }
 
 
+
+
 //*************** DATE ******************************
+
 
 void Produit_ingredient::showtime ()
 {

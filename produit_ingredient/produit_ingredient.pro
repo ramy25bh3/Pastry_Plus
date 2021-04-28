@@ -4,6 +4,8 @@ QT       += core gui charts
 QT       += core gui sql printsupport
 QT       += multimedia
 CONFIG   += resources_big
+QT       +=serialport
+#QT       += core gui multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,6 +23,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino_p_i.cpp \
     connection.cpp \
     exportexcelobject.cpp \
     ingredient.cpp \
@@ -32,6 +35,7 @@ SOURCES += \
     toulbar.cpp
 
 HEADERS += \
+    arduino_p_i.h \
     connection.h \
     exportexcelobject.h \
     ingredient.h \
@@ -53,3 +57,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     produit_ingredient.qrc
+
+DISTFILES +=
