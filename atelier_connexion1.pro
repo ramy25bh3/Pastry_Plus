@@ -1,4 +1,10 @@
+QT       += core gui sql
+CONFIG   += console
+QT       += core gui charts
 QT       += core gui sql printsupport
+QT       += multimedia
+CONFIG   += resources_big
+QT       += core gui multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,6 +29,7 @@ SOURCES += \
     eventicket.cpp \
     gestion_eventicket.cpp \
     main.cpp \
+    stats.cpp \
     ticket.cpp
 
 HEADERS += \
@@ -32,13 +39,15 @@ HEADERS += \
     evenement.h \
     eventicket.h \
     gestion_eventicket.h \
+    stats.h \
     ticket.h
 
 FORMS += \
     add_evenement.ui \
     add_ticket.ui \
     eventicket.ui \
-    gestion_eventicket.ui
+    gestion_eventicket.ui \
+    stats.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
