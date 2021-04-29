@@ -320,3 +320,21 @@ QString Ingredient:: tabview4(int id_I)
 }
 
 
+
+bool Ingredient::verifierCin_aj(int identifiant_I)
+ {
+    QSqlQuery  query;
+     bool test=true;
+
+       QString identifiant_I_string=QString::number(identifiant_I);
+
+         query.prepare("SELECT * FROM Ingrdient WHERE identifiant_I=:identifiant_I");
+          query.bindValue(":identifiant_I",identifiant_I_string);
+
+     if(query.exec()&&query.next())
+     {
+         test=false;
+          return test;
+     }
+     return test;
+ }

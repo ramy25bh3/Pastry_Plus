@@ -4,5 +4,7 @@
         <file>pate.png</file>
         <file>sale.png</file>
         <file>Toolery.qss</file>
+        <file>bg.jpg</file>
+        <file>front.jpg</file>
     </qresource>
 </RCC>

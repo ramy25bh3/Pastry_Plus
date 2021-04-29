@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -207,6 +207,19 @@
           <string/>
          </property>
         </item>
+       </widget>
+       <widget class="QLabel" name="msg_P">
+        <property name="geometry">
+         <rect>
+          <x>85</x>
+          <y>70</y>
+          <width>291</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_5">
@@ -634,8 +647,7 @@ background:rgb(255, 85, 0);
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Exporter EXCEL</string>
@@ -695,6 +707,42 @@ background:rgb(255, 85, 0);
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="bg_P">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>1131</width>
+        <height>481</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="produit_ingredient.qrc">:/image/bg.jpg</pixmap>
+      </property>
+     </widget>
+     <zorder>bg_P</zorder>
+     <zorder>produit</zorder>
+     <zorder>afficher_produit</zorder>
+     <zorder>label_16</zorder>
+     <zorder>nom_P_trie</zorder>
+     <zorder>quantite_P_trie</zorder>
+     <zorder>prix_P_trie</zorder>
+     <zorder>label_17</zorder>
+     <zorder>identifiant_P_rech</zorder>
+     <zorder>label_18</zorder>
+     <zorder>label_19</zorder>
+     <zorder>type_P_rech</zorder>
+     <zorder>chercher_produit</zorder>
+     <zorder>trier_produit</zorder>
+     <zorder>logo_P</zorder>
+     <zorder>stat_P</zorder>
+     <zorder>excel_P</zorder>
+     <zorder>PDF_P</zorder>
+     <zorder>date_P</zorder>
+     <zorder>digital_date_P</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -867,6 +915,19 @@ background:rgb(255, 85, 0);
          </property>
         </item>
        </widget>
+       <widget class="QLabel" name="msg_I">
+        <property name="geometry">
+         <rect>
+          <x>85</x>
+          <y>80</y>
+          <width>261</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_9">
        <attribute name="title">
@@ -918,8 +979,7 @@ background:rgb(255, 85, 0);
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">
-</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Supprimer</string>
@@ -1249,8 +1309,7 @@ background:rgb(255, 85, 0);
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Trier</string>
@@ -1279,8 +1338,7 @@ background:rgb(255, 85, 0);
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Statistiques</string>
@@ -1312,8 +1370,7 @@ background:rgb(255, 85, 0);
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Exporter PDF</string>

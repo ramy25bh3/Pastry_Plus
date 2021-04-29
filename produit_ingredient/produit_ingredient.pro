@@ -28,6 +28,7 @@ SOURCES += \
     exportexcelobject.cpp \
     ingredient.cpp \
     main.cpp \
+    mainwindow.cpp \
     produit.cpp \
     produit_ingredient.cpp \
     stats.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     connection.h \
     exportexcelobject.h \
     ingredient.h \
+    mainwindow.h \
     produit.h \
     produit_ingredient.h \
     stats.h \
@@ -46,6 +48,7 @@ HEADERS += \
     toulbar.h
 
 FORMS += \
+    mainwindow.ui \
     produit_ingredient.ui \
     stats.ui \
     toulbar.ui

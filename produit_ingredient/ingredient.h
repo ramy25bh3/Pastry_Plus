@@ -39,6 +39,8 @@ public:
     QString tabview4(int);
 
 
+    bool verifierCin_aj(int identifiant_I);
+
 private:
     int identifiant_I, quantite_I;
     float prix_I;

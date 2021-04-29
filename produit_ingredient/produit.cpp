@@ -323,3 +323,21 @@ QString Produit:: tabview4(int id_P)
 
 
 
+
+bool Produit::verifierCin_aj(int identifiant_P)
+ {
+    QSqlQuery  query;
+     bool test=true;
+
+       QString identifiant_P_string=QString::number(identifiant_P);
+
+         query.prepare("SELECT * FROM Produit WHERE identifiant_P=:identifiant_P");
+          query.bindValue(":identifiant_P",identifiant_P_string);
+
+     if(query.exec()&&query.next())
+     {
+         test=false;
+          return test;
+     }
+     return test;
+ }

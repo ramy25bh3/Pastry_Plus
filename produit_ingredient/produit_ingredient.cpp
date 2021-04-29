@@ -97,7 +97,7 @@ Produit_ingredient::Produit_ingredient(QWidget *parent)
     QPropertyAnimation *animation;
     animation = new QPropertyAnimation (ui ->logo_P,"geometry" );
 
-                       animation->setDuration(10000);
+                       animation->setDuration(50000);
                        animation->setStartValue(ui->logo_P->geometry());
                        animation->setEndValue(QRect(140,200,5,1));
                        //animation->setEndValue(QRect(0,0,5,1));
@@ -124,6 +124,16 @@ Produit_ingredient::~Produit_ingredient()
 }
 
 
+void change(QLabel * label, const QString & text, int ms_keep = 7000, int ms_after = 0)
+{
+    //QString originaltext = label->text();
+    QTimer::singleShot(ms_after, [=](){
+        label->setText(text);
+        QTimer::singleShot(ms_keep, [=](){
+            label->setText("");
+        });
+    });
+}
 
 //************************* Produit ********************************
 
@@ -139,10 +149,18 @@ void Produit_ingredient::on_ajouter_produit_clicked()
 
     Produit P(identifiant_P, nom_P, quantite_P, prix_P, type_P);
 
-    bool test= P.ajouter_produit();
-    QMessageBox msgBox;
+    if(P.verifierCin_aj(P.getidentifiant_P())==false)
+       {
+           change(ui->msg_P,"<font color='red'> Cet identifiant est déjà utilisé</font>",7000, 0);
+       }
+
+   if( P.verifierCin_aj(P.getidentifiant_P())==true)
+   {
+     bool test= P.ajouter_produit();
+       QMessageBox msgBox;
+
     if(quantite_P <= 0 || prix_P<=0)
-    QMessageBox::information(nullptr,QObject::tr(""),QObject::tr("La quantité et le prix ne doivent pas etre negatives"),QMessageBox::Ok);
+         QMessageBox::information(nullptr,QObject::tr(""),QObject::tr("La quantité et le prix ne doivent pas etre negatives"),QMessageBox::Ok);
     else
     {
     if(test)
@@ -154,6 +172,7 @@ void Produit_ingredient::on_ajouter_produit_clicked()
         msgBox.setText("Echec d'ajout");
 
     msgBox.exec();
+}
 }
 }
 
@@ -262,8 +281,17 @@ void Produit_ingredient::on_ajouter_ingredient_clicked()
 
     Ingredient I(identifiant_I, nom_I, quantite_I, prix_I, type_I);
 
+
+    if(I.verifierCin_aj(I.getidentifiant_I())==false)
+       {
+           change(ui->msg_I,"<font color='red'> Cet identifiant est déjà utilisé</font>",7000, 0);
+       }
+
+    if( I.verifierCin_aj(I.getidentifiant_I())==true)
+    {
     bool test= I.ajouter_ingredient();
     QMessageBox msgBox;
+
     if(quantite_I <= 0 || prix_I<=0)
     QMessageBox::information(nullptr,QObject::tr(""),QObject::tr("La quantité et le prix ne doivent pas etre negatives"),QMessageBox::Ok);
     else
@@ -279,7 +307,7 @@ void Produit_ingredient::on_ajouter_ingredient_clicked()
     msgBox.exec();
 }
 }
-
+}
 
 void Produit_ingredient::on_supprimer_ingredient_clicked()
 {

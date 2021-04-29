@@ -39,6 +39,7 @@ public:
     QString tabview4(int);
 
 
+    bool verifierCin_aj(int identifiant_P);
 
 private:
     int identifiant_P, quantite_P;
