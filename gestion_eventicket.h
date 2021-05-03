@@ -20,6 +20,7 @@
 #include "add_evenement.h"
 #include "ticket.h"
 #include "add_ticket.h"
+#include "stats.h"
 
 
 namespace Ui {
@@ -74,6 +75,10 @@ private slots:
 
 
     void on_actionadd_evenement_clicked();
+
+    void on_stats_clicked();
+
+    void on_video_clicked();
 
 private:
     Ui::gestion_eventicket *ui;

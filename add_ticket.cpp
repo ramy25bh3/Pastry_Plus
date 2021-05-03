@@ -1,5 +1,6 @@
 #include "add_ticket.h"
 #include "ui_add_ticket.h"
+#include "QMessageBox"
 
 add_ticket::add_ticket(QWidget *parent) :
     QDialog(parent),
@@ -49,6 +50,22 @@ QString add_ticket::heure() const { //time
 QString add_ticket::id() const { //line edit
 
     return ui->id->text();
+   /*
+    if id =('a'){}
+    QMessageBox::information(nullptr,QObject::tr(""),QObject::tr("La quantité et le prix ne doivent pas etre negatives"),QMessageBox::Ok);
+    else
+    {
+    if(test)
+       {
+        msgBox.setText("Ajout avec succées");
+        ui->afficher_produit->setModel(P.afficher_produit());
+        }
+    else
+        msgBox.setText("Echec d'ajout");
+
+    msgBox.exec();
+}
+*/
 }
 
 

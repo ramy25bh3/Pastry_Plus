@@ -1,7 +1,22 @@
 #include "gestion_eventicket.h"
 #include "ui_gestion_eventicket.h"
-
+#include "stats.h"
+#include <QMessageBox>
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+#include <QIntValidator>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QPixmap>
+#include <QMediaPlayer>
+#include <QVideoWidget>
+#include <QtCharts>
+#include <QChartView>
+#include <QPieSeries>
 #include "QPrintDialog"
+#include <QtPrintSupport/QPrintDialog>
+#include <QPrintPreviewDialog>
+#include <QSound>
 
 gestion_eventicket::gestion_eventicket(QWidget *parent) :
     QMainWindow(parent),
@@ -281,3 +296,29 @@ void gestion_eventicket::on_pushButton_2_clicked()
         delete document;
 }
 
+
+void gestion_eventicket::on_stats_clicked()
+{
+    QSound::play("C:/Users/tab3ouch/OneDrive/Desktop/aaaaa/sound/button.wav");
+
+    stats S;
+            S.statistique_P();
+            S.setModal(true);
+            S.exec();
+
+
+}
+
+void gestion_eventicket::on_video_clicked()
+{
+    QMediaPlayer* player = new QMediaPlayer ;
+    QVideoWidget* vw = new QVideoWidget ;
+
+   player ->setVideoOutput(vw);
+   player ->setMedia(QUrl::fromLocalFile("/Users/tab3ouch/OneDrive/Desktop/aa.mpg"));
+   vw -> setGeometry(100,100,300,400);
+   vw-> show();
+   player->play();
+   qDebug() << player ->state();
+
+}
