@@ -160,4 +160,37 @@ QSqlQueryModel * comm_achats::afficher_com_a()
       return model;
   }
 
+  int comm_achats::count(QString nom)
+  {
+      QSqlQuery query;
+      query.prepare("select * from COMM_ACHATS where NOM_SOC_ACHAT=:nom");
+      query.bindValue(":nom",nom);
+
+      query.exec();
+      int total=0;
+      while(query.next()){
+          total++;
+      }
+
+      return total;
+
+  }
+
+  int comm_achats::count_date(QDate date_1,QDate date_2,QString nom)
+  {
+      QSqlQuery query;
+      query.prepare("select * from COMM_ACHATS where DATE_LIVR_ACHAT between :date_1 AND :date_2  AND NOM_SOC_ACHAT=:nom");
+      query.bindValue(":date_1",date_1);
+      query.bindValue(":date_2",date_2);
+      query.bindValue(":nom",nom);
+
+      query.exec();
+      int total=0;
+      while(query.next()){
+          total++;
+      }
+
+      return total;
+  }
+
 

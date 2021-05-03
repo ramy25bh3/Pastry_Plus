@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Fournisseurs</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
@@ -23,12 +23,20 @@
       <height>671</height>
      </rect>
     </property>
-    <property name="currentIndex">
-     <number>0</number>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tab_9">
+     <attribute name="title">
+      <string>Menu</string>
+     </attribute>
+    </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Cyrine</string>
+      <string>Gestion des fournisseurs</string>
      </attribute>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
@@ -49,7 +57,7 @@
             <x>9</x>
             <y>10</y>
             <width>371</width>
-            <height>561</height>
+            <height>571</height>
            </rect>
           </property>
           <property name="currentIndex">
@@ -63,9 +71,9 @@
             <property name="geometry">
              <rect>
               <x>260</x>
-              <y>440</y>
+              <y>470</y>
               <width>91</width>
-              <height>31</height>
+              <height>51</height>
              </rect>
             </property>
             <property name="text">
@@ -78,7 +86,7 @@
               <x>138</x>
               <y>30</y>
               <width>211</width>
-              <height>381</height>
+              <height>441</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
@@ -86,16 +94,81 @@
               <widget class="QLineEdit" name="txt_cin"/>
              </item>
              <item>
+              <widget class="QLabel" name="c_1">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_nom"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="c_2">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLineEdit" name="txt_num"/>
              </item>
              <item>
+              <widget class="QLabel" name="c_4">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_adresse"/>
              </item>
              <item>
+              <widget class="QLabel" name="c_3">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_email"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="c_5">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QDateEdit" name="dateEdit">
@@ -105,7 +178,33 @@
               </widget>
              </item>
              <item>
+              <widget class="QLabel" name="label_45">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_spec"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="c32">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>
@@ -113,9 +212,9 @@
             <property name="geometry">
              <rect>
               <x>6</x>
-              <y>30</y>
+              <y>20</y>
               <width>131</width>
-              <height>361</height>
+              <height>431</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -179,9 +278,9 @@
             <property name="geometry">
              <rect>
               <x>260</x>
-              <y>440</y>
+              <y>480</y>
               <width>93</width>
-              <height>31</height>
+              <height>41</height>
              </rect>
             </property>
             <property name="text">
@@ -191,10 +290,10 @@
            <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
-              <x>140</x>
-              <y>10</y>
-              <width>211</width>
-              <height>421</height>
+              <x>150</x>
+              <y>40</y>
+              <width>201</width>
+              <height>411</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -202,13 +301,66 @@
               <widget class="QLineEdit" name="txt_nom_soc"/>
              </item>
              <item>
+              <widget class="QLabel" name="c_23">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_tel_f"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="c_44">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLineEdit" name="txt_adresse_f"/>
              </item>
              <item>
+              <widget class="QLabel" name="c_33">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_email_f"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="c_55">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QDateEdit" name="dateEdit_2">
@@ -218,17 +370,43 @@
               </widget>
              </item>
              <item>
+              <widget class="QLabel" name="label_43">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_spc"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="c322">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="">
+           <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>30</y>
-              <width>131</width>
-              <height>371</height>
+              <y>20</y>
+              <width>141</width>
+              <height>411</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -317,7 +495,7 @@
             <x>390</x>
             <y>540</y>
             <width>93</width>
-            <height>28</height>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -330,7 +508,7 @@
             <x>490</x>
             <y>540</y>
             <width>93</width>
-            <height>28</height>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -380,9 +558,9 @@
           <property name="geometry">
            <rect>
             <x>850</x>
-            <y>60</y>
+            <y>47</y>
             <width>93</width>
-            <height>28</height>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -395,7 +573,7 @@
             <x>590</x>
             <y>540</y>
             <width>93</width>
-            <height>28</height>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -413,11 +591,11 @@
             <x>10</x>
             <y>10</y>
             <width>371</width>
-            <height>561</height>
+            <height>571</height>
            </rect>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_7">
            <attribute name="title">
@@ -427,9 +605,9 @@
             <property name="geometry">
              <rect>
               <x>260</x>
-              <y>440</y>
+              <y>450</y>
               <width>91</width>
-              <height>31</height>
+              <height>41</height>
              </rect>
             </property>
             <property name="text">
@@ -442,7 +620,7 @@
               <x>11</x>
               <y>30</y>
               <width>131</width>
-              <height>361</height>
+              <height>371</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -497,11 +675,11 @@
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="">
+           <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
               <x>140</x>
-              <y>26</y>
+              <y>36</y>
               <width>211</width>
               <height>381</height>
              </rect>
@@ -511,16 +689,82 @@
               <widget class="QLineEdit" name="txt_cin_2"/>
              </item>
              <item>
+              <widget class="QLabel" name="label_46">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_nom_2"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_47">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLineEdit" name="txt_id_ing"/>
              </item>
              <item>
+              <widget class="QLabel" name="label_48">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_qte"/>
              </item>
              <item>
+              <widget class="QLabel" name="label_49">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_prix"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_50">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QDateEdit" name="dateEdit_add">
@@ -530,9 +774,35 @@
               </widget>
              </item>
              <item>
+              <widget class="QLabel" name="label_51">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QDateEdit" name="dateEdit_livr">
                <property name="calendarPopup">
                 <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_52">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
                </property>
               </widget>
              </item>
@@ -547,9 +817,9 @@
             <property name="geometry">
              <rect>
               <x>260</x>
-              <y>440</y>
+              <y>470</y>
               <width>93</width>
-              <height>31</height>
+              <height>41</height>
              </rect>
             </property>
             <property name="text">
@@ -559,10 +829,10 @@
            <widget class="QWidget" name="layoutWidget_4">
             <property name="geometry">
              <rect>
-              <x>140</x>
-              <y>10</y>
-              <width>211</width>
-              <height>411</height>
+              <x>150</x>
+              <y>50</y>
+              <width>201</width>
+              <height>401</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -570,18 +840,83 @@
               <widget class="QLineEdit" name="txt_nom_soc_mod"/>
              </item>
              <item>
+              <widget class="QLabel" name="label_53">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_id_ing_mod"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_54">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLineEdit" name="txt_qte_mod"/>
              </item>
              <item>
+              <widget class="QLabel" name="label_55">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLineEdit" name="txt_prix_mod"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_56">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QDateEdit" name="dateEdit_add_mod">
                <property name="calendarPopup">
                 <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_57">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
                </property>
               </widget>
              </item>
@@ -592,6 +927,19 @@
                </property>
               </widget>
              </item>
+             <item>
+              <widget class="QLabel" name="label_58">
+               <property name="styleSheet">
+                <string notr="true">*{
+color: red;
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
            <widget class="QWidget" name="layoutWidget_5">
@@ -599,8 +947,8 @@
              <rect>
               <x>10</x>
               <y>30</y>
-              <width>131</width>
-              <height>371</height>
+              <width>141</width>
+              <height>401</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -667,9 +1015,9 @@
           <property name="geometry">
            <rect>
             <x>900</x>
-            <y>60</y>
+            <y>47</y>
             <width>93</width>
-            <height>28</height>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -728,7 +1076,7 @@
             <x>500</x>
             <y>540</y>
             <width>93</width>
-            <height>28</height>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -754,7 +1102,7 @@
             <x>390</x>
             <y>540</y>
             <width>93</width>
-            <height>28</height>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -774,6 +1122,19 @@
            <string>Nom société</string>
           </property>
          </widget>
+         <widget class="QPushButton" name="stats">
+          <property name="geometry">
+           <rect>
+            <x>610</x>
+            <y>540</y>
+            <width>93</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Statistiques</string>
+          </property>
+         </widget>
         </widget>
         <widget class="QWidget" name="tab_6">
          <attribute name="title">
@@ -784,7 +1145,7 @@
            <rect>
             <x>10</x>
             <y>10</y>
-            <width>694</width>
+            <width>790</width>
             <height>534</height>
            </rect>
           </property>

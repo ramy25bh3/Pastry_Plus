@@ -35,6 +35,8 @@ public:
      QSqlQueryModel * trier_id_ing_a();
      QSqlQueryModel * trier_nom_soc_a();
      QSqlQueryModel * trier_prix_com_a();
+     int count(QString);
+     int count_date(QDate,QDate,QString);
 
 private:
     int ID_ACHAT;

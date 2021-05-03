@@ -13,13 +13,11 @@ int main(int argc, char *argv[])
         test=C.createConnection();
     MainWindow w;
 
-    QFile file(":/Darkeum.qss");
-            file.open(QFile::ReadOnly);
-
-            QString styleSheet { QLatin1String(file.readAll()) };
-
-            //setup stylesheet
-            a.setStyleSheet(styleSheet);
+    //stylesheet
+    QFile file(":/Toolery.qss");
+    file.open(QFile::ReadOnly);
+    QString styleSheet { QLatin1String(file.readAll()) };
+    a.setStyleSheet(styleSheet);
 
  if(test)
    //  qDebug() <<"La connexion reussie";

@@ -2,19 +2,26 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "fournisseur.h"
-#include "connexion.h"
-#include "comm_achats.h"
 #include <QSqlTableModel>
 #include <QFileDialog>
 #include <QDir>
 #include <QTextStream>
+#include <QWidget>
+#include "fournisseur.h"
+#include "connexion.h"
+#include "comm_achats.h"
+#include "stats.h"
 #include "C:\Users\BNA\Desktop\Projet C++\crud\crud\SmtpClient-for-Qt-1.1\src/SmtpMime"
 
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+class QCamera;
+class QCameraViewFinder;
+class QCameraImageCapture;
+class QVBoxLayout;
 
 class MainWindow : public QMainWindow
 {
@@ -26,6 +33,7 @@ public:
     static EmailAddress * stringToEmail(const QString & str);
     void refreshw();
     void afficher();
+    void music();
 
 private slots:
     void on_pushButton_clicked();
@@ -58,6 +66,7 @@ private slots:
 
     void on_rech_bouton_2_returnPressed();
 
+    void on_stats_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -65,6 +74,11 @@ private:
     QSqlTableModel *model;
     fournisseur tmpfournisseur;
     comm_achats tmpcomma;
+
+    QCamera *mCamera;
+    QCameraViewFinder *mCameraViewFinder;
+    QCameraImageCapture *mCameraImageCapture;
+    QVBoxLayout *mLayout;
 
 };
 #endif // MAINWINDOW_H

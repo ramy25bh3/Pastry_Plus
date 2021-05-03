@@ -3,8 +3,8 @@
 #include "QSqlQuery"
 #include <QMessageBox>
 #include <QSqlQueryModel>
-#include<QDateTime>
-#include<QDate>
+#include <QDateTime>
+#include <QDate>
 #include <QDebug>
 #include <QPrinter>
 #include <QPrintDialog>
@@ -16,10 +16,24 @@
 #include <QFile>
 #include <QDataStream>
 #include <QTextStream>
+#include <QMediaPlayer>
+#include <QSound>
+#include <QCamera>
+#include <QCameraViewfinder>
+#include <QCameraImageCapture>
+#include <QVBoxLayout>
 #include "connexion.h"
 #include "fournisseur.h"
 #include "comm_achats.h"
 #include "exportexcelobject.h"
+
+void MainWindow:: music()
+{
+   QMediaPlayer * player = new QMediaPlayer;
+   player->setMedia(QUrl::fromLocalFile("D:/Music/Birdy - Skinny Love [Official Music Video].mp3"));
+   player->setVolume(30);
+   player->play();
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -30,6 +44,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tablecommandes_a->setModel(tmpcomma.afficher_com_a());
     model=new QSqlTableModel;
     model->select();
+    mCamera = new QCamera(this);
+    //mCameraViewFinder = new QCameraViewFinder(this);
+    mCameraImageCapture = new QCameraImageCapture(mCamera, this);
+    mLayout = new QVBoxLayout;
+
+    //mLayout->addItem(mCameraViewFinder);
+
+    music();
 
 }
 
@@ -42,6 +64,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()//ajout fournisseur
 {
+     QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
+    int i=0,j=0,x=0,n=0,p=0,b=0,c=0,y=0,w=0,h=0,r=0,t=0,k=0,r2=0,t2=0,k2=0,s=0;
+    int  c1=0, c2=0, c3=0, c3_2=0, c4=0;
+    int ajout=0;
+    //int point=10;
+
     bool test;//= f.ajouter_fournisseur();
 
     int id_f= ui->txt_cin->text().toInt();
@@ -52,9 +81,429 @@ void MainWindow::on_pushButton_clicked()//ajout fournisseur
     QString specialite_f = ui->txt_spec->text();
     QString adresse_add_f = ui->txt_adresse->text();
 
-    fournisseur f(id_f, nom_soc, tel_f, email_f, date_add_f, specialite_f, adresse_add_f);
+    QString id_f2= ui->txt_cin->text();
+    QString tel_f2=ui->txt_num->text();
+    QString nom_soc2 = ui->txt_nom->text();
+    QString specialite_f2 = ui->txt_spec->text();
+    QString adresse_add_f2 = ui->txt_adresse->text();
+    QString email_f2 = ui->txt_email->text();
+    QString gmail1="gmail";
+    QString gmail2="esprit";
 
-   {test=f.ajouter_fournisseur();}
+    //condition id_f
+    if(id_f2!="")
+        {
+         if(id_f2.length()!=8)
+             c1=1;
+        for(i=0;i<id_f2.length();i++)
+         {
+            if(id_f2[i]=="a"  )
+                    c1=1;
+            if(id_f2[i]=="b"  )
+                    c1=1;
+            if(id_f2[i]=="c"  )
+                    c1=1;
+            if(id_f2[i]=="d"  )
+                    c1=1;
+            if(id_f2[i]=="e"  )
+                    c1=1;
+            if(id_f2[i]=="f"  )
+                    c1=1;
+            if(id_f2[i]=="g"  )
+                    c1=1;
+            if(id_f2[i]=="h"  )
+                    c1=1;
+            if(id_f2[i]=="i"  )
+                    c1=1;
+            if(id_f2[i]=="j"  )
+                    c1=1;
+            if(id_f2[i]=="k"  )
+                    c1=1;
+            if(id_f2[i]=="l"  )
+                    c1=1;
+            if(id_f2[i]=="m"  )
+                    c1=1;
+            if(id_f2[i]=="n"  )
+                    c1=1;
+            if(id_f2[i]=="o"  )
+                    c1=1;
+            if(id_f2[i]=="p"  )
+                    c1=1;
+            if(id_f2[i]=="r"  )
+                    c1=1;
+            if(id_f2[i]=="s"  )
+                    c1=1;
+            if(id_f2[i]=="t"  )
+                    c1=1;
+            if(id_f2[i]=="u"  )
+                    c1=1;
+            if(id_f2[i]=="v"  )
+                    c1=1;
+            if(id_f2[i]=="w"  )
+                    c1=1;
+            if(id_f2[i]=="x"  )
+                    c1=1;
+            if(id_f2[i]=="y"  )
+                    c1=1;
+            if(id_f2[i]=="z"  )
+                    c1=1;
+         }
+
+        }
+        else
+        {
+            c1=1;
+        }
+
+    //condition tel_f
+    if(tel_f2!="")
+        {
+         if(tel_f2.length()!=8)
+             c4=1;
+        for(i=0;i<tel_f2.length();i++)
+         {
+            if(tel_f2[i]=="a"  )
+                    c4=1;
+            if(tel_f2[i]=="b"  )
+                    c4=1;
+            if(tel_f2[i]=="c"  )
+                    c4=1;
+            if(tel_f2[i]=="d"  )
+                    c4=1;
+            if(tel_f2[i]=="e"  )
+                    c4=1;
+            if(tel_f2[i]=="f"  )
+                    c4=1;
+            if(tel_f2[i]=="g"  )
+                    c4=1;
+            if(tel_f2[i]=="h"  )
+                    c4=1;
+            if(tel_f2[i]=="i"  )
+                    c4=1;
+            if(tel_f2[i]=="j"  )
+                    c4=1;
+            if(tel_f2[i]=="k"  )
+                    c4=1;
+            if(tel_f2[i]=="l"  )
+                    c4=1;
+            if(tel_f2[i]=="m"  )
+                    c4=1;
+            if(tel_f2[i]=="n"  )
+                    c4=1;
+            if(tel_f2[i]=="o"  )
+                    c4=1;
+            if(tel_f2[i]=="p"  )
+                    c4=1;
+            if(tel_f2[i]=="r"  )
+                    c4=1;
+            if(tel_f2[i]=="s"  )
+                    c4=1;
+            if(tel_f2[i]=="t"  )
+                    c4=1;
+            if(tel_f2[i]=="u"  )
+                    c4=1;
+            if(tel_f2[i]=="v"  )
+                    c4=1;
+            if(tel_f2[i]=="w"  )
+                    c4=1;
+            if(tel_f2[i]=="x"  )
+                    c4=1;
+            if(tel_f2[i]=="y"  )
+                    c4=1;
+            if(tel_f2[i]=="z"  )
+                    c4=1;
+         }
+
+        }
+        else
+        {
+            c4=1;
+        }
+
+        //condition nom_soc
+        if(nom_soc2!="")
+        {
+        for(i=0;i<nom_soc2.length();i++)
+        {
+            if(nom_soc2[i]=="0")
+                c2=1;
+            if(nom_soc2[i]=="1")
+                c2=1;
+            if(nom_soc2[i]=="2")
+                c2=1;
+            if(nom_soc2[i]=="3")
+                c2=1;
+            if(nom_soc2[i]=="4")
+                c2=1;
+            if(nom_soc2[i]=="5")
+                c2=1;
+            if(nom_soc2[i]=="6")
+                c2=1;
+            if(nom_soc2[i]=="7")
+                c2=1;
+            if(nom_soc2[i]=="8")
+                c2=1;
+            if(nom_soc2[i]=="9")
+                c2=1;
+        }
+        }else
+           c2=1;
+
+        //condition adresse_f
+        if(adresse_add_f2!="")
+        {
+        for(i=0;i<adresse_add_f2.length();i++)
+        {
+            if(adresse_add_f2[i]=="0")
+                c3=1;
+            if(adresse_add_f2[i]=="1")
+                c3=1;
+            if(adresse_add_f2[i]=="2")
+                c3=1;
+            if(adresse_add_f2[i]=="3")
+                c3=1;
+            if(adresse_add_f2[i]=="4")
+                c3=1;
+            if(adresse_add_f2[i]=="5")
+                c3=1;
+            if(adresse_add_f2[i]=="6")
+                c3=1;
+            if(adresse_add_f2[i]=="7")
+                c3=1;
+            if(adresse_add_f2[i]=="8")
+                c3=1;
+            if(adresse_add_f2[i]=="9")
+                c3=1;
+        }
+        }else
+           c3=1;
+
+        //condition specialite_f
+        if(specialite_f2!="")
+        {
+        for(i=0;i<specialite_f2.length();i++)
+        {
+            if(specialite_f2[i]=="0")
+                c3_2=1;
+            if(specialite_f2[i]=="1")
+                c3_2=1;
+            if(specialite_f2[i]=="2")
+                c3_2=1;
+            if(specialite_f2[i]=="3")
+                c3_2=1;
+            if(specialite_f2[i]=="4")
+                c3_2=1;
+            if(specialite_f2[i]=="5")
+                c3_2=1;
+            if(specialite_f2[i]=="6")
+                c3_2=1;
+            if(specialite_f2[i]=="7")
+                c3_2=1;
+            if(specialite_f2[i]=="8")
+                c3_2=1;
+            if(specialite_f2[i]=="9")
+                c3_2=1;
+        }
+        }else
+           c3_2=1;
+
+        //condition email_f
+        for(i=0;i<email_f2.length();i++)
+            {
+                if(email_f2[i]=="a"  )
+                    j++;
+                if(email_f2[i]=="b"  )
+                    j++;
+                if(email_f2[i]=="c"  )
+                    j++;
+                if(email_f2[i]=="d"  )
+                    j++;
+                if(email_f2[i]=="e"  )
+                    j++;
+                if(email_f2[i]=="f"  )
+                    j++;
+                if(email_f2[i]=="g"  )
+                    j++;
+                if(email_f2[i]=="h"  )
+                    j++;
+                if(email_f2[i]=="i"  )
+                    j++;
+                if(email_f2[i]=="j"  )
+                    j++;
+                if(email_f2[i]=="k"  )
+                    j++;
+                if(email_f2[i]=="l"  )
+                    j++;
+                if(email_f2[i]=="m"  )
+                    j++;
+                if(email_f2[i]=="n"  )
+                    j++;
+                if(email_f2[i]=="o"  )
+                    j++;
+                if(email_f2[i]=="p"  )
+                    j++;
+                if(email_f2[i]=="r"  )
+                    j++;
+                if(email_f2[i]=="s"  )
+                    j++;
+                if(email_f2[i]=="t"  )
+                    j++;
+                if(email_f2[i]=="u"  )
+                    j++;
+                if(email_f2[i]=="v"  )
+                    j++;
+                if(email_f2[i]=="w"  )
+                    j++;
+                if(email_f2[i]=="x"  )
+                    j++;
+                if(email_f2[i]=="y"  )
+                    j++;
+                if(email_f2[i]=="z"  )
+                    j++;
+                if(email_f2[i]=="0")
+                    n++;
+                if(email_f2[i]=="1")
+                    n++;
+                if(email_f2[i]=="2")
+                    n++;
+                if(email_f2[i]=="3")
+                    n++;
+                if(email_f2[i]=="4")
+                    n++;
+                if(email_f2[i]=="5")
+                    n++;
+                if(email_f2[i]=="6")
+                    n++;
+                if(email_f2[i]=="7")
+                    n++;
+                if(email_f2[i]=="8")
+                    n++;
+                if(email_f2[i]=="9")
+                    n++;
+                if(email_f2[i]=="@")
+                  {
+                    y=i;
+                   x++;
+                   if(i<9)
+                       b=1;
+                  }
+                if(email_f2[i]==".")
+                {
+                    p++;
+                    w=i;
+                }
+
+        }
+            for( h=y+1;h<w;h++)
+            {
+                if(r!=1)
+                {
+                    if(email_f2[h]==gmail1[t])
+                    {
+                        k++;
+                        t++;
+                        r=0;
+                    }
+                    else
+                        r==1;
+                }
+                if(r2!=1)
+                {
+                    if(email_f2[h]==gmail2[t2])
+                    {
+                        k2++;
+                        t2++;
+                        r2=0;
+                    }
+                    else
+                        r2==1;
+                }
+            }
+
+            if(k>=4)
+                s=1;
+            if(k2>=6)
+                s=1;
+
+            if(w-y<5)
+                c=1;
+
+
+            //application des conditions
+            if(c1==1)
+                ui->c_1->setText("ID invalide");
+                else
+                  ui->c_1->setText("");
+
+                if(j<8 || x==0 || x>1 || n<2 ||p==0||p>1||b==1||c==1||s!=1)
+                ui->c_5->setText("Email invalide");
+                else
+                  ui->c_5->setText("");
+
+                if(c2==1)
+                ui->c_2->setText("Nom de société invalide");
+                 else
+                ui->c_2->setText("");
+
+                if(c3==1)
+                ui->c_3->setText("Adresse invalide");
+                 else
+                ui->c_3->setText("");
+
+                if(c3_2==1)
+                ui->c32->setText("Spécialité invalide");
+                 else
+                ui->c32->setText("");
+
+                if(c4==1)
+                ui->c_4->setText("Numéro de tel invalide");
+                  else
+                ui->c_4->setText("");
+
+                if(j<8 || x==0 || x>1 || n<2 ||p==0||p>1||b==1||c==1||s!=1||c1==1||c2==1||c3==1||c3_2==1)
+                   {
+                      ajout=1;
+                   }
+
+                if(ajout==0)
+                {
+                   fournisseur f(id_f, nom_soc, tel_f, email_f, date_add_f, specialite_f, adresse_add_f);
+                   test=f.ajouter_fournisseur();
+
+                   if(test)
+                   {
+
+                       ui->tablefournisseur->setModel(tmpfournisseur.afficher());
+
+                       ui->txt_cin->setText("");
+                       ui->txt_nom->setText("");
+                       ui->txt_num->setText("");
+                       ui->txt_email->setText("");
+                       ui->txt_spc->setText("");
+                       ui->txt_adresse->setText("");
+
+
+                       QMessageBox::information(nullptr, QObject::tr("Fournisseur ajouté"),
+                                   QObject::tr("Ajout réussi\n"
+                                               "Clicker sur OK ."), QMessageBox::Accepted);
+                  }
+
+
+
+
+
+
+                else
+                       QMessageBox::critical(nullptr, QObject::tr("Pas d'ajout de fournisseur"),
+                               QObject::tr("L'ajout du fournisseur  est refusé.\n"
+                                           "Clicker sur Abort ."), QMessageBox::Abort);
+
+
+                }
+
+    //fournisseur f(id_f, nom_soc, tel_f, email_f, date_add_f, specialite_f, adresse_add_f);
+
+   /*{test=f.ajouter_fournisseur();}
 
    if(test) {
 
@@ -77,7 +526,7 @@ void MainWindow::on_pushButton_clicked()//ajout fournisseur
        QMessageBox::critical(nullptr, QObject::tr("Pas d'ajout de fournisseur"),
                QObject::tr("L'ajout du fournisseur  est refusé.\n"
                            "Clicker sur Abort ."), QMessageBox::Abort);
-   }
+   }*/
 
 }
 
@@ -85,6 +534,8 @@ void MainWindow::on_pushButton_clicked()//ajout fournisseur
 
 void MainWindow::on_pushButton_2_clicked() //modification fournisseur
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     QItemSelectionModel *select = ui->tablefournisseur->selectionModel();
     int id_f1 =select->selectedRows(0).value(0).data().toInt();
 
@@ -101,19 +552,21 @@ void MainWindow::on_pushButton_2_clicked() //modification fournisseur
     {
         ui->tablefournisseur->setModel(tmpfournisseur.afficher());
 
-        ui->txt_nom_soc->setText("");
+        /*ui->txt_nom_soc->setText("");
         ui->txt_tel_f->setText("");
         ui->txt_email_f->setText("");
         ui->txt_spc->setText("");
-        ui->txt_adresse_f->setText("");
+        ui->txt_adresse_f->setText("");*/
 
-        ui->statusbar->showMessage("Fournisseur modifiéé");
+        ui->statusbar->showMessage("Fournisseur modifié");
      }
 
 }
 
 void MainWindow::on_pushButton_suppr_f_clicked() //suppression fournisseur
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     QItemSelectionModel *select = ui->tablefournisseur->selectionModel();
     int id_f =select->selectedRows(0).value(0).data().toInt();
 
@@ -128,6 +581,8 @@ void MainWindow::on_pushButton_suppr_f_clicked() //suppression fournisseur
 
 void MainWindow::on_pushButton_pdf_clicked() //pdf fournisseur
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
         QString strStream;
         QTextStream out(&strStream);
 
@@ -196,12 +651,16 @@ void MainWindow::on_pushButton_pdf_clicked() //pdf fournisseur
 
 void MainWindow::on_rech_bouton_returnPressed() //recherche fournisseur
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     QString rech =ui->rech_bouton->text();
         ui->tablefournisseur->setModel(tmpfournisseur.rechercher(rech));
 }
 
 void MainWindow::on_pushButton_trier_fournisseur_clicked() //tri fournisseur
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     //QSound::play("E:/Projet_CPP/omar/source/Mouse-Click.wav");
         if(ui->radioButton_id->isChecked())
         {
@@ -236,6 +695,8 @@ EmailAddress* MainWindow::stringToEmail(const QString &str)
 
 void MainWindow::on_addAttachment_2_clicked()
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     QFileDialog dialog(this);
     dialog.setFileMode(QFileDialog::ExistingFiles);
 
@@ -248,6 +709,8 @@ void MainWindow::on_addAttachment_2_clicked()
 
 void MainWindow::on_sendEmail_2_clicked()
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     QString host = ui->host_2->text();
     int port = ui->port_2->value();
     bool ssl = ui->ssl_2->isChecked();
@@ -322,8 +785,7 @@ void MainWindow::errorMessage(const QString &message)
 
 void MainWindow::on_export_2_clicked() //export excel fournisseur
 {
-
- //son->play();
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
 
 
         QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
@@ -359,6 +821,8 @@ void MainWindow::on_export_2_clicked() //export excel fournisseur
 
 void MainWindow::on_pushButton_3_clicked() //ajout commande achat
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     bool test;
 
     int ID_ACHAT= ui->txt_cin_2->text().toInt();
@@ -398,6 +862,7 @@ void MainWindow::on_pushButton_3_clicked() //ajout commande achat
 
 void MainWindow::on_pushButton_mod_com_clicked() //modification commande achat
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
 
     /*int ID_ACHAT;
     QString NOM_SOC_ACHAT;
@@ -434,6 +899,8 @@ void MainWindow::on_pushButton_mod_com_clicked() //modification commande achat
 
 void MainWindow::on_pushButton_suppr_f_2_clicked() //supression commande achat
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     QItemSelectionModel *select = ui->tablecommandes_a->selectionModel();
     int ID_ACHAT =select->selectedRows(0).value(0).data().toInt();
 
@@ -446,6 +913,8 @@ void MainWindow::on_pushButton_suppr_f_2_clicked() //supression commande achat
 
 void MainWindow::on_imprint_ca_clicked() //impression + pdf commandes achat
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     QString strStream;
     QTextStream out(&strStream);
 
@@ -513,6 +982,8 @@ void MainWindow::on_imprint_ca_clicked() //impression + pdf commandes achat
 
 void MainWindow::on_pushButton_trier_comm_clicked() //tri commandes achat
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     if(ui->radioButton_id_2->isChecked())
     {
         ui->tablecommandes_a->setModel(tmpcomma.trier_id_ing_a());
@@ -533,6 +1004,18 @@ void MainWindow::on_pushButton_trier_comm_clicked() //tri commandes achat
 
 void MainWindow::on_rech_bouton_2_returnPressed()
 {
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+
     QString rech =ui->rech_bouton_2->text();
     ui->tablecommandes_a->setModel(tmpcomma.rechercher_com_a(rech));
+}
+
+void MainWindow::on_stats_clicked()
+{
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+    stats stats_window(this);
+    stats_window.setModal(true);
+    stats_window.show();
+    stats_window.exec();
+    QDialog d;
 }

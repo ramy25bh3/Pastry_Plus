@@ -1,10 +1,11 @@
 QT       += core gui sql
 QT       += core network
+QT       += multimedia multimediawidgets charts
 CONFIG += console
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
-
+CONFIG += resources_big
 
 
 # The following define makes your compiler emit warnings if you use
@@ -24,19 +25,23 @@ SOURCES += \
     exportexcelobject.cpp \
     fournisseur.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    stats.cpp
 
 HEADERS += \
     comm_achats.h \
     connexion.h \
     exportexcelobject.h \
     fournisseur.h \
-    mainwindow.h
+    mainwindow.h \
+    stats.h
 
 FORMS += \
     ../achats.ui \
-    gest_fourn.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    stats.ui
+
+QMAKE_CXXFLAGS += -std=gnu++14
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
