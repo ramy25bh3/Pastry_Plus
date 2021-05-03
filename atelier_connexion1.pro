@@ -5,6 +5,7 @@ QT       += core gui sql printsupport
 QT       += multimedia
 CONFIG   += resources_big
 QT       += core gui multimedia multimediawidgets
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,22 +25,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     add_evenement.cpp \
     add_ticket.cpp \
+    arduino.cpp \
     connexion.cpp \
     evenement.cpp \
     eventicket.cpp \
     gestion_eventicket.cpp \
     main.cpp \
     stats.cpp \
+    stmp.cpp \
     ticket.cpp
 
 HEADERS += \
     add_evenement.h \
     add_ticket.h \
+    arduino.h \
     connexion.h \
     evenement.h \
     eventicket.h \
     gestion_eventicket.h \
     stats.h \
+    stmp.h \
     ticket.h
 
 FORMS += \
