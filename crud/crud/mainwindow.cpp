@@ -22,6 +22,9 @@
 #include <QCameraViewfinder>
 #include <QCameraImageCapture>
 #include <QVBoxLayout>
+#include <QMenu>
+#include <QAction>
+#include <QFileDialog>
 #include <QPropertyAnimation>
 #include <QTimer>
 #include "connexion.h"
