@@ -22,6 +22,8 @@
 #include <QCameraViewfinder>
 #include <QCameraImageCapture>
 #include <QVBoxLayout>
+#include <QPropertyAnimation>
+#include <QTimer>
 #include "connexion.h"
 #include "fournisseur.h"
 #include "comm_achats.h"
@@ -52,6 +54,17 @@ MainWindow::MainWindow(QWidget *parent)
     //mLayout->addItem(mCameraViewFinder);
 
     music();
+
+
+    QTimer *timer=new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(showtime()));
+    timer->start();
+
+    QDate date = QDate ::currentDate();
+    QString datee=date.toString();
+
+    ui->date_P->setText(datee) ;
+    //ui->date_I->setText(datee) ;
 
 }
 
@@ -958,8 +971,6 @@ void MainWindow::on_imprint_ca_clicked() //impression + pdf commandes achat
          "<img src='C:/Users/BNA/Desktop/Projet C++/bich2.png' width='400' height='200'>\n"
             "</html>\n";
 
-
-
         QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
         if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
         QPrinter *printer=new  QPrinter(QPrinter::PrinterResolution);
@@ -1018,4 +1029,14 @@ void MainWindow::on_stats_clicked()
     stats_window.show();
     stats_window.exec();
     QDialog d;
+}
+
+void MainWindow::on_pushButton_cam_clicked()
+{
+    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+    Cam Cam_window(this);
+    Cam_window.setModal(true);
+    Cam_window.show();
+    Cam_window.exec();
+    QDialog f;
 }

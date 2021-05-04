@@ -20,24 +20,31 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    cam.cpp \
     comm_achats.cpp \
     connexion.cpp \
     exportexcelobject.cpp \
     fournisseur.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp \
     stats.cpp
 
 HEADERS += \
+    cam.h \
     comm_achats.h \
     connexion.h \
     exportexcelobject.h \
     fournisseur.h \
+    login.h \
     mainwindow.h \
     stats.h
 
 FORMS += \
     ../achats.ui \
+    Cam.ui \
+    cam.ui \
+    login.ui \
     mainwindow.ui \
     stats.ui
 
@@ -57,3 +64,6 @@ else:unix: LIBS += -L$$PWD/build-SMTPEmail-Desktop_Qt_5_9_9_MinGW_32bit-Debug/ -
 
 INCLUDEPATH += $$PWD/build-SMTPEmail-Desktop_Qt_5_9_9_MinGW_32bit-Debug/debug
 DEPENDPATH += $$PWD/build-SMTPEmail-Desktop_Qt_5_9_9_MinGW_32bit-Debug/debug
+
+DISTFILES += \
+    pastry.png

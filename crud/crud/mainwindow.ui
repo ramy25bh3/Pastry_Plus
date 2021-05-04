@@ -6,12 +6,34 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1589</width>
-    <height>819</height>
+    <width>1406</width>
+    <height>758</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Fournisseurs</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+font-family:montserrat regular;
+font-size:14px;
+}
+
+QPushButton
+{background:#F79557;
+border-radius:15px;}
+QPushButton
+{
+color:white;
+border-radius:15px;
+}
+QPushButton:hover
+{
+color:rgb(255, 255, 255)f;
+border-radius:15px;
+background:#BEE059;
+}
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
@@ -19,20 +41,181 @@
      <rect>
       <x>9</x>
       <y>20</y>
-      <width>1391</width>
-      <height>671</height>
+      <width>1381</width>
+      <height>691</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">*{
+font-family:montserrat regular;
+font-size:14px;
+}
+
+QPushButton
+{background:#55aaff;
+border-radius:15px;}
+QPushButton
+{
+color:white;
+border-radius:15px;
+}
+QPushButton:hover
+{
+color:rgb(255, 255, 255)f;
+border-radius:15px;
+background:#ff557f;
+}</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_9">
      <attribute name="title">
       <string>Menu</string>
      </attribute>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>170</y>
+        <width>521</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gestion des clients</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>260</y>
+        <width>521</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gestion des fournisseurs</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>350</y>
+        <width>521</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gestion des stocks</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>440</y>
+        <width>521</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gestion des évènements</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>530</y>
+        <width>521</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gestion des employés</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>50</y>
+        <width>261</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+font-family:montserrat bold;
+font-size:80px;
+color:#EB6D23;
+}
+
+</string>
+      </property>
+      <property name="text">
+       <string>MENU</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame">
+      <property name="geometry">
+       <rect>
+        <x>1140</x>
+        <y>20</y>
+        <width>201</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+font-family:century gothic;
+font-size:24px;
+background:url(:/bich2.png);
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="date_P">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>321</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+font-family:montserrat bold;
+font-size:40px;
+color:#EB6D23;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_cam">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>600</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Camera</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -45,7 +228,7 @@
          <enum>QTabWidget::Rounded</enum>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab_2">
          <attribute name="title">
@@ -533,7 +716,7 @@ color: red;
            <rect>
             <x>850</x>
             <y>20</y>
-            <width>98</width>
+            <width>111</width>
             <height>20</height>
            </rect>
           </property>
@@ -619,8 +802,8 @@ color: red;
              <rect>
               <x>11</x>
               <y>30</y>
-              <width>131</width>
-              <height>371</height>
+              <width>141</width>
+              <height>391</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -678,10 +861,10 @@ color: red;
            <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
-              <x>140</x>
+              <x>150</x>
               <y>36</y>
-              <width>211</width>
-              <height>381</height>
+              <width>201</width>
+              <height>404</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1217,6 +1400,8 @@ color: red;
                 <widget class="QLabel" name="label_28">
                  <property name="font">
                   <font>
+                   <family>montserrat regular</family>
+                   <pointsize>-1</pointsize>
                    <weight>50</weight>
                    <bold>false</bold>
                   </font>
@@ -1297,6 +1482,8 @@ color: red;
             <widget class="QLabel" name="label_31">
              <property name="font">
               <font>
+               <family>montserrat regular</family>
+               <pointsize>-1</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
@@ -1456,8 +1643,8 @@ color: red;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1589</width>
-     <height>26</height>
+     <width>1406</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

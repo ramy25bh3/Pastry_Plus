@@ -11,6 +11,7 @@
 #include "connexion.h"
 #include "comm_achats.h"
 #include "stats.h"
+#include "cam.h"
 #include "C:\Users\BNA\Desktop\Projet C++\crud\crud\SmtpClient-for-Qt-1.1\src/SmtpMime"
 
 
@@ -67,6 +68,8 @@ private slots:
     void on_rech_bouton_2_returnPressed();
 
     void on_stats_clicked();
+
+    void on_pushButton_cam_clicked();
 
 private:
     Ui::MainWindow *ui;
