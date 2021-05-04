@@ -17,6 +17,7 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QPrintPreviewDialog>
 #include <QSound>
+#include "stmp.h"
 
 gestion_eventicket::gestion_eventicket(QWidget *parent) :
     QMainWindow(parent),
@@ -320,5 +321,16 @@ void gestion_eventicket::on_video_clicked()
    vw-> show();
    player->play();
    qDebug() << player ->state();
+
+}
+
+void gestion_eventicket::on_pushButton_clicked()
+{
+
+        Smtp* smtp = new Smtp("mkboy423@gmail.com",ui->mail_pass_2->text(), "smtp.gmail.com");
+          connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+              smtp->sendMail("mkboy423@gmail.com", ui->rcpt_2->text() , ui->subject_2->text(),ui->msg_2->text());
+
+
 
 }

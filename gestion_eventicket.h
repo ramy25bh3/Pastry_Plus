@@ -80,6 +80,8 @@ private slots:
 
     void on_video_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::gestion_eventicket *ui;
     QString selected_evenement="",selected_ticket="";
