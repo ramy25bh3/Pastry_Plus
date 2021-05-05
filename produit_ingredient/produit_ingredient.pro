@@ -4,7 +4,7 @@ QT       += core gui charts
 QT       += core gui sql printsupport
 QT       += multimedia
 CONFIG   += resources_big
-QT       +=serialport
+QT       += serialport
 #QT       += core gui multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets

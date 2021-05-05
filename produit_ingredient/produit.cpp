@@ -329,7 +329,7 @@ bool Produit::verifierCin_aj(int identifiant_P)
     QSqlQuery  query;
      bool test=true;
 
-       QString identifiant_P_string=QString::number(identifiant_P);
+       QString identifiant_P_string = QString::number(identifiant_P);
 
          query.prepare("SELECT * FROM Produit WHERE identifiant_P=:identifiant_P");
           query.bindValue(":identifiant_P",identifiant_P_string);

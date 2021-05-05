@@ -70,6 +70,7 @@ QString Arduino_P_I::read_from_arduino()
      if(serial->isReadable())
      {
          data=serial->readAll();
+
          QString a="wait";
          QString b;
 

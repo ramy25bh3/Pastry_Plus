@@ -13,6 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
     id="";
      e =3; // nombre de tentatives
     ui->statusbar->addPermanentWidget(ui->label_3);
+
+    QPixmap pix1("D:/QT/Awork/produit_ingredient_1/produit_ingredient/front.jpg");
+    int w= ui->login_img->width();
+    int h= ui->login_img->height();
+    ui->login_img->setPixmap(pix1.scaled(w,h, Qt::KeepAspectRatio));
 }
 
 MainWindow::~MainWindow()

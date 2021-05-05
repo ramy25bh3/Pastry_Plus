@@ -74,7 +74,7 @@ Produit_ingredient::Produit_ingredient(QWidget *parent)
         }
 
         QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
-
+        ui->arduino->setText( A.read_from_arduino());
 
 
     ui->identifiant_P->setValidator(new QIntValidator(0,99999999,this));
@@ -93,6 +93,11 @@ Produit_ingredient::Produit_ingredient(QWidget *parent)
     int h_I= ui->logo_I->height();
     ui->logo_I->setPixmap(pix.scaled(w_I,h_I, Qt::KeepAspectRatio));
 
+    QPixmap pix1("D:/QT/Awork/produit_ingredient_1/produit_ingredient/bg.jpg");
+    int w= ui->bg_P->width();
+    int h= ui->bg_P->height()+400;
+    ui->bg_P->setPixmap(pix1.scaled(w,h, Qt::KeepAspectRatio));
+
 
     QPropertyAnimation *animation;
     animation = new QPropertyAnimation (ui ->logo_P,"geometry" );
@@ -105,7 +110,7 @@ Produit_ingredient::Produit_ingredient(QWidget *parent)
 
 
 
-     QTimer *timer=new QTimer(this);
+     QTimer *timer = new QTimer(this);
      connect(timer,SIGNAL(timeout()),this,SLOT(showtime()));
      timer->start();
 
@@ -134,6 +139,7 @@ void change(QLabel * label, const QString & text, int ms_keep = 7000, int ms_aft
         });
     });
 }
+
 
 //************************* Produit ********************************
 
