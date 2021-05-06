@@ -93,10 +93,10 @@ Produit_ingredient::Produit_ingredient(QWidget *parent)
     int h_I= ui->logo_I->height();
     ui->logo_I->setPixmap(pix.scaled(w_I,h_I, Qt::KeepAspectRatio));
 
-    QPixmap pix1("D:/QT/Awork/produit_ingredient_1/produit_ingredient/bg.jpg");
-    int w= ui->bg_P->width();
-    int h= ui->bg_P->height()+400;
-    ui->bg_P->setPixmap(pix1.scaled(w,h, Qt::KeepAspectRatio));
+    QPixmap pix1("D:/QT/Awork/produit_ingredient_1/produit_ingredient/bg1.jpg");
+    int w= ui->bg_I->width();
+    int h= ui->bg_I->height()+1100;
+    ui->bg_I->setPixmap(pix1.scaled(w,h, Qt::KeepAspectRatio));
 
 
     QPropertyAnimation *animation;
@@ -163,6 +163,7 @@ void Produit_ingredient::on_ajouter_produit_clicked()
    if( P.verifierCin_aj(P.getidentifiant_P())==true)
    {
      bool test= P.ajouter_produit();
+
        QMessageBox msgBox;
 
     if(quantite_P <= 0 || prix_P<=0)

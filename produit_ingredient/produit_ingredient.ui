@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -719,9 +719,6 @@ background:rgb(255, 85, 0);
       <property name="text">
        <string/>
       </property>
-      <property name="pixmap">
-       <pixmap resource="produit_ingredient.qrc">:/image/bg.jpg</pixmap>
-      </property>
      </widget>
      <zorder>bg_P</zorder>
      <zorder>produit</zorder>
@@ -758,7 +755,7 @@ background:rgb(255, 85, 0);
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
@@ -1416,6 +1413,39 @@ background:rgb(255, 85, 0);
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="bg_I">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>5</y>
+        <width>1151</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <zorder>bg_I</zorder>
+     <zorder>ingredient</zorder>
+     <zorder>afficher_ingredient</zorder>
+     <zorder>label_20</zorder>
+     <zorder>nom_I_trie</zorder>
+     <zorder>quantite_I_trie</zorder>
+     <zorder>prix_I_trie</zorder>
+     <zorder>label_21</zorder>
+     <zorder>label_22</zorder>
+     <zorder>label_23</zorder>
+     <zorder>identifiant_I_rech</zorder>
+     <zorder>type_I_rech</zorder>
+     <zorder>chercher_ingredient</zorder>
+     <zorder>trier_ingredient</zorder>
+     <zorder>logo_I</zorder>
+     <zorder>stat_I</zorder>
+     <zorder>excel_I</zorder>
+     <zorder>PDF_I</zorder>
+     <zorder>date_I</zorder>
+     <zorder>digital_date_I</zorder>
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
