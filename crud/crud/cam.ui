@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Cam</class>
- <widget class="QDialog" name="Cam">
+ <widget class="QWidget" name="Cam">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>515</height>
+    <width>559</width>
+    <height>514</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+font-family:montserrat regular;
+font-size:14px;
+}
+
+QPushButton
+{background:#F79557;
+border-radius:15px;}
+QPushButton
+{
+color:white;
+border-radius:15px;
+}
+QPushButton:hover
+{
+color:rgb(255, 255, 255)f;
+border-radius:15px;
+background:#BEE059;
+}
+</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -31,8 +53,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>581</width>
-        <height>461</height>
+        <width>539</width>
+        <height>472</height>
        </rect>
       </property>
      </widget>

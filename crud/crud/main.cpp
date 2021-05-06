@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include "connexion.h"
 #include "login.h"
+#include "cam.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,6 +15,7 @@ int main(int argc, char *argv[])
     bool test;
         test=C.createConnection();
     MainWindow w;
+    Cam camer;
 
     //stylesheet
     QFile file(":/Toolery.qss");

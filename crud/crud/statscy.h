@@ -32,20 +32,20 @@ QT_END_NAMESPACE*/
 
 
 namespace Ui {
-class stats;
+class statscy;
 }
 
-class stats : public QDialog
+class statscy : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit stats(QWidget *parent = nullptr);
-    ~stats();
+    explicit statscy(QWidget *parent = nullptr);
+    ~statscy();
 
 
 private:
-    Ui::stats *ui;
+    Ui::statscy *ui;
     comm_achats tmpcomm;
 };
 

@@ -20,6 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino_rfid.cpp \
     cam.cpp \
     comm_achats.cpp \
     connexion.cpp \
@@ -28,9 +29,10 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
-    stats.cpp
+    statscy.cpp
 
 HEADERS += \
+    arduino_rfid.h \
     cam.h \
     comm_achats.h \
     connexion.h \
@@ -38,7 +40,7 @@ HEADERS += \
     fournisseur.h \
     login.h \
     mainwindow.h \
-    stats.h
+    statscy.h
 
 FORMS += \
     ../achats.ui \
@@ -46,7 +48,7 @@ FORMS += \
     cam.ui \
     login.ui \
     mainwindow.ui \
-    stats.ui
+    statscy.ui
 
 QMAKE_CXXFLAGS += -std=gnu++14
 

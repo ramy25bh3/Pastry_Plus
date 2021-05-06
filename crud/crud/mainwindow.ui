@@ -52,7 +52,7 @@ font-size:14px;
 }
 
 QPushButton
-{background:#55aaff;
+{background:#F79557;
 border-radius:15px;}
 QPushButton
 {
@@ -63,11 +63,12 @@ QPushButton:hover
 {
 color:rgb(255, 255, 255)f;
 border-radius:15px;
-background:#ff557f;
-}</string>
+background:#BEE059;
+}
+</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_9">
      <attribute name="title">
@@ -201,19 +202,6 @@ color:#EB6D23;
       </property>
       <property name="text">
        <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_cam">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>600</y>
-        <width>141</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Camera</string>
       </property>
      </widget>
     </widget>
@@ -761,6 +749,19 @@ color: red;
           </property>
           <property name="text">
            <string>Export</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_cam">
+          <property name="geometry">
+           <rect>
+            <x>1210</x>
+            <y>540</y>
+            <width>141</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Camera</string>
           </property>
          </widget>
         </widget>

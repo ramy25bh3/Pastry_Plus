@@ -7,10 +7,12 @@
 #include <QMenu>
 #include <QAction>
 #include <QFileDialog>
+#include <QDebug>
+#include <QWidget>
 
 
 Cam::Cam(QWidget *parent) :
-    QDialog(parent)
+    QWidget(parent)
     , ui (new Ui::Cam)
 {
     ui->setupUi(this);
@@ -31,9 +33,12 @@ Cam::Cam(QWidget *parent) :
     ui->scrollArea->setLayout(mLayout);
 
     connect (mEncenderAction, &QAction::triggered, [&] () {
-
+        mCamera->start();
     } );
     connect (mApagarAction, &QAction::triggered, [&]() {
+        mCamera->stop();
+    } );
+    connect (mCapturarAction, &QAction::triggered, [&] () {
         auto filename = QFileDialog::getSaveFileName(this, "Capturer", "/", "Imagen (*.jpg;*.jpeg;)");
         if (filename.isEmpty()) {
             return ;
@@ -50,11 +55,6 @@ Cam::Cam(QWidget *parent) :
         mCameraImageCapture->capture(filename);
         mCamera->unlock();
     } );
-    connect (mCapturarAction, &QAction::triggered, [&] () {
-
-    } );
-
-
 }
 
 Cam::~Cam () {

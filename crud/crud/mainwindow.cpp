@@ -31,6 +31,8 @@
 #include "fournisseur.h"
 #include "comm_achats.h"
 #include "exportexcelobject.h"
+#include "cam.h"
+#include "arduino_rfid.h"
 
 void MainWindow:: music()
 {
@@ -49,25 +51,37 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tablecommandes_a->setModel(tmpcomma.afficher_com_a());
     model=new QSqlTableModel;
     model->select();
-    mCamera = new QCamera(this);
+    //mCamera = new QCamera(this);
     //mCameraViewFinder = new QCameraViewFinder(this);
-    mCameraImageCapture = new QCameraImageCapture(mCamera, this);
-    mLayout = new QVBoxLayout;
+    //mCameraImageCapture = new QCameraImageCapture(mCamera, this);
+    //mLayout = new QVBoxLayout;
 
     //mLayout->addItem(mCameraViewFinder);
 
     music();
 
 
-    QTimer *timer=new QTimer(this);
+    /*QTimer *timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(showtime()));
     timer->start();
 
     QDate date = QDate ::currentDate();
     QString datee=date.toString();
 
-    ui->date_P->setText(datee) ;
+    ui->date_P->setText(datee) ;*/
     //ui->date_I->setText(datee) ;
+
+    /*int ret=A.connect_arduino(); // lancer la connexion à arduino
+             switch(ret){
+             case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                 break;
+             case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+                break;
+             case(-1):qDebug() << "arduino is not available";
+                 break;
+             }
+
+         QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));*/
 
 }
 
@@ -1027,7 +1041,7 @@ void MainWindow::on_rech_bouton_2_returnPressed()
 void MainWindow::on_stats_clicked()
 {
     QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
-    stats stats_window(this);
+    statscy stats_window(this);
     stats_window.setModal(true);
     stats_window.show();
     stats_window.exec();
@@ -1036,10 +1050,41 @@ void MainWindow::on_stats_clicked()
 
 void MainWindow::on_pushButton_cam_clicked()
 {
-    QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
-    Cam Cam_window(this);
+    //QSound::play("C:/Users/BNA/Desktop/Projet C++/crud/crud/click.wav");
+    /*Cam Cam_window(this);
     Cam_window.setModal(true);
     Cam_window.show();
     Cam_window.exec();
-    QDialog f;
+    QDialog d;*/
+    Cam camer(this);
+    camer.show();
+    /*camer.setModal(true);
+    camer.exec();*/
 }
+
+/*void MainWindow::update_label()
+{
+
+
+data =A.read_from_arduino();
+
+  if (data!="#")
+  {
+
+    uid+=data;
+
+//qDebug() << uid;
+
+  }
+    else {
+int pos = uid.lastIndexOf(QChar('/'));
+qDebug() << uid.left(pos);
+
+            ui->table_notif->setModel(tmp_entreprise.rechercher_rfid(uid));
+            uid="";
+//qDebug() << uid;
+
+    }
+
+
+}*/

@@ -1,10 +1,10 @@
-#include "stats.h"
-#include "ui_stats.h"
+#include "statscy.h"
+#include "ui_statscy.h"
 #include <QDebug>
 
-stats::stats(QWidget *parent) :
+statscy::statscy(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::stats)
+    ui(new Ui::statscy)
 {
     ui->setupUi(this);
 
@@ -71,7 +71,7 @@ stats::stats(QWidget *parent) :
 
 }
 
-stats::~stats()
+statscy::~statscy()
 {
     delete ui;
 }

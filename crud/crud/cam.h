@@ -15,7 +15,7 @@ class QVBoxLayout;
 class QMenu;
 class QAction;
 
-class Cam : public QDialog
+class Cam : public QWidget
 {
     Q_OBJECT;
 

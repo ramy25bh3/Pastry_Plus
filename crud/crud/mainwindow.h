@@ -7,11 +7,19 @@
 #include <QDir>
 #include <QTextStream>
 #include <QWidget>
+#include <QCamera>
+#include <QCameraViewfinder>
+#include <QCameraImageCapture>
+#include <QVBoxLayout>
+#include <QMenu>
+#include <QAction>
+#include <QFileDialog>
 #include "fournisseur.h"
 #include "connexion.h"
 #include "comm_achats.h"
-#include "stats.h"
+#include "statscy.h"
 #include "cam.h"
+#include "arduino_rfid.h"
 #include "C:\Users\BNA\Desktop\Projet C++\crud\crud\SmtpClient-for-Qt-1.1\src/SmtpMime"
 
 
@@ -77,11 +85,19 @@ private:
     QSqlTableModel *model;
     fournisseur tmpfournisseur;
     comm_achats tmpcomma;
+    //arduino_rfid A;
+    //Cam *camera1;
 
-    QCamera *mCamera;
+    /*QCamera *mCamera;
     QCameraViewFinder *mCameraViewFinder;
     QCameraImageCapture *mCameraImageCapture;
     QVBoxLayout *mLayout;
+    QMenu *mOpciconesMenu;
+    QAction *mEncenderAction;
+    QAction *mApagarAction;
+    QAction *mCapturarAction;*/
+
+
 
 };
 #endif // MAINWINDOW_H
