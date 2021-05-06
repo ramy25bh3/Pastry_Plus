@@ -11,6 +11,7 @@
 #include <QTableWidgetItem>
 #include <QDebug>
 #include <QSqlTableModel>
+#include "secdialog.h"
 #include "employe.h"
 #include <QAbstractItemView>
 #include <QRegExp>
@@ -19,6 +20,8 @@
 #include <QTextDocument>
 #include <QPropertyAnimation>
 #include <QFileDialog>
+#include "notifications.h"
+#include <QPropertyAnimation>
 
 
 
@@ -34,8 +37,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    SecDialog *sec;
+    Notifications n;
+        QPropertyAnimation *A_ajouterEmploye;
 
 private slots:
+
     void on_pushButtonAjouterEmploye_clicked();
 
     void on_pushButtonVider_clicked();

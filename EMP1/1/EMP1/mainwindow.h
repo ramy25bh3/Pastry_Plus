@@ -15,6 +15,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void music();
+
+private slots:
+    void showtime ();
+
 private:
     Ui::MainWindow *ui;
 };

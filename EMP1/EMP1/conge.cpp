@@ -11,12 +11,14 @@ bool conge::ajouter(){
         query.bindValue(":DATEF", datef);
         query.bindValue(":TYPE", type);
         return query.exec();
+
 }
 bool conge::supprimer(QString idconge){
     QSqlQuery qry;
         qry.prepare("Delete from CONGE where ID = :ID");
         qry.bindValue(":ID",idconge);
         return qry.exec();
+
 }
 QSqlQueryModel *conge::afficher(){
     QSqlQueryModel *model= new QSqlQueryModel();

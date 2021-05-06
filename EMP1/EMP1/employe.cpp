@@ -14,6 +14,7 @@ bool employe::ajouter(){
         query.bindValue(":SALAIRE", salaire);
         return query.exec();
 
+
 }
 QSqlQueryModel *employe::afficher(){
     QSqlQueryModel *model= new QSqlQueryModel();
@@ -33,6 +34,7 @@ bool employe::supprimer(QString idemploye){
         qry.prepare("Delete from EMPLOYE where ID = :ID");
         qry.bindValue(":ID",idemploye);
         return qry.exec();
+
 }
 QSqlQueryModel *employe::recherche(QString num)
 {

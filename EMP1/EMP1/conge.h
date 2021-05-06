@@ -9,7 +9,7 @@
 #include<QFileDialog>
 #include<QCoreApplication>
 #include <QTextStream>
-
+#include "notifications.h"
 
 
 
@@ -17,6 +17,7 @@ class conge
 {
 public:
     conge();
+    Notifications n;
     conge(QString i,QString n,QString dd,QString df,QString t):id(i),nom(n),dated(dd),datef(df),type(t){}
     void setid(QString n);
     void setnom(QString n);

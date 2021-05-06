@@ -63,6 +63,7 @@ void MainWindow::on_pushButtonAjouterEmploye_clicked()
             bool tel_verif2=true;
             bool salaire_verif=salaire_regex.exactMatch(ui->lineEditSalaire->text());
 
+
             if (ui->lineEditNum->text().at(0)!='2' && ui->lineEditNum->text().at(0)!='5' && ui->lineEditNum->text().at(0)!='9' && ui->lineEditNum->text().at(0)!='7')
                    tel_verif2=false;
 
@@ -96,6 +97,7 @@ void MainWindow::on_pushButtonAjouterEmploye_clicked()
                     ui->lineEditMail->setStyleSheet("color: black");
                 //    ui->lineEditDepart->setStyleSheet("color: black");
                     ui->lineEditSalaire->setStyleSheet("color: black");
+                    n.notifications_ajouteremploye();
                 }
                 else{
                     if (!mail_verif){
@@ -183,6 +185,7 @@ void MainWindow::on_pushButtonSupprimer_clicked()
 
                 QSqlQueryModel *modellll = new QSqlQueryModel;
                 modellll->setQuery("SELECT ID FROM EMPLOYE");
+                n.notifications_supprimeremploye();
               //  ui->comboBoxNom->setModel(modellll);
             }
 
@@ -363,6 +366,7 @@ void MainWindow::on_pushButtonTrier_clicked()
 void MainWindow::on_ajouter_clicked()
 {
     conge tmpconge;
+
         if(ui->lineEditNumConge->text()!=""){
         QString id=ui->lineEditNumConge->text();
         QString nom=ui->lineEditType->text();
@@ -381,6 +385,7 @@ void MainWindow::on_ajouter_clicked()
            ui->tableViewConge->setSortingEnabled(true);
         foreach(QLineEdit *widget, this->findChildren<QLineEdit*>()) {
             widget->clear();
+            n.notifications_ajouterconge();
         }
     }
     else{
@@ -460,6 +465,7 @@ void MainWindow::on_pushButtonSuppr_clicked()
                mm->setSourceModel(modell);
                ui->tableViewConge->setModel(mm);
                ui->tableViewConge->setSortingEnabled(true);
+               n.notifications_supprimerconge();
             }
 }
 
@@ -530,11 +536,14 @@ void MainWindow::on_pushButton_afficher_clicked()
 
 void MainWindow::on_pushButton_stat_clicked()
 {
-    conge e;
+
+   /* conge e;
     ui->label_stat_1->setNum((e.stati1()*100/e.nb_total()));
    ui->label_stat_2->setNum((e.stati2()*100/e.nb_total()));
     ui->label_stat_3->setNum((e.stati3()*100/e.nb_total()));
-    ui->label_stat_4->setNum((e.stati4()*100/e.nb_total()));
+    ui->label_stat_4->setNum((e.stati4()*100/e.nb_total()));*/
+    sec = new SecDialog(this);
+    sec -> show();
 }
 
 

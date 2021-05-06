@@ -1,4 +1,4 @@
-QT       += sql core gui printsupport serialport network
+QT       += network sql printsupport serialport widgets multimedia core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -22,6 +22,9 @@ SOURCES += \
     employe.cpp \
     main.cpp \
     mainwindow.cpp \
+    notifications.cpp \
+    qcustomplot.cpp \
+    secdialog.cpp \
     smtp.cpp
 
 HEADERS += \
@@ -30,11 +33,15 @@ HEADERS += \
     dialog.h \
     employe.h \
     mainwindow.h \
+    notifications.h \
+    qcustomplot.h \
+    secdialog.h \
     smtp.h
 
 FORMS += \
     dialog.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    secdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

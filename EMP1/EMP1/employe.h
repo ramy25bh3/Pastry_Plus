@@ -9,11 +9,12 @@
 #include<QFileDialog>
 #include<QCoreApplication>
 #include <QTextStream>
-
+#include "notifications.h"
 class employe
 {
 public:
     employe();
+    Notifications n;
     employe(QString i,QString n,QString nu, QString m,QString d,QString s, QString dep, QString sa):id(i),nom(n),num(nu),mail(m),datead(d),sexe(s),departement(dep),salaire(sa){}
     //CRUD
     bool ajouter();
