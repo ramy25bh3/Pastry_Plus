@@ -61,14 +61,14 @@ MainWindow::MainWindow(QWidget *parent)
     music();
 
 
-    /*QTimer *timer=new QTimer(this);
+    QTimer *timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(showtime()));
     timer->start();
 
     QDate date = QDate ::currentDate();
     QString datee=date.toString();
 
-    ui->date_P->setText(datee) ;*/
+    ui->date_P->setText(datee) ;
     //ui->date_I->setText(datee) ;
 
     /*int ret=A.connect_arduino(); // lancer la connexion à arduino
