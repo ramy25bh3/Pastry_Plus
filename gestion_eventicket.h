@@ -21,6 +21,7 @@
 #include "ticket.h"
 #include "add_ticket.h"
 #include "stats.h"
+#include "arduino.h"
 
 
 namespace Ui {
@@ -86,6 +87,7 @@ private:
     Ui::gestion_eventicket *ui;
     QString selected_evenement="",selected_ticket="";
     int sel_col_evenement=-1,sel_col_ticket=-1;
+    arduino A;
 };
 
 #endif // GESTION_EVENTICKET_H

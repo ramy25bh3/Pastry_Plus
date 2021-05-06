@@ -6,6 +6,7 @@ QT       += multimedia
 CONFIG   += resources_big
 QT       += core gui multimedia multimediawidgets
 QT       += core gui serialport
+QT       +=serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

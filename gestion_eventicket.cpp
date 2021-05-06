@@ -24,7 +24,28 @@ gestion_eventicket::gestion_eventicket(QWidget *parent) :
     ui(new Ui::gestion_eventicket)
 {
     ui->setupUi(this);
-    show_tables();
+
+show_tables();
+   /* int ret= A.connect_arduino();
+
+         switch(ret)
+        {
+        case(0):qDebug()<<"arduino is available and connected to:"<<A.getarduino_port_name(); break;
+
+        case(1):qDebug()<<"arduino is available but bot connected to:"<<A.getarduino_port_name(); break;
+
+        case(-1):qDebug()<<"arduino is not available ";
+                           break;
+        }
+
+        QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+        ui->ard->setText(A.read_from_arduino());
+        if (A.read_from_arduino()=="wait")
+        {
+            A.write_to_arduino("d");
+        }
+        */
+
 }
 
 gestion_eventicket::~gestion_eventicket()
@@ -54,17 +75,115 @@ void gestion_eventicket::on_actionadd_evenement_triggered()
 
       //recuperation des donnees
         QString s1=ac.id();
+
         QString s2=ac.nom();
         QString s3=ac.date_e();
         QString s4=ac.produit();
         QString x=ac.lieu();
 
-        //ajout
-        evenement mc(s1,s2,s3,x,s4);
-        mc.ajouter();
+        int c1=0,i;
+        if(s1!="")
+            {
+             if(s1.length()!=8)
+                 c1=1;
+            for(i=0;i<s1.length();i++)
+             {
+                if(s1[i]=="a"  )
+                        c1=1;
+                if(s1[i]=="b"  )
+                        c1=1;
+                if(s1[i]=="c"  )
+                        c1=1;
+                if(s1[i]=="d"  )
+                        c1=1;
+
+                if(s1[i]=="e"  )
+                        c1=1;
+
+                if(s1[i]=="f"  )
+                        c1=1;
+
+                if(s1[i]=="g"  )
+                        c1=1;
+
+                if(s1[i]=="h"  )
+                        c1=1;
+
+                if(s1[i]=="i"  )
+                        c1=1;
+
+                if(s1[i]=="j"  )
+                        c1=1;
+
+                if(s1[i]=="k"  )
+                        c1=1;
+
+
+                if(s1[i]=="l"  )
+                        c1=1;
+
+                if(s1[i]=="m"  )
+                        c1=1;
+
+
+                if(s1[i]=="n"  )
+                        c1=1;
+
+
+                if(s1[i]=="o"  )
+                        c1=1;
+
+
+                if(s1[i]=="p"  )
+                        c1=1;
+
+
+                if(s1[i]=="r"  )
+                        c1=1;
+
+                if(s1[i]=="s"  )
+                        c1=1;
+
+
+                if(s1[i]=="t"  )
+                        c1=1;
+
+
+                if(s1[i]=="u"  )
+                        c1=1;
+
+                if(s1[i]=="v"  )
+                        c1=1;
+
+                if(s1[i]=="w"  )
+                        c1=1;
+
+                if(s1[i]=="x"  )
+                        c1=1;
+
+                if(s1[i]=="y"  )
+                        c1=1;
+
+                if(s1[i]=="z"  )
+                        c1=1;
+             }
+
+            }
+            else
+            {
+                c1=1;
+            }
+        if(c1==1){ ui->label1->setText("id non valide"); }
+        if(c1==0){ evenement mc(s1,s2,s3,x,s4);
+            mc.ajouter();
+         show_evenement();}
+
+
+
+
 
         //refresh du tableau (affichage)
-          show_evenement();
+
 }
 
                                                                                                                                                                           //sel

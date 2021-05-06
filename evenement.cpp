@@ -25,6 +25,7 @@ bool evenement::ajouter(){
 
     query.prepare("INSERT INTO EVENEMENT VALUES (:id,:nom,:date_e,:lieu,:produit)");
 
+
     query.bindValue(":id", id);
 
     query.bindValue(":nom",nom);
